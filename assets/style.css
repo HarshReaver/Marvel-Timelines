@@ -190,3 +190,99 @@ dialog::backdrop{background:rgba(10,10,10,.6)}
   .seg button{padding:9px 7px;font-size:11px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ================= v2: logos, themed fonts, trees ================= */
+.mark{display:flex;align-items:center;gap:8px}
+.mark img{height:30px;width:auto;display:block}
+.mark span{font:700 22px/1 "Oswald",var(--display);text-transform:uppercase;letter-spacing:1px}
+.logo{display:block;max-width:100%;height:auto}
+[data-theme=mcu] .logo-dark,[data-theme=street] .logo-dark,[data-theme=spider] .logo-dark,[data-theme=legacy] .logo-dark,[data-theme=xmen] .head .logo-dark{filter:invert(1)}
+.brand-logos{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;margin:0 0 20px}
+.brand-logos img{height:46px;width:auto}
+.brand-logos img.big{height:72px}
+
+/* display fonts matched to each franchise's logo lettering */
+[data-theme=mcu] h1,[data-theme=mcu] .n-title,[data-theme=mcu] .t-lbl span,[data-theme=mcu] .t-fork b,
+[data-theme=street] h1,[data-theme=street] .n-title,[data-theme=street] .t-lbl span{font-family:"Oswald",var(--display);font-weight:700;letter-spacing:.5px}
+[data-theme=street] h1{font-style:italic;transform:skewX(-6deg);color:#c8141c}
+[data-theme=xmen] h1,[data-theme=xmen] .n-title,[data-theme=xmen] .t-lbl span,[data-theme=xmen] .t-fork b{font-family:"Michroma",var(--display);letter-spacing:3px}
+[data-theme=xmen] h1{font-size:clamp(34px,6vw,72px);letter-spacing:10px}
+[data-theme=xmen] .n-title{font-size:18px;letter-spacing:2px;line-height:1.3}
+[data-theme=xmen] .t-lbl span{font-size:17px}
+[data-theme=xmen] .t-fork b{font-size:14px}
+
+/* tags */
+.tag.bad{background:#6b4423;color:#fff;border-color:#6b4423;font-size:12px}
+.node .tags{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 4px}
+
+/* tree */
+.tree{padding:14px 0 40px}
+.t-controls{position:sticky;top:57px;z-index:10;background:var(--bg)}
+.t-row,.t-lbl,.t-cell{position:relative;padding-left:44px}
+.t-row::before,.t-lbl::before,.t-cell::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:4px;background:var(--gc)}
+.t-row{padding-bottom:22px}
+.node{position:relative;background:var(--paper);border:1px solid var(--rule);border-left:6px solid var(--gc);padding:14px 20px 16px;max-width:860px;color:var(--ink)}
+.node::before{content:"";box-sizing:border-box;position:absolute;left:-44px;top:18px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:4px solid var(--gc)}
+.node.is-up{border-style:dashed;border-left-style:solid}
+.n-meta{display:flex;justify-content:space-between;gap:4px 12px;flex-wrap:wrap;font:600 12px var(--mono);color:var(--muted)}
+.n-logo img{max-height:54px;max-width:280px;margin:10px 0 2px}
+.n-title{font:26px/1.05 var(--display);text-transform:uppercase;margin:6px 0 4px}
+.node p{margin:8px 0 0;font-size:16px;line-height:1.55}
+.n-links{list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px dashed var(--rule);font-size:14px;color:var(--muted);display:grid;gap:4px}
+.n-links button{all:unset;cursor:pointer;font:600 13px var(--mono);color:var(--ink);text-decoration:underline;text-underline-offset:3px;margin-right:4px}
+.n-links button:hover{color:var(--accent)}
+.sides{margin-top:14px;display:grid;gap:10px;padding-left:14px;border-left:3px dashed var(--gc)}
+.sides-h{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.sides .node{border-left-width:3px;padding:10px 14px;background:transparent}
+.sides .node::before{display:none}
+.sides .n-title{font-size:19px}
+.sides .node p{font-size:14.5px}
+.t-lbl{padding-top:16px;padding-bottom:20px}
+.t-lbl span{display:inline-block;font:26px/1 var(--display);text-transform:uppercase;background:var(--gc);color:var(--bg);padding:7px 12px}
+.t-lbl small{display:block;margin-top:7px;font:13px var(--mono);color:var(--muted)}
+.t-fork{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:16px;padding:30px 0 16px}
+.t-fork::before{content:"";position:absolute;left:12px;top:0;height:22px;width:4px;background:var(--ink)}
+.t-fork::after{content:"";position:absolute;left:12px;right:12%;top:20px;height:4px;background:var(--ink)}
+.t-fork>div{border-top:6px solid var(--gc);padding:8px 0 0 6px}
+.t-fork b{display:block;font:22px/1.1 var(--display);text-transform:uppercase;color:var(--gc)}
+.t-fork small{display:block;font:12px var(--mono);color:var(--muted);margin-top:3px}
+.t-lanes{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:0 16px}
+.t-cell{padding-left:32px;padding-bottom:22px}
+.t-cell::before{left:6px}
+.t-cell .node::before{left:-36px}
+.t-cell.empty::before{display:none}
+.t-cell .node{max-width:none;padding:12px 14px}
+.t-lanes[style*="--n:4"] .node p,.t-lanes[style*="--n:4"] .n-links{font-size:13.5px}
+.t-lanes[style*="--n:4"] .n-title{font-size:20px}
+.lane-tag{display:none}
+.flash{animation:flash 1.8s ease-out}
+@keyframes flash{0%{box-shadow:0 0 0 5px var(--accent)}100%{box-shadow:0 0 0 0 transparent}}
+
+/* 2000s nodes are cream tape labels with dark text */
+[data-theme=legacy] .node{--ink:#1b1b1b;--muted:#5a5446;--rule:#8b7f62;color:#1b1b1b;background:linear-gradient(90deg,#f2e6c9 0 calc(100% - 10px),var(--gc) calc(100% - 10px))}
+[data-theme=legacy] .t-lbl span{color:#1b2a33}
+
+/* catalog cards */
+.card{cursor:default}
+.card .cd{margin:4px 0 0;font:14.5px/1.5 var(--serif);color:var(--ink)}
+.card .more{all:unset;cursor:pointer;margin-top:auto;padding-top:8px;font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.5px;text-decoration:underline;text-underline-offset:3px}
+.card .tags{margin:0;padding:0}
+.grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.dlg-logo{max-height:48px;max-width:260px;margin:6px 0}
+
+@media (max-width:820px){
+  .t-lanes,.t-fork{grid-template-columns:minmax(0,1fr)}
+  .t-fork::after{display:none}
+  .t-fork{padding-left:44px}
+  .t-cell.empty{display:none}
+  .t-cell{padding-left:44px}
+  .t-cell::before{left:12px}
+  .t-cell .node::before{left:-44px}
+  .lane-tag{display:block;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:1px;color:var(--gc);margin-bottom:4px}
+  .n-title{font-size:22px}
+  .brand-logos img{height:34px}
+  .brand-logos img.big{height:50px}
+  .t-controls{top:88px}
+}
+
+.brand-logos img.plate{background:#f4f1ea;padding:8px 12px;box-sizing:content-box}

@@ -9,10 +9,10 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 | Page | What's on it | Theme |
 |---|---|---|
 | `index.html` | Home: section index, Doomsday countdown, connection rules | Comic-book newsprint |
-| `mcu.html` | Phases 1–6, release order or story order | One Infinity Stone colour per phase |
-| `xmen.html` | Fox X-Men timeline tree (the 1973 split) plus every X-Men title | Blue and gold |
+| `mcu.html` | Vertical tree of Phases 1–6, in story order or release order | One Infinity Stone colour per phase |
+| `xmen.html` | Vertical tree that forks at the 1973 split into the original and revised timelines | Blue and gold, X-Men film lettering |
 | `street-level.html` | Netflix Defenders, ABC / Hulu / Freeform shows, Daredevil: Born Again | Hell's Kitchen noir |
-| `spider-verse.html` | Raimi, Webb, Holland, Venom, Sony's spin-offs, animated Spider-Verse | Misregistered print |
+| `spider-verse.html` | Four parallel Spider-worlds that merge at No Way Home, plus the animated Spider-Verse | Misregistered print |
 | `legacy.html` | Blade, Hulk (2003), Daredevil, Elektra, Fantastic Four, Ghost Rider, Punisher | Video-rental shelf |
 | `multiverse.html` | Universe lanes merging into Doomsday, with case files for each crossover | TVA case files |
 | `catalog.html` | Every title, with filters for section, format, connections and search | Newsprint |
@@ -20,10 +20,11 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 
 ## Features
 
-- **Click any title** to open its entry: release year, format, platform, story year, a summary and the titles it connects to. Connected titles open in the same panel, so you can follow a chain across universes.
+- **Vertical timeline trees** on every section page, with a **Story order / Release order** switch. Story order is a curated watch order: optional extras (What If...?, specials) hang off the title they follow, and unreleased titles sit under "Coming next".
+- **Everything on the page**: every node shows the plot summary (spoilers included), year, platform and what it connects to, so there's no need to click around.
+- **Official logos** from Wikimedia Commons, with display fonts matched to each franchise's lettering.
 - **Deep links**: every title has its own URL, for example `mcu.html#t=eg` for Endgame or `spider-verse.html#t=nwh` for No Way Home.
 - **Filters** on every list: format (film, series, animated, special), search, and "Doomsday road only".
-- **Story order** on the MCU page sorts by in-story year, from 1943 to the present.
 - **Honest connections**: titles are only connected when they share a story, are major releases others build on, or feed into Doomsday or Secret Wars. Everything else is marked *Standalone*.
 
 ## Project structure
@@ -34,8 +35,10 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 ├── legacy.html  multiverse.html  catalog.html  about.html
 └── assets/
     ├── style.css         shared layout and one theme per page (body[data-theme])
-    ├── data.js           every title and its connections
-    └── app.js            nav, footer, lists, filters, detail dialog
+    ├── data.js           every title, its summary and its connections
+    ├── app.js            nav, footer, detail dialog, catalog grid
+    ├── tree.js           the vertical trees and the story/release switch
+    └── logos/            official logos from Wikimedia Commons
 ```
 
 ## Adding or editing a title
@@ -45,7 +48,7 @@ Everything comes from `assets/data.js`. Add an object to `TITLES`:
 ```js
 {id:"bnd", t:"Spider-Man: Brand New Day", y:2026, ty:"F", pl:"Theatrical",
  pg:"spider", g:"MCU Spider-Man", ph:"Phase 6",
- n:"One-line summary.",
+ d:"Full summary shown on the tree.",
  l:[["nwh","How it connects"]],   // reverse links are added automatically
  mv:0, up:0}
 ```
@@ -57,10 +60,14 @@ Everything comes from `assets/data.js`. Add an object to `TITLES`:
 | `g` | group heading on that page |
 | `ph` | MCU phase, for MCU titles that live on another page (they also appear on the MCU page) |
 | `set` | in-story year (leave it out if unclear) |
+| `so` | position in the MCU story order |
+| `af` | id of the title an optional extra hangs off in story order |
+| `logo` | key from `LOGOS` to show the official logo on the node |
+| `bad` | a warning label, e.g. Ironheart's "Do not watch: worst show ever 💩" |
 | `mv` | `1` if it's on the road to Doomsday / Secret Wars |
 | `up` | `1` if not yet released |
 
-Linking to an `id` that doesn't exist logs a warning in the browser console.
+Linking to an `id` that doesn't exist logs a warning in the browser console. The story trees for X-Men, Street Level, Spider-Verse and the 2000s era are laid out by hand in `assets/tree.js` (`SPECS`), so add new titles there too.
 
 ## Run locally
 
@@ -79,7 +86,7 @@ python -m http.server 8000
 
 ## Disclaimer
 
-Unofficial fan project, not affiliated with or endorsed by Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. All titles and characters belong to their owners. The site uses text and diagrams only, with no posters or stills.
+Unofficial fan project, not affiliated with or endorsed by Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. All titles, characters and logos belong to their owners. The logos come from Wikimedia Commons, where they're listed as public domain or CC0 text logos. No posters or stills are used.
 
 Data is current to **October 2026**.
 

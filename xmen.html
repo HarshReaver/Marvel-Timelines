@@ -4,150 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>X-Men Timeline</title>
-<meta name="description" content="The Fox X-Men films as a timeline tree: the original timeline, the 1973 split in Days of Future Past, the revised timeline and the multiverse.">
+<meta name="description" content="The Fox X-Men films as a vertical tree: the 1973 split in Days of Future Past, the original and revised timelines, and the jump into the MCU.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600;700&family=Michroma&family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="xmen" data-theme="xmen">
 <div id="site-nav"></div>
-<section class="head"><div class="wrap">
+<section class="head"><div class="wrap"><div class="brand-logos"><img src="assets/logos/xmen-films.svg" alt="X-Men" class="logo-dark big"><img src="assets/logos/wolverine.svg" alt="Wolverine" class=""><img src="assets/logos/deadpool-wolverine.svg" alt="Deadpool & Wolverine" class="logo-dark "></div>
   <div class="kicker">20th Century Fox · 2000–2020</div>
   <h1>X-Men Timeline</h1>
-  <p class="lede">In Days of Future Past, Logan travels back to 1973, and the X-Men films split into two timelines. Boxes show the in-story year, and badges show release order. Click any box to open the full entry.</p>
+  <p class="lede">In Days of Future Past, Logan travels back to 1973, and the X-Men films split into two timelines. In <b>story order</b> the tree forks there. The left branch is the original future that gets erased, and the right branch is the new one. <b>Release order</b> lists them as they came out.</p>
 </div></section>
 <main class="wrap">
-  <div class="chart-box"><svg id="tree" viewBox="0 0 1560 932" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" role="img" aria-label="X-Men film timeline tree"></svg></div>
-  <h2 style="margin-top:30px">Every X-Men title</h2>
-  <div id="list" data-pg="xmen"></div>
+<div id="tree" class="tree"></div>
 </main>
 <div id="site-foot"></div>
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
-<script>
-(() => {
-const C={trunk:"#334155",A:"#c0392b",B:"#2471a3",M:"#8e44ad",L:"#7f8c8d",gold:"#d68910"};
-const F={trunk:"#eef1f4",A:"#fbecea",B:"#e8f1f8",M:"#f4ecf8",L:"#f7f8f8",split:"#fff6e5"};
-const W=156,H=70,YA=210,YB=590,YM=815;
-const N={
-  fc:{t:"X-Men: First Class",s:"1944 → 1962",r:"#5 · 2011",x:95,y:380,k:"trunk"},
-  sp:{t:"Days of Future Past",s:"1973 · SPLIT POINT",r:"#7 · 2014",x:290,y:380,k:"split"},
-  or:{t:"X-Men Origins: Wolverine",s:"1845 → 1979",r:"#4 · 2009",x:480,y:YA,k:"A",e:["Adamantium bonded to Logan;","memory wiped by Stryker"]},
-  x1:{t:"X-Men",s:"c. 2000s",r:"#1 · 2000",x:665,y:YA,k:"A",e:["Logan & Rogue join X-Men;","Magneto's machine stopped"]},
-  x2:{t:"X2",s:"shortly after",r:"#2 · 2003",x:850,y:YA,k:"A",e:["Stryker raids the school;","Jean 'dies' at Alkali Lake"]},
-  ls:{t:"The Last Stand",s:"c. 2006",r:"#3 · 2006",x:1035,y:YA,k:"A",e:["Phoenix kills Scott & Xavier;","Logan has to kill Jean"]},
-  tw:{t:"The Wolverine",s:"after Last Stand",r:"#6 · 2013",x:1220,y:YA,k:"A",e:["Logan in Japan, loses healing;","Xavier & Magneto warn him"]},
-  df:{t:"DOFP: Dystopian Future",s:"2023 · Sentinel war",r:"#7 · 2014",x:1405,y:YA,k:"A",e:["Sentinels hunt all mutants;","Kitty sends Logan's mind back"]},
-  ap:{t:"X-Men: Apocalypse",s:"1983",r:"#9 · 2016",x:480,y:YB,k:"B",e:["Ancient mutant awakens;","Jean shows Phoenix power"]},
-  ph:{t:"Dark Phoenix",s:"1992",r:"#12 · 2019",x:665,y:YB,k:"B",e:["Jean absorbs cosmic force;","Jean kills Mystique"]},
-  d1:{t:"Deadpool",s:"2016",r:"#8 · 2016",x:850,y:YB,k:"B",e:["Wade Wilson becomes","Deadpool; meets Colossus"]},
-  d2:{t:"Deadpool 2",s:"2018",r:"#11 · 2018",x:1035,y:YB,k:"B",e:["Cable arrives from future;","X-Force is formed (briefly)"]},
-  rv:{t:"DOFP: Revised Future",s:"2023 · happy future",r:"#7 · 2014",x:1220,y:YB,k:"B",e:["Logan wakes up here;","Jean, Scott & Xavier alive"]},
-  lg:{t:"Logan",s:"2029 · last mutants",r:"#10 · 2017",x:1405,y:YB,k:"B",e:["Mutants nearly extinct;","Xavier & Logan die"]},
-  nm:{t:"The New Mutants",s:"present day",r:"#13 · 2020",x:665,y:YM,k:"L",e:["Teens held by Essex Corp.;","Dani's Demon Bear"]},
-  tv:{t:"TVA",s:"outside time",r:"",x:1035,y:YM,k:"M",e:["Plans to prune","Earth-10005"]},
-  dw:{t:"Deadpool & Wolverine",s:"2024 · Earth-10005",r:"#14 · 2024",x:1220,y:YM,k:"M",e:["Wade recruits a variant","to save his universe"]},
-  wv:{t:"Wolverine variant",s:"'the worst Wolverine'",r:"",x:1405,y:YM,k:"M",e:["Failed his own X-Men;","finds redemption"]}
-};
-const svg=document.getElementById("tree"),NS="http://www.w3.org/2000/svg";
-const el=(n,a,txt)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e};
-const defs=el("defs",{});
-for(const [k,c] of Object.entries(C)){
-  const m=document.createElementNS(NS,"marker");
-  Object.entries({id:"ar"+k,viewBox:"0 0 10 10",refX:9,refY:5,markerWidth:7,markerHeight:7,orient:"auto-start-reverse"}).forEach(([a,v])=>m.setAttribute(a,v));
-  const p=document.createElementNS(NS,"path");p.setAttribute("d","M0,0 L10,5 L0,10 z");p.setAttribute("fill",c);m.appendChild(p);defs.appendChild(m);
-}
-// info card with wrapped HTML text
-const card=(x,y,w,h,col,bg,html)=>{
-  el("rect",{x,y,width:w,height:h,rx:12,fill:bg,stroke:col,"stroke-width":1.5});
-  const fo=el("foreignObject",{x:x+12,y:y+8,width:w-24,height:h-14});
-  fo.innerHTML=`<div xmlns="http://www.w3.org/1999/xhtml" style="font:12px/1.4 'Segoe UI',Arial,sans-serif;color:#1f2933">${html}</div>`;
-};
-const hd=(t,col)=>`<div style="font-weight:700;font-size:12.5px;letter-spacing:.4px;color:${col};margin-bottom:4px">${t}</div>`;
-// lane bands
-const band=(y,h,fill,stroke,label,col,x=400)=>{el("rect",{x,y,width:1500-x+20,height:h,rx:14,fill,stroke,"stroke-width":1,"stroke-dasharray":"4 4"});
-  el("text",{x:x+14,y:y+20,"font-size":13,"font-weight":700,fill:col,"letter-spacing":".5"},label)};
-band(130,170,"#fdf5f4","#efc9c4","A · ORIGINAL TIMELINE — events after 1973 that get erased",C.A);
-band(510,170,"#f3f8fc","#c4dcee","B · REVISED TIMELINE — the new reality after Logan's 1973 mission",C.B);
-band(735,165,"#faf5fc","#dcc6e8","MULTIVERSE",C.M,940);
-el("text",{x:1385,y:150,"font-size":13,"font-weight":800,fill:C.A,"text-anchor":"end","letter-spacing":"1"},"✕ OVERWRITTEN");
-el("text",{x:30,y:300,"font-size":13,"font-weight":700,fill:C.trunk,"letter-spacing":".5"},"SHARED HISTORY");
-el("text",{x:30,y:318,"font-size":12,fill:"#5f6b7a"},"same in both timelines");
-
-const edge=(d,col,o={})=>el("path",{d,fill:"none",stroke:C[col],"stroke-width":o.w||3,"stroke-dasharray":o.dash||"",
-  "marker-end":o.noArrow?"":"url(#ar"+col+")","stroke-linecap":"round"});
-const R=n=>N[n].x+W/2, Lx=n=>N[n].x-W/2, T=n=>N[n].y-H/2, B=n=>N[n].y+H/2;
-const chain=(ids,col)=>{for(let i=0;i<ids.length-1;i++)edge(`M${R(ids[i])},${N[ids[i]].y} L${Lx(ids[i+1])-2},${N[ids[i+1]].y}`,col)};
-const lbl=(x,y,t,col,o={})=>el("text",{x,y,"font-size":o.s||12,fill:C[col],"text-anchor":o.a||"middle","font-weight":o.b?700:400,"font-style":o.i?"italic":"normal"},t);
-
-chain(["fc","sp"],"trunk");
-edge(`M${R("sp")-20},${T("sp")} C${R("sp")+10},${YA} ${Lx("or")-60},${YA} ${Lx("or")-2},${YA}`,"A");
-edge(`M${R("sp")-20},${B("sp")} C${R("sp")+10},${YB} ${Lx("ap")-60},${YB} ${Lx("ap")-2},${YB}`,"B");
-chain(["or","x1","x2","ls","tw","df"],"A");
-chain(["ap","ph","d1","d2","rv","lg"],"B");
-// time-travel loop
-edge(`M${N.df.x},${T("df")-12} V112 Q${N.df.x},95 ${N.df.x-15},95 H${N.sp.x+15} Q${N.sp.x},95 ${N.sp.x},110 V${T("sp")-2}`,"gold",{dash:"9 6",w:3});
-lbl(850,82,"⟲ TIME TRAVEL: Logan's mind is sent from 2023 back to 1973 — his mission rewrites history",'gold',{b:1,s:14});
-// loose + multiverse links (start below the event notes)
-const low=n=>B(n)+42;
-edge(`M${N.ph.x},${low("ph")} L${N.nm.x},${T("nm")-2}`,"L",{dash:"2 6",w:3});
-lbl(N.ph.x+8,724,"loose tie (Essex Corp.)",'L',{a:"start",i:1});
-edge(`M${N.d2.x+20},${low("d2")} L${N.dw.x-40},${T("dw")-2}`,"M",{dash:"8 6"});
-lbl(1080,722,"same Deadpool",'M',{a:"end",i:1});
-edge(`M${N.lg.x-20},${low("lg")} L${N.dw.x+40},${T("dw")-2}`,"M",{dash:"8 6"});
-lbl(1350,708,"Logan = the 'anchor being';",'M',{a:"start",i:1});
-lbl(1350,723,"his death dooms this universe",'M',{a:"start",i:1});
-edge(`M${R("tv")},${N.tv.y} L${Lx("dw")-2},${N.dw.y}`,"M",{dash:"8 6"});
-edge(`M${Lx("wv")},${N.wv.y} L${R("dw")+2},${N.dw.y}`,"M",{dash:"8 6"});
-
-// info cards in the open spaces
-card(20,30,255,172,"#cbd2d9","#f8fafc",
-  hd("WATCH ORDERS","#334155")+
-  `<b>Release order:</b> follow the badges #1 → #14.<br><b>Story order:</b> First Class → Origins → X-Men → X2 → Last Stand → The Wolverine → DOFP → Apocalypse → Dark Phoenix → Deadpool → Deadpool 2 → New Mutants → Logan → Deadpool &amp; Wolverine`);
-card(410,318,1110,176,C.gold,"#fffaf0",
-  `<div style="display:flex;gap:18px">
-   <div style="flex:1.05">${hd("WHAT CAUSES THE SPLIT — Paris Peace Accords, 1973",C.gold)}
-   Mystique (Raven) tries to <b>assassinate Bolivar Trask</b>, the scientist behind the Sentinel program.
-   Whether she succeeds decides everything: Trask's death would turn the world against mutants and hand him a weapon he couldn't build alone.
-   <div style="margin-top:6px;color:#5f6b7a"><i>Old Logan's mind wakes up in his 1973 body to stop her. He needs young Charles (who has lost hope) and Erik (who is locked under the Pentagon).</i></div></div>
-   <div style="flex:1;border-left:3px solid ${C.A};padding-left:10px">${hd("A · SHE KILLS TRASK",C.A)}
-   Mystique is captured. Her <b>shape-shifting DNA</b> is used to build adaptive Sentinels that can copy any mutant power. By 2023 they have wiped out most mutants and the humans who help them.</div>
-   <div style="flex:1;border-left:3px solid ${C.B};padding-left:10px">${hd("B · SHE SPARES TRASK",C.B)}
-   At the White House, Charles convinces Raven to lower the gun. Seeing a mutant save the President, Nixon <b>cancels the Sentinel program</b> and Trask is arrested. Mutants are now in public view, and the school survives.</div></div>`);
-card(20,440,330,375,"#94a3b8","#f8fafc",
-  hd("SHARED HISTORY · KEY EVENTS","#334155")+
-  `<div style="display:grid;grid-template-columns:44px 1fr;row-gap:7px">
-   <b>1845</b><span>Young James Howlett's bone claws emerge; he flees with his half-brother Victor.</span>
-   <b>1860s–1970s</b><span>Logan &amp; Victor fight in the US Civil War, both World Wars and Vietnam.</span>
-   <b>1944</b><span>Erik's powers awaken at Auschwitz; Sebastian Shaw kills his mother.</span>
-   <b>1962</b><span>Cuban Missile Crisis: Erik kills Shaw. A deflected bullet <b>paralyzes Charles</b>.</span>
-   <b>1962</b><span>Erik becomes <b>Magneto</b>; Raven leaves Charles to join him as <b>Mystique</b>.</span>
-   <b>1963</b><span>Erik is jailed for JFK's assassination (he was trying to save him).</span>
-   <b>1973</b><span>Trask's Sentinel plans go public. Mystique sets out to kill him.</span></div>`);
-card(800,735,128,165,"#cbd2d9","#f8fafc",
-  hd("BEHIND THE SCENES","#334155")+`<span style="font-size:11.5px">2019: Disney buys Fox. <b>Deadpool &amp; Wolverine</b> brings this universe into the MCU.</span>`);
-
-// nodes
-for(const [id,n] of Object.entries(N)){
-  const k=n.k, col=k==="split"?C.gold:(C[k]||C.trunk), fill=F[k];
-  const g=n.x-W/2, t=n.y-H/2;
-  el("rect",{x:g,y:t,width:W,height:H,rx:10,fill,stroke:col,"stroke-width":k==="split"?3.5:2.5,"stroke-dasharray":k==="L"?"3 4":""});
-  const words=n.t.length>20?[n.t.slice(0,n.t.lastIndexOf(" ",20)),n.t.slice(n.t.lastIndexOf(" ",20)+1)]:[n.t];
-  words.forEach((w,i)=>el("text",{x:n.x,y:t+(words.length>1?22:28)+i*15,"text-anchor":"middle","font-size":13,"font-weight":700,fill:"#1f2933"},w));
-  el("text",{x:n.x,y:t+H-11,"text-anchor":"middle","font-size":12,fill:col,"font-weight":600},n.s);
-  if(n.e)n.e.forEach((ln,i)=>el("text",{x:n.x,y:t+H+16+i*14,"text-anchor":"middle","font-size":11,fill:"#4b5563"},ln));
-  if(n.r){const bw=n.r.length*6.4+12;
-    el("rect",{x:n.x+W/2-bw+6,y:t-11,width:bw,height:19,rx:9.5,fill:col});
-    el("text",{x:n.x+W/2-bw/2+6,y:t+3,"text-anchor":"middle","font-size":11,"font-weight":700,fill:"#fff"},n.r);}
-}
-// watermark
-const wm=el("text",{x:780,y:470,"text-anchor":"middle","font-size":96,"font-weight":800,fill:"#334155",opacity:.06,transform:"rotate(-18 780 470)","pointer-events":"none","letter-spacing":"4"},"Created by Harsh Verma");
-el("text",{x:1550,y:924,"text-anchor":"end","font-size":13,"font-style":"italic",fill:"#5f6b7a"},"Created by Harsh Verma");
-
-// make chart boxes open the detail dialog
-const MAP={fc:"fc",sp:"dofp",or:"origins",x1:"xm1",x2:"xm2",ls:"xm3",tw:"tw",df:"dofp",ap:"apoc",ph:"dph",d1:"dp1",d2:"dp2",rv:"dofp",lg:"logan",nm:"nm",dw:"dw",wv:"dw"};
-for(const [id,n] of Object.entries(N)){if(MAP[id])el("rect",{x:n.x-W/2,y:n.y-H/2,width:W,height:H,fill:"transparent","data-open":MAP[id],style:"cursor:pointer"});}
-})();
-</script>
+<script src="assets/tree.js"></script>
 </body>
 </html>
