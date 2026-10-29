@@ -47,7 +47,7 @@
     const links = ADJ[id].slice().sort((a, b) => sortRel(BY[a.id], BY[b.id]));
     const home = window.PAGES[x.pg];
     dlg.innerHTML = `<div class="dlg-top"><div class="kicker">${home.name} · ${x.g}</div>
-        ${x.logo ? logoImg(x.logo, "dlg-logo") : ""}<h3 id="dlg-title">${x.t}</h3>${tagsHTML(x)}
+        <h3 id="dlg-title">${x.t}</h3>${tagsHTML(x)}
         <button class="dlg-x" aria-label="Close" onclick="this.closest('dialog').close()">×</button></div>
       <div class="dlg-body">
         <dl class="facts"><dt>Released</dt><dd>${x.y}${x.up ? " (planned)" : ""}</dd>
@@ -71,16 +71,22 @@
     e.preventDefault();
     // on a tree page, jump to the node if it's there; otherwise open the dialog
     const node = !dlg.open && document.getElementById("n-" + b.dataset.open);
-    if (node) { node.scrollIntoView({behavior: "smooth", block: "center"}); node.classList.remove("flash"); void node.offsetWidth; node.classList.add("flash"); }
+    if (node) reveal(node, "smooth");
     else openTitle(b.dataset.open);
   });
   const fromHash = () => {
     const m = location.hash.match(/^#t=([\w-]+)/);
     if (!m) return;
     const node = document.getElementById("n-" + m[1]);
-    if (node) { node.scrollIntoView({block: "center"}); node.classList.add("flash"); } else openTitle(m[1]);
+    if (node) reveal(node, "auto"); else openTitle(m[1]);
   };
   window.addEventListener("hashchange", fromHash);
+  function reveal(node, behavior) {
+    const sec = node.closest(".t-sec.closed");
+    if (sec && window.TREE) window.TREE.open(sec);
+    node.scrollIntoView({behavior, block: "center"});
+    node.classList.remove("flash"); void node.offsetWidth; node.classList.add("flash");
+  }
 
   window.SITE = {T, BY, ADJ, TYPE, sortRel, logoImg, tagsHTML, openTitle, page,
     count: pg => T.filter(x => x.pg === pg).length, fromHash};

@@ -22,7 +22,9 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 
 - **Vertical timeline trees** on every section page, with a **Story order / Release order** switch. Story order is a curated watch order: optional extras (What If...?, specials) hang off the title they follow, and unreleased titles sit under "Coming next".
 - **Everything on the page**: every node shows the plot summary (spoilers included), year, platform and what it connects to, so there's no need to click around.
-- **Official logos** from Wikimedia Commons, with display fonts matched to each franchise's lettering.
+- **Collapsible sections**: every tree is split into sections you can open or close, with jump buttons and Open all / Close all.
+- **Adapts to zoom and screen size**: one column on phones, two columns around a centre spine on wide screens, three when you zoom out further.
+- **Official logos** in the page headers (from Wikimedia Commons), original character art for each page, and display fonts matched to each franchise's lettering.
 - **Deep links**: every title has its own URL, for example `mcu.html#t=eg` for Endgame or `spider-verse.html#t=nwh` for No Way Home.
 - **Filters** on every list: format (film, series, animated, special), search, and "Doomsday road only".
 - **Honest connections**: titles are only connected when they share a story, are major releases others build on, or feed into Doomsday or Secret Wars. Everything else is marked *Standalone*.
@@ -38,7 +40,8 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
     ├── data.js           every title, its summary and its connections
     ├── app.js            nav, footer, detail dialog, catalog grid
     ├── tree.js           the vertical trees and the story/release switch
-    └── logos/            official logos from Wikimedia Commons
+    ├── logos/            official logos from Wikimedia Commons (page headers only)
+    └── art/              original character drawings (shield, claws, Daredevil cowl, spider, Ghost Rider, Doom)
 ```
 
 ## Adding or editing a title

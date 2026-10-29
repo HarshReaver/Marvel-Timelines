@@ -1,25 +1,26 @@
-/* Vertical timeline trees. Each page gets a release-order tree and a story-order tree.
+/* Vertical timeline trees. Each page gets a story-order tree and a release-order tree,
+   split into collapsible sections at every label.
    A tree is a list of rows:
      {id}                     one title on the spine (side extras from `af` hang off it)
-     {lbl, sub, c}            section label on the spine
+     {lbl, sub, c}            starts a new collapsible section
      {fork:[{n,s,c}]}         the spine splits into lanes
-     {lanes:[id|virtual|null], c:[colors]}   one row across the lanes
+     {lanes:[id|virtual|null], c:[colors], n:[names]}   one row across the lanes
    A "virtual" entry is an inline object {v:1, t, y, ty, pl, d, c} for moments that aren't a title of their own. */
 (function () {
   const host = document.getElementById("tree");
   if (!host) return;
-  const {T, BY, ADJ, TYPE, sortRel, logoImg, tagsHTML, page, fromHash} = window.SITE;
+  const {T, BY, ADJ, TYPE, sortRel, tagsHTML, page, fromHash} = window.SITE;
   const C = window.GROUP_COLORS;
   const RED = "#c0392b", BLUE = "#2471a3", GOLD = "#d9a520", GREY = "#8d8fa3", PURPLE = "#8e44ad", SLATE = "#5b6b80";
   const get = id => typeof id === "object" ? id : BY[id];
   const color = x => x.v ? x.c : (page === "mcu" && x.ph ? C[x.ph] : C[x.g]) || "#888";
+  const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
   /* ---------- one node ---------- */
-  function node(x, sides) {
+  function node(x, sides, num) {
     const links = x.v ? [] : ADJ[x.id];
-    return `<article class="node${x.up ? " is-up" : ""}${x.bad ? " is-bad" : ""}"${x.v ? "" : ` id="n-${x.id}"`} style="--gc:${color(x)}">
-      <div class="n-meta"><span>${x.y}${x.set ? ` · story year ${x.set}` : ""}</span><span>${TYPE[x.ty]} · ${x.pl}</span></div>
-      ${x.logo ? `<div class="n-logo">${logoImg(x.logo)}</div>` : ""}
+    return `<article class="node${x.up ? " is-up" : ""}"${x.v ? "" : ` id="n-${x.id}"`} style="--gc:${color(x)}">
+      <div class="n-meta"><span>${num ? `<b class="n-num">#${num}</b>` : ""}${x.y}${x.set ? ` · story year ${x.set}` : ""}</span><span>${TYPE[x.ty]} · ${x.pl}</span></div>
       <h3 class="n-title">${x.t}</h3>${x.v ? "" : tagsHTML(x)}
       <p>${x.d}</p>
       ${links.length ? `<ul class="n-links">${links.map(e => `<li><button data-open="${e.id}">${BY[e.id].t}</button> ${e.note}</li>`).join("")}</ul>` : ""}
@@ -28,15 +29,12 @@
   }
 
   /* ---------- rows ---------- */
-  function render(rows) {
-    return rows.map(r => {
-      if (r.lbl) return `<div class="t-lbl" style="--gc:${r.c || "var(--ink)"}"><span>${r.lbl}</span>${r.sub ? `<small>${r.sub}</small>` : ""}</div>`;
-      if (r.fork) return `<div class="t-fork" style="--n:${r.fork.length}">${r.fork.map(f => `<div style="--gc:${f.c}"><b>${f.n}</b>${f.s ? `<small>${f.s}</small>` : ""}</div>`).join("")}</div>`;
-      if (r.lanes) return `<div class="t-lanes" style="--n:${r.lanes.length}">${r.lanes.map((id, i) =>
-        `<div class="t-cell${id ? "" : " empty"}" style="--gc:${r.c[i]}">${id ? `<div class="lane-tag">${r.n[i]}</div>${node(get(id))}` : ""}</div>`).join("")}</div>`;
-      const x = get(r.id);
-      return `<div class="t-row" style="--gc:${color(x)}">${node(x, r.sides)}</div>`;
-    }).join("");
+  function rowHTML(r, num) {
+    if (r.fork) return `<div class="t-fork" style="--n:${r.fork.length}">${r.fork.map(f => `<div style="--gc:${f.c}"><b>${f.n}</b>${f.s ? `<small>${f.s}</small>` : ""}</div>`).join("")}</div>`;
+    if (r.lanes) return `<div class="t-lanes" style="--n:${r.lanes.length}">${r.lanes.map((id, i) =>
+      `<div class="t-cell${id ? "" : " empty"}" style="--gc:${r.c[i]}">${id ? `<div class="lane-tag">${r.n[i]}</div>${node(get(id))}` : ""}</div>`).join("")}</div>`;
+    const x = get(r.id);
+    return `<div class="t-row" style="--gc:${color(x)}">${node(x, r.sides, num)}</div>`;
   }
   const ids = list => list.map(id => ({id}));
   const lanes = (cols, colors, names) => {
@@ -44,7 +42,7 @@
     return Array.from({length: n}, (_, i) => ({lanes: cols.map(c => c[i] || null), c: colors, n: names}));
   };
 
-  // release order: everything on the page sorted by release, with a label whenever the key changes
+  // release order: everything sorted by release, with a new section whenever the key changes
   function releaseRows(items, key, labelColor) {
     const rows = [];
     let last;
@@ -77,6 +75,7 @@
   const STONES = {"Phase 1": "Space Stone", "Phase 2": "Mind Stone", "Phase 3": "Reality Stone", "Phase 4": "Power Stone", "Phase 5": "Time Stone", "Phase 6": "Soul Stone"};
   const SPECS = {
     mcu: {
+      numbered: true,
       items: () => T.filter(x => x.pg === "mcu" || x.ph),
       release: items => releaseRows(items, x => x.ph || x.g, k => C[k]).map(r => r.lbl ? {...r, sub: STONES[r.lbl]} : r),
       story: items => storyRows(items, {
@@ -95,6 +94,7 @@
       story: () => [
         {lbl: "Shared history", sub: "Before 1973, the same in both timelines", c: SLATE},
         {id: "fc"}, {id: "dofp"},
+        {lbl: "After 1973 · Two timelines", sub: "Logan's mission splits history in two", c: BLUE},
         {fork: [{n: "A · Original timeline", s: "Erased when Logan changes 1973", c: RED}, {n: "B · Revised timeline", s: "The reality Logan creates", c: BLUE}]},
         ...lanes([["origins", "xm1", "xm2", "xm3", "tw",
           {v: 1, t: "Days of Future Past: the 2023 future", y: 2014, ty: "F", pl: "Theatrical (Fox)", set: 2023, c: RED,
@@ -107,6 +107,7 @@
       ]
     },
     street: {
+      numbered: true,
       items: () => T.filter(x => x.pg === "street" || ["hawkeye", "shehulk", "echo"].includes(x.id)),
       release: items => releaseRows(items, decade),
       story: () => [
@@ -153,27 +154,87 @@
     }
   };
 
-  /* ---------- toggle + draw ---------- */
+  /* ---------- sections ---------- */
+  function sectionize(rows) {
+    const secs = [];
+    let cur = {rows: []};
+    rows.forEach(r => {
+      if (!r.lbl) return cur.rows.push(r);
+      if (cur.lbl || cur.rows.length) secs.push(cur);
+      cur = {...r, id: "sec-" + slug(r.lbl), rows: []};
+    });
+    secs.push(cur);
+    return secs;
+  }
+  const countTitles = rows => rows.reduce((n, r) => n + (r.lanes ? r.lanes.filter(x => x && typeof x !== "object").length
+    : r.id ? 1 + (r.sides ? r.sides.length : 0) : 0), 0);
+
+  /* ---------- controls + draw ---------- */
   const spec = SPECS[page];
   const items = spec.items();
-  let view = "story";
-  try { view = localStorage.getItem("view-" + page) || "story"; } catch (e) {}
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  let view = store.get("view-" + page, "story");
+  let secs = [];
   const bar = document.createElement("div");
   bar.className = "controls t-controls";
-  bar.innerHTML = `<div class="seg" role="group" aria-label="Order">
-      <button data-v="story">${spec.storyName || "Story order"}</button><button data-v="release">Release order</button></div>
-    <span class="count">${items.length} titles · scroll down the line</span>`;
   host.before(bar);
-  const draw = () => {
-    bar.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === view));
-    host.innerHTML = render(view === "story" ? spec.story(items) : spec.release(items));
-  };
+
+  function setOpen(sec, open, save = true) {
+    sec.classList.toggle("closed", !open);
+    sec.querySelector(".s-head").setAttribute("aria-expanded", open);
+    const chip = bar.querySelector(`[data-sec="${sec.id}"]`);
+    if (chip) chip.setAttribute("aria-pressed", open);
+    if (save) store.set(`open-${page}-${view}`, [...host.querySelectorAll(".t-sec:not(.closed):not(.bare)")].map(s => s.id));
+  }
+  window.TREE = {open: sec => setOpen(sec, true)};
+
+  function draw() {
+    const rows = view === "story" ? spec.story(items) : spec.release(items);
+    secs = sectionize(rows);
+    const labelled = secs.filter(s => s.lbl);
+    const saved = store.get(`open-${page}-${view}`, null);
+    const isOpen = s => saved ? saved.includes(s.id) : s === labelled[0];
+    let num = 0;
+    const numbered = spec.numbered && view === "story";
+    host.innerHTML = secs.map(s => {
+      const lanesHere = s.rows.some(r => r.lanes || r.fork);
+      const body = s.rows.map(r => rowHTML(r, numbered && r.id ? ++num : 0)).join("");
+      const bodyHTML = `<div class="sec-body${lanesHere ? " has-lanes" : ""}" id="${s.id || "sec-top"}-b">${body}</div>`;
+      if (!s.lbl) return `<section class="t-sec bare">${bodyHTML}</section>`;
+      const open = isOpen(s);
+      return `<section class="t-sec${open ? "" : " closed"}" id="${s.id}" style="--gc:${s.c || "var(--ink)"}">
+        <button class="s-head" aria-expanded="${open}" aria-controls="${s.id}-b"><span class="s-name">${s.lbl}</span>
+          <span class="s-count">${countTitles(s.rows)} titles</span><span class="s-chev" aria-hidden="true"></span></button>
+        ${s.sub ? `<p class="s-sub">${s.sub}</p>` : ""}${bodyHTML}</section>`;
+    }).join("");
+    bar.innerHTML = `<div class="t-bar-top">
+        <div class="seg" role="group" aria-label="Order">
+          <button data-v="story" aria-pressed="${view === "story"}">${spec.storyName || "Story order"}</button>
+          <button data-v="release" aria-pressed="${view === "release"}">Release order</button></div>
+        <div class="seg" role="group" aria-label="Sections"><button data-all="1">Open all</button><button data-all="0">Close all</button></div>
+        <span class="count">${items.length} titles · ${labelled.length} sections</span></div>
+      <nav class="t-jump" aria-label="Jump to a section">${labelled.map(s =>
+        `<button data-sec="${s.id}" aria-pressed="${isOpen(s)}" style="--gc:${s.c || "var(--ink)"}">${s.lbl}</button>`).join("")}</nav>`;
+  }
+
   bar.addEventListener("click", e => {
-    const b = e.target.closest("button[data-v]");
+    const b = e.target.closest("button");
     if (!b) return;
-    view = b.dataset.v;
-    try { localStorage.setItem("view-" + page, view); } catch (e) {}
-    draw();
+    if (b.dataset.v) { view = b.dataset.v; store.set("view-" + page, view); draw(); return; }
+    if (b.dataset.all) { host.querySelectorAll(".t-sec:not(.bare)").forEach(s => setOpen(s, b.dataset.all === "1", false)); setOpen(host.querySelector(".t-sec:not(.bare)"), b.dataset.all === "1"); return; }
+    if (b.dataset.sec) {
+      const sec = document.getElementById(b.dataset.sec);
+      const opening = sec.classList.contains("closed");
+      setOpen(sec, opening);
+      if (opening) sec.scrollIntoView({behavior: "smooth", block: "start"});
+    }
+  });
+  host.addEventListener("click", e => {
+    const h = e.target.closest(".s-head");
+    if (h) setOpen(h.parentElement, h.parentElement.classList.contains("closed"));
   });
   draw();
   fromHash();
