@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Road to Doomsday</title>
+<meta name="description" content="How separate Marvel film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="tva" data-theme="tva">
+<div id="site-nav"></div>
+<section class="head"><div class="wrap">
+  <span class="stamp">Case file · Multiversal incursions</span>
+  <h1>Road to Doomsday</h1>
+  <p class="lede">For years these universes ran side by side and never met. Since 2021 they've been crossing over, and everything points to <b>Avengers: Doomsday</b> (18 Dec 2026) and <b>Secret Wars</b> (Dec 2027). Each line is a separate universe, and each dot is a film that pulled it toward the MCU. Click a dot or a case file to open the title.</p>
+</div></section>
+
+<main class="wrap">
+  <div class="map"><svg id="map" viewBox="0 0 1330 590" role="img" aria-labelledby="map-t"><title id="map-t">Lanes for each Marvel film universe, merging into the MCU at crossover films and ending at Doomsday and Secret Wars</title></svg></div>
+
+  <h2 style="margin:34px 0 18px">Case files</h2>
+  <div class="files">
+    <article class="file" data-no="TVA-01"><h3>The Sacred Timeline breaks</h3>
+      <p>The TVA once pruned every branch of time. When He Who Remains is killed, the multiverse grows wild, and Loki ends up holding it together.</p>
+      <button class="open" data-open="loki1">Loki S1</button><button class="open" data-open="loki2">Loki S2</button></article>
+    <article class="file" data-no="TVA-02"><h3>Three Spider-Men</h3>
+      <p>Strange's spell pulls in Tobey Maguire's and Andrew Garfield's Peters and five villains. Venom and the Vulture cross over in Sony's films at the same time.</p>
+      <button class="open" data-open="nwh">No Way Home</button><button class="open" data-open="venom2">Let There Be Carnage</button><button class="open" data-open="morbius">Morbius</button></article>
+    <article class="file" data-no="TVA-03"><h3>Earth-838's Illuminati</h3>
+      <p>Patrick Stewart's Xavier (in a yellow hover-chair, just like the 90s cartoon) and John Krasinski's Reed Richards turn up, then the Scarlet Witch kills them.</p>
+      <button class="open" data-open="mom">Multiverse of Madness</button><button class="open" data-open="xmtas">X-Men: TAS</button></article>
+    <article class="file" data-no="TVA-04"><h3>Mutants reach Earth-616</h3>
+      <p>Kamala Khan is revealed as a mutant. Later, Monica Rambeau wakes up next to Kelsey Grammer's Beast as the X-Men '97 theme plays.</p>
+      <button class="open" data-open="msm">Ms. Marvel</button><button class="open" data-open="marvels">The Marvels</button><button class="open" data-open="xm3">The Last Stand</button></article>
+    <article class="file" data-no="TVA-05"><h3>Netflix comes home</h3>
+      <p>Kingpin in Hawkeye, Matt Murdock in No Way Home and She-Hulk, then Born Again brings Daredevil, Kingpin and the Punisher fully into the MCU.</p>
+      <button class="open" data-open="hawkeye">Hawkeye</button><button class="open" data-open="echo">Echo</button><button class="open" data-open="ddba">Born Again</button></article>
+    <article class="file" data-no="TVA-06"><h3>The Void</h3>
+      <p>The TVA's dumping ground at the end of time. Deadpool and a variant Wolverine find Blade, Elektra, Johnny Storm, Gambit and X-23 there. Their home universe only survives because its anchor, Logan, is saved.</p>
+      <button class="open" data-open="dw">Deadpool &amp; Wolverine</button><button class="open" data-open="blade1">Blade</button><button class="open" data-open="elektra">Elektra</button><button class="open" data-open="logan">Logan</button></article>
+    <article class="file" data-no="TVA-07"><h3>Earth-828</h3>
+      <p>A retro-future New York where the Fantastic Four are the only heroes. The post-credits scene teases Doom, and the family is in the Doomsday cast.</p>
+      <button class="open" data-open="ff">First Steps</button><button class="open" data-open="ff05">Fantastic Four (2005)</button></article>
+    <article class="file" data-no="TVA-08"><h3>Doomsday · 18 Dec 2026</h3>
+      <p>Robert Downey Jr. returns as Victor von Doom. The cast announced in 2025 mixes MCU Avengers, Wakandans, the Thunderbolts, the Fantastic Four, and Fox X-Men veterans: Stewart, McKellen, Cumming, Romijn, Marsden, Grammer, and Channing Tatum's Gambit.</p>
+      <button class="open" data-open="doomsday">Avengers: Doomsday</button><button class="open" data-open="thunderbolts">Thunderbolts*</button></article>
+    <article class="file" data-no="TVA-09"><h3>Secret Wars · Dec 2027</h3>
+      <p>The planned end of the Multiverse Saga. Nothing beyond the title and date is official yet, so it isn't connected to anything here.</p>
+      <button class="open" data-open="sw">Avengers: Secret Wars</button></article>
+  </div>
+</main>
+
+<div id="site-foot"></div>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(() => {
+  const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
+  const el = (n, a, t) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; svg.appendChild(e); return e; };
+  // compressed scale: 1996–2020 is narrow, 2020–2028 is wide (that's where the crossovers are)
+  const X = y => y <= 2020 ? 290 + (y - 1996) * 17 : 698 + (y - 2020) * 66;
+  const Y0 = 180, GAP = 44;
+  const lanes = [
+    {k: "616", name: "Earth-616 · MCU", c: "#c4621b", s: 2008, e: 2028},
+    {k: "fox", name: "Earth-10005 · Fox X-Men", c: "#2471a3", s: 2000, e: 2026.95, open: "xm1"},
+    {k: "raimi", name: "Raimi Spider-Man", c: "#b5302a", s: 2002, e: 2021.95, open: "sm1"},
+    {k: "webb", name: "Webb Spider-Man", c: "#2f7bff", s: 2012, e: 2021.95, open: "asm1"},
+    {k: "venom", name: "Sony's Venom films", c: "#6b6f80", s: 2018, e: 2024.8, open: "venom1"},
+    {k: "netflix", name: "Netflix Defenders", c: "#8a1538", s: 2015, e: 2025.2, open: "ddnet"},
+    {k: "y2k", name: "2000s films (Blade, Elektra, FF)", c: "#2b8f86", s: 1998, e: 2024.55, open: "blade1"},
+    {k: "838", name: "Earth-838", c: "#7a6248", s: 2022.0, e: 2022.35, open: "mom"},
+    {k: "828", name: "Earth-828 · Fantastic Four", c: "#2f5d3a", s: 2025.55, e: 2026.95, open: "ff"}
+  ];
+  const LY = Object.fromEntries(lanes.map((l, i) => [l.k, Y0 + i * GAP]));
+  const events = [
+    {at: 2021.95, id: "nwh", label: "No Way Home", from: ["raimi", "webb", "venom", "netflix"]},
+    {at: 2022.35, id: "mom", label: "Multiverse of Madness", from: ["838"]},
+    {at: 2023.85, id: "marvels", label: "The Marvels", from: ["fox"]},
+    {at: 2024.55, id: "dw", label: "Deadpool & Wolverine", from: ["fox", "y2k"]},
+    {at: 2025.2, id: "ddba", label: "Born Again", from: ["netflix"]},
+    {at: 2025.55, id: "ff", label: "First Steps", from: []},
+    {at: 2026.95, id: "doomsday", label: "AVENGERS: DOOMSDAY", from: ["fox", "828"], big: 1},
+    {at: 2027.95, id: "sw", label: "SECRET WARS", from: [], big: 1}
+  ];
+  // year grid
+  [2000, 2005, 2010, 2015, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028].forEach(y => {
+    el("line", {x1: X(y), x2: X(y), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, stroke: "#3b2a1a", "stroke-opacity": .12});
+    el("text", {x: X(y), y: Y0 + GAP * 8 + 36, "text-anchor": "middle", "font-family": "IBM Plex Mono, monospace", "font-size": 11, fill: "#7a6248"}, y);
+  });
+  el("line", {x1: X(2020), x2: X(2020), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, stroke: "#3b2a1a", "stroke-opacity": .35, "stroke-dasharray": "3 4"});
+  el("text", {x: X(2020) - 6, y: Y0 + GAP * 8 + 52, "text-anchor": "end", "font-family": "IBM Plex Mono, monospace", "font-size": 10, fill: "#7a6248"}, "← compressed scale");
+  // lanes
+  lanes.forEach(l => {
+    const y = LY[l.k];
+    el("line", {x1: X(l.s), x2: X(l.e), y1: y, y2: y, stroke: l.c, "stroke-width": l.k === "616" ? 7 : 4, "stroke-linecap": "round"});
+    const t = el("text", {x: 16, y: y + 4, "font-family": "IBM Plex Mono, monospace", "font-size": 12, "font-weight": 700, fill: l.c, style: l.open ? "cursor:pointer" : ""}, l.name);
+    if (l.open) t.setAttribute("data-open", l.open);
+    el("circle", {cx: X(l.s), cy: y, r: 4, fill: l.c});
+  });
+  // merges + event dots
+  events.forEach((ev, i) => {
+    const x = X(ev.at), y616 = LY["616"];
+    ev.from.forEach(k => {
+      const lane = lanes.find(l => l.k === k);
+      el("path", {d: `M${x},${LY[k]} L${x},${y616}`, stroke: lane.c, "stroke-width": 2.5, "stroke-dasharray": "5 4", fill: "none"});
+      el("circle", {cx: x, cy: LY[k], r: 5, fill: "#f3e8cf", stroke: lane.c, "stroke-width": 2.5});
+    });
+    if (ev.id === "ff") el("path", {d: `M${x},${LY["828"]} L${x},${y616}`, stroke: "#2f5d3a", "stroke-width": 2.5, "stroke-dasharray": "2 4"});
+    const g = el("g", {"data-open": ev.id, style: "cursor:pointer", tabindex: 0, role: "button", "aria-label": ev.label});
+    const dot = document.createElementNS(NS, "circle");
+    Object.entries({cx: x, cy: y616, r: ev.big ? 11 : 8, fill: ev.big ? "#3b2a1a" : "#f3e8cf", stroke: "#3b2a1a", "stroke-width": 3}).forEach(([a, v]) => dot.setAttribute(a, v));
+    const lab = document.createElementNS(NS, "text");
+    Object.entries({x: x + 4, y: y616 - 18, transform: `rotate(-38 ${x + 4} ${y616 - 18})`, "font-family": ev.big ? "Anton, Impact, sans-serif" : "IBM Plex Mono, monospace",
+      "font-size": ev.big ? 16 : 12, "font-weight": 700, fill: ev.big ? "#c4621b" : "#3b2a1a"}).forEach(([a, v]) => lab.setAttribute(a, v));
+    lab.textContent = ev.label;
+    g.append(dot, lab);
+  });
+  svg.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset.open) openTitle(e.target.dataset.open); });
+})();
+</script>
+</body>
+</html>
