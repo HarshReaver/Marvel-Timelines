@@ -96,7 +96,7 @@ window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":
 "bnd":{"wp":"Spider-Man: Brand New Day","img":"https://upload.wikimedia.org/wikipedia/en/9/9a/Spider-Man_Brand_New_Day_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":258,"h":387},
 "vq":{"wp":"VisionQuest","img":"https://upload.wikimedia.org/wikipedia/en/d/d5/VisionQuest_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":387,"h":258,"s":1,"e":8},
 "doomsday":{"wp":"Avengers: Doomsday","img":"https://upload.wikimedia.org/wikipedia/en/e/ee/Avengers_Doomsday_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":250,"h":377},
-"sw":{"wp":"Marvel Cinematic Universe: Phase Six","img":"assets/posters/sw.png","w":530,"h":216},
+"sw":{"wp":"Marvel Cinematic Universe: Phase Six","img":"assets/posters/sw.svg","w":640,"h":360},
 "wxm":{"wp":"Wolverine and the X-Men (TV series)","img":"https://upload.wikimedia.org/wikipedia/en/7/72/Wolverineandthexmenanimated.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":307,"h":324,"s":1,"e":26},
 "origins":{"wp":"X-Men Origins: Wolverine","img":"https://upload.wikimedia.org/wikipedia/en/0/08/X-Men_Origins_Wolverine_theatrical_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":250,"h":371},
 "fc":{"wp":"X-Men: First Class","img":"https://upload.wikimedia.org/wikipedia/en/5/55/X-MenFirstClassMoviePoster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":259,"h":384},
