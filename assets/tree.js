@@ -206,6 +206,7 @@
     const y = scrollY, d = y - lastY;
     if (Math.abs(d) < 8) return;
     const stuck = bar.getBoundingClientRect().top <= parseFloat(getComputedStyle(bar).top) + 1;
+    bar.style.setProperty("--bar-h", bar.offsetHeight + "px");
     bar.classList.toggle("away", d > 0 && stuck && y > 200);
     lastY = y;
   }, {passive: true});

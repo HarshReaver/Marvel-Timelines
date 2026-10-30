@@ -71,8 +71,9 @@ html[data-mode=dark] .mode .sun{display:block}
 .controls input[type=search],.controls select{font:15px var(--body);padding:9px 12px;border:1.5px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);min-width:220px}
 .controls label{font-size:15px;display:flex;gap:6px;align-items:center;cursor:pointer}
 .count{margin-left:auto;font-size:14px;color:var(--muted)}
-.t-controls{position:sticky;top:59px;z-index:20;background:var(--bg);display:block;transition:transform .25s ease}
-.t-controls.away{transform:translateY(-110%)}
+/* hidden by moving its sticky top in whole pixels (a transform left the buttons on half pixels and clipped their borders) */
+.t-controls{position:sticky;top:59px;z-index:20;background:var(--bg);display:block;transition:top .25s ease}
+.t-controls.away{top:calc(-1 * var(--bar-h, 160px))}
 .t-bar-top{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 /* the 2px/1px padding keeps the button borders inside the scroll box, which clips them at some zoom levels */
 .t-jump{display:flex;gap:6px;margin-top:8px;overflow-x:auto;padding:2px 1px 4px;scrollbar-width:none}
