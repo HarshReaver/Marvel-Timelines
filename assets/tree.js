@@ -200,6 +200,15 @@
   const bar = document.createElement("div");
   bar.className = "controls t-controls";
   host.before(bar);
+  // Slide the bar away while scrolling down (more room on phones), bring it back on any scroll up.
+  let lastY = scrollY;
+  addEventListener("scroll", () => {
+    const y = scrollY, d = y - lastY;
+    if (Math.abs(d) < 8) return;
+    const stuck = bar.getBoundingClientRect().top <= parseFloat(getComputedStyle(bar).top) + 1;
+    bar.classList.toggle("away", d > 0 && stuck && y > 200);
+    lastY = y;
+  }, {passive: true});
 
   function setOpen(sec, open, save = true) {
     sec.classList.toggle("closed", !open);
