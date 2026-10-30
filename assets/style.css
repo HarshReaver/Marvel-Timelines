@@ -74,7 +74,8 @@ html[data-mode=dark] .mode .sun{display:block}
 .t-controls{position:sticky;top:59px;z-index:20;background:var(--bg);display:block;transition:transform .25s ease}
 .t-controls.away{transform:translateY(-110%)}
 .t-bar-top{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
-.t-jump{display:flex;gap:6px;margin-top:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+/* the 2px/1px padding keeps the button borders inside the scroll box, which clips them at some zoom levels */
+.t-jump{display:flex;gap:6px;margin-top:8px;overflow-x:auto;padding:2px 1px 4px;scrollbar-width:none}
 .t-jump::-webkit-scrollbar{display:none}
 .t-jump button{flex:none;font:500 14px/1 var(--body);padding:8px 12px;border-radius:999px;cursor:pointer;background:none;color:var(--ink);border:1.5px solid var(--jump,var(--gc))}
 .t-jump button[aria-pressed=true]{background:var(--jump,var(--gc));color:var(--jump-ink,var(--bg))}
@@ -281,7 +282,7 @@ html[data-mode=dark] .countdown{background:var(--paper);color:var(--ink);border:
   .t-controls{top:49px;padding:8px 0}
   .t-controls .count{display:none}
   .t-bar-top{gap:6px}
-  .t-jump{margin-top:8px;padding-bottom:2px}
+  .t-jump{margin-top:6px;padding:2px 1px}
   .t-jump button{padding:6px 10px;font-size:13px}
   .t-sec{scroll-margin-top:150px}
   .seg button{padding:8px 7px;font-size:13px}
