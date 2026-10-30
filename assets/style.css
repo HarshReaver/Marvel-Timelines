@@ -7,17 +7,16 @@
   --bg:#efe8da;--paper:#f8f4ec;--ink:#1c1915;--muted:#5f574b;--rule:#d3c9b6;--line:#2a2520;
   --accent:#b8231c;--strip:#f3eee5;
 }
-[data-theme=mcu]{--bg:#0f1216;--paper:#161a20;--ink:#ece6da;--muted:#a49d90;--rule:#2b3038;--line:#3d434d;--accent:#e0b64a}
-[data-theme=xmen]{--bg:#f3f0e7;--paper:#fbf9f3;--ink:#17223b;--muted:#57617a;--rule:#d3d6de;--line:#17223b;--accent:#b88a05;--head-bg:#15213b}
+[data-theme=mcu]{--bg:#0f1216;--paper:#161a20;--ink:#ece6da;--muted:#a49d90;--rule:#2b3038;--line:#3d434d;--accent:#e23b3b}
+[data-theme=xmen]{--bg:#e9ecef;--paper:#f7f8fa;--ink:#1c2632;--muted:#566272;--rule:#cad1d9;--line:#2c3744;--accent:#5d7085;--head-bg:#29333f}
 [data-theme=street]{--bg:#0d0b0b;--paper:#161313;--ink:#ebe4da;--muted:#988e85;--rule:#2e2927;--line:#3c3533;--accent:#d0181f}
 [data-theme=spider]{--bg:#10131f;--paper:#171b2b;--ink:#f1eee8;--muted:#a3a9bd;--rule:#2b3047;--line:#3b4262;--accent:#e2231a}
 [data-theme=legacy]{--bg:#1b2a33;--paper:#f2e6c9;--ink:#f2e6c9;--muted:#a9bcc2;--rule:#355261;--line:#4b6b7a;--accent:#f08a24}
-[data-theme=tva]{--bg:#e6d7b8;--paper:#f3e8cf;--ink:#3b2a1a;--muted:#77604a;--rule:#cdb894;--line:#3b2a1a;--accent:#2e7d32}
-/* dark theme (nav button) for the light pages; the MCU, Street Level, Spider-Verse and 2000s pages are always dark */
+[data-theme=tva]{--bg:#0c1a12;--paper:#13261a;--ink:#e8e2c8;--muted:#9db39f;--rule:#22382a;--line:#3c5a44;--accent:#d4a531}
+/* dark theme (nav button) for the light pages; the MCU, Street Level, Spider-Verse, 2000s and Multiverse pages are always dark */
 html[data-mode=dark]{color-scheme:dark}
 html[data-mode=dark] body:not([data-theme]){--bg:#121110;--paper:#1c1a17;--ink:#ece6da;--muted:#a39b8e;--rule:#302c27;--line:#4a443d;--accent:#e5463c}
-html[data-mode=dark] [data-theme=xmen]{--bg:#0f1626;--paper:#172036;--ink:#e9ecf3;--muted:#a3abc0;--rule:#28324a;--line:#3a4663;--accent:#d9a521}
-html[data-mode=dark] [data-theme=tva]{--bg:#1c160f;--paper:#271f16;--ink:#eadcc0;--muted:#b09a7c;--rule:#3d3224;--line:#8a7350;--accent:#5cb85c}
+html[data-mode=dark] [data-theme=xmen]{--bg:#11161c;--paper:#19202a;--ink:#e6eaef;--muted:#9eaaba;--rule:#28313c;--line:#3c4756;--accent:#9fb3c8}
 
 *{box-sizing:border-box}
 html,body{overflow-x:clip}
@@ -57,7 +56,7 @@ html[data-mode=dark] .mode .sun{display:block}
 .poster-wall img{width:calc((100% - 30px) / 6);height:auto;aspect-ratio:2/3;object-fit:cover;display:block}
 .poster-wall img.w2{width:calc((100% - 30px) / 3 + 6px);aspect-ratio:4/3}
 .poster-wall::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--head-bg,var(--bg)) 0%,color-mix(in oklab,var(--head-bg,var(--bg)) 78%,transparent) 30%,color-mix(in oklab,var(--head-bg,var(--bg)) 40%,transparent) 70%,color-mix(in oklab,var(--head-bg,var(--bg)) 25%,transparent) 100%)}
-[data-theme=xmen] .head{--ink:#f3f0e7;--muted:#c4cad8;color:var(--ink)}
+[data-theme=xmen] .head{--ink:#eef1f4;--muted:#c2cad4;color:var(--ink)}
 [data-theme=xmen] .head h1{font:400 clamp(40px,6vw,84px)/1.1 "Michroma",var(--display);letter-spacing:.14em}
 [data-theme=street] .head h1{color:var(--accent)}
 [data-theme=spider] .head h1{text-shadow:-3px 0 rgb(0 200 255 / .7),3px 0 rgb(255 30 90 / .7)}
@@ -80,7 +79,7 @@ html[data-mode=dark] .mode .sun{display:block}
 .t-jump button[aria-pressed=true]{background:var(--jump,var(--gc));color:var(--jump-ink,var(--bg))}
 /* section buttons in the page colour: MCU red, X-Men steel, Spider-Verse blue with the red/cyan title glitch */
 [data-theme=mcu] .t-jump{--jump:#d42a2a;--jump-ink:#fff}
-[data-theme=xmen] .t-jump{--jump:#71839a;--jump-ink:#fff}
+[data-theme=xmen] .t-jump{--jump:var(--accent);--jump-ink:var(--paper)}
 [data-theme=spider] .t-jump{--jump:#1f5fd6;--jump-ink:#fff}
 [data-theme=spider] .t-jump button[aria-pressed=true]{text-shadow:-1px 0 rgb(0 200 255 / .8),1.5px 0 rgb(255 30 90 / .95)}
 
