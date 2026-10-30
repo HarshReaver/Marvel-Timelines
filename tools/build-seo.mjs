@@ -21,28 +21,28 @@ const {TITLES, MEDIA} = box.window;
 // file, search title, description, which titles the page lists
 const PAGES = [
   {file: "index.html", title: "Marvel Timelines: Every MCU, X-Men & Spider-Man Watch Order",
-    desc: "An unofficial guide to every Marvel screen timeline: the MCU, Fox X-Men, Netflix, Sony Spider-Man, the 2000s films and the road to Avengers: Doomsday, in story and release order.",
+    desc: "Every Marvel watch order in one place: the MCU, Fox X-Men, Netflix shows, Sony's Spider-Man films and the road to Avengers: Doomsday, as timelines.",
     pick: () => false},
   {file: "mcu.html", title: "MCU Timeline: Watch Order in Story & Release Order",
-    desc: "Every Marvel Cinematic Universe film and series as a vertical timeline, in story order or release order, with full plot summaries and how each title connects.",
+    desc: "Every MCU film and series as a vertical timeline in story order or release order, with full plot summaries and how each title connects.",
     pick: x => x.pg === "mcu" || x.ph},
   {file: "xmen.html", title: "X-Men Movies in Order: Both Fox Timelines Explained",
-    desc: "The Fox X-Men films as a vertical tree: the 1973 split in Days of Future Past, the original and revised timelines, Deadpool, Logan and the jump into the MCU.",
+    desc: "The Fox X-Men films as a tree: the 1973 split in Days of Future Past, both timelines, Deadpool, Logan and the jump into the MCU.",
     pick: x => x.pg === "xmen"},
   {file: "street-level.html", title: "Daredevil, Punisher & Marvel Netflix Shows in Order",
-    desc: "Netflix's Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders and The Punisher, Marvel's ABC, Hulu and Freeform shows, and Daredevil: Born Again, in watch order.",
+    desc: "Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders, The Punisher and Daredevil: Born Again, plus Marvel's ABC and Hulu shows, in order.",
     pick: x => x.pg === "street"},
   {file: "spider-verse.html", title: "Spider-Man Movies in Order: Every Spider-Verse Timeline",
-    desc: "Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and spin-offs, and the animated Spider-Verse, shown as a tree of separate universes.",
+    desc: "Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and the animated Spider-Verse, shown as a tree of separate universes.",
     pick: x => x.pg === "spider" || x.id === "yfnsm"},
   {file: "legacy.html", title: "2000s Marvel Movies: Blade, Hulk, Ghost Rider & More",
     desc: "Marvel films from other studios before and alongside the MCU: Blade, Hulk, Daredevil, Elektra, Fantastic Four, Ghost Rider and the Punisher films.",
     pick: x => x.pg === "legacy"},
   {file: "multiverse.html", title: "Road to Avengers: Doomsday & Secret Wars Explained",
-    desc: "How separate Marvel film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.",
+    desc: "How Marvel's film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.",
     pick: x => x.mv},
   {file: "catalog.html", title: "Every Marvel Movie & Series: Full Catalog with Filters",
-    desc: "Every Marvel film and series in one list, with filters for section, format and connections, plus seasons, episodes and plot summaries.",
+    desc: "Every Marvel film and series in one list, with filters for section and format, plus seasons, episodes and plot summaries.",
     pick: () => true},
   {file: "about.html", title: "About Marvel Timelines",
     desc: "What Marvel Timelines covers, how connections are decided, and who made it.", pick: () => false}
@@ -98,6 +98,17 @@ function staticList(list) {
     `<li><h3>${esc(x.t)} (${x.y})</h3><p>${TYPE[x.ty]} · ${esc(x.pl)}${eps(x)}</p><p>${esc(x.d)}</p></li>`).join("")}</ol></div><!-- static:end -->`;
 }
 
+// Plain-HTML menu and footer inside the #site-nav and #site-foot placeholders, so crawlers see the site's links.
+// In a browser app.js swaps them for the styled versions.
+const NAV = [["index.html", "Home"], ["mcu.html", "MCU"], ["xmen.html", "X-Men"], ["street-level.html", "Street Level"],
+  ["spider-verse.html", "Spider-Verse"], ["legacy.html", "2000s Era"], ["multiverse.html", "Multiverse"], ["catalog.html", "Catalog"], ["about.html", "About"]];
+const staticNav = `<!-- static:start --><nav aria-label="Site">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join(" ")}</nav><!-- static:end -->`;
+const staticFoot = `<!-- static:start --><footer><p>Marvel Timelines, a fan-made guide by Harsh Verma.
+  <a href="${SITE}">marvel.harver.in</a> · <a href="https://github.com/HarshReaver/Marvel-Timelines">Source on GitHub</a> ·
+  <a href="https://www.linkedin.com/in/harsh-verma007/">Harsh Verma on LinkedIn</a></p>
+  <p>Official sites: <a href="https://www.marvel.com">Marvel</a> · <a href="https://www.disneyplus.com">Disney+</a> ·
+  <a href="https://www.netflix.com">Netflix</a> · <a href="https://www.sonypictures.com">Sony Pictures</a></p></footer><!-- static:end -->`;
+
 for (const p of PAGES) {
   const file = path.join(ROOT, p.file);
   let html = fs.readFileSync(file, "utf8");
@@ -106,6 +117,8 @@ for (const p of PAGES) {
     .replace(/\n?<!-- seo:start[\s\S]*?<!-- seo:end -->/g, "")
     .replace(/(<div id="(?:tree|list)"[^>]*>)(?:<!-- static:start -->[\s\S]*?<!-- static:end -->)?(<\/div>)/,
       (_, open, close) => open + staticList(TITLES.filter(p.pick).sort((a, b) => a.y - b.y)) + close);
+  html = html.replace(/(<div id="site-nav">)(?:<!-- static:start -->[\s\S]*?<!-- static:end -->)?(<\/div>)/, (_, a, b) => a + staticNav + b)
+    .replace(/(<div id="site-foot">)(?:<!-- static:start -->[\s\S]*?<!-- static:end -->)?(<\/div>)/, (_, a, b) => a + staticFoot + b);
   const block = `
 <!-- seo:start (generated by tools/build-seo.mjs, do not edit by hand) -->
 <link rel="canonical" href="${url(p)}">

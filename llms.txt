@@ -1,19 +1,19 @@
 # Marvel Timelines
 
-> An unofficial guide to every Marvel screen timeline: the MCU, Fox X-Men, Netflix, Sony Spider-Man, the 2000s films and the road to Avengers: Doomsday, in story and release order. Made by Harsh Verma. Unofficial fan guide, 143 titles, updated 2026-10-30.
+> Every Marvel watch order in one place: the MCU, Fox X-Men, Netflix shows, Sony's Spider-Man films and the road to Avengers: Doomsday, as timelines. Made by Harsh Verma. Unofficial fan guide, 143 titles, updated 2026-10-30.
 
 Each section shows a vertical timeline you can switch between story order (a sensible watch order) and release order,
 with full plot summaries, seasons and episodes for series, and only genuine story connections between titles.
 
 ## Sections
 
-- [MCU Timeline: Watch Order in Story & Release Order](https://marvel.harver.in/mcu.html) (66 titles): Every Marvel Cinematic Universe film and series as a vertical timeline, in story order or release order, with full plot summaries and how each title connects.
-- [X-Men Movies in Order: Both Fox Timelines Explained](https://marvel.harver.in/xmen.html) (20 titles): The Fox X-Men films as a vertical tree: the 1973 split in Days of Future Past, the original and revised timelines, Deadpool, Logan and the jump into the MCU.
-- [Daredevil, Punisher & Marvel Netflix Shows in Order](https://marvel.harver.in/street-level.html) (15 titles): Netflix's Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders and The Punisher, Marvel's ABC, Hulu and Freeform shows, and Daredevil: Born Again, in watch order.
-- [Spider-Man Movies in Order: Every Spider-Verse Timeline](https://marvel.harver.in/spider-verse.html) (25 titles): Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and spin-offs, and the animated Spider-Verse, shown as a tree of separate universes.
+- [MCU Timeline: Watch Order in Story & Release Order](https://marvel.harver.in/mcu.html) (66 titles): Every MCU film and series as a vertical timeline in story order or release order, with full plot summaries and how each title connects.
+- [X-Men Movies in Order: Both Fox Timelines Explained](https://marvel.harver.in/xmen.html) (20 titles): The Fox X-Men films as a tree: the 1973 split in Days of Future Past, both timelines, Deadpool, Logan and the jump into the MCU.
+- [Daredevil, Punisher & Marvel Netflix Shows in Order](https://marvel.harver.in/street-level.html) (15 titles): Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders, The Punisher and Daredevil: Born Again, plus Marvel's ABC and Hulu shows, in order.
+- [Spider-Man Movies in Order: Every Spider-Verse Timeline](https://marvel.harver.in/spider-verse.html) (25 titles): Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and the animated Spider-Verse, shown as a tree of separate universes.
 - [2000s Marvel Movies: Blade, Hulk, Ghost Rider & More](https://marvel.harver.in/legacy.html) (20 titles): Marvel films from other studios before and alongside the MCU: Blade, Hulk, Daredevil, Elektra, Fantastic Four, Ghost Rider and the Punisher films.
-- [Road to Avengers: Doomsday & Secret Wars Explained](https://marvel.harver.in/multiverse.html) (19 titles): How separate Marvel film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.
-- [Every Marvel Movie & Series: Full Catalog with Filters](https://marvel.harver.in/catalog.html) (143 titles): Every Marvel film and series in one list, with filters for section, format and connections, plus seasons, episodes and plot summaries.
+- [Road to Avengers: Doomsday & Secret Wars Explained](https://marvel.harver.in/multiverse.html) (19 titles): How Marvel's film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.
+- [Every Marvel Movie & Series: Full Catalog with Filters](https://marvel.harver.in/catalog.html) (143 titles): Every Marvel film and series in one list, with filters for section and format, plus seasons, episodes and plot summaries.
 - [About Marvel Timelines](https://marvel.harver.in/about.html): What Marvel Timelines covers, how connections are decided, and who made it.
 
 ## Titles
