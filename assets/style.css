@@ -36,9 +36,15 @@ img{max-width:100%}
 .mark span{font:700 25px/1 var(--display)}
 .nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;overflow-x:auto;min-width:0;scrollbar-width:none}
 .nav ul::-webkit-scrollbar{display:none}
-.nav li a{display:block;padding:9px 10px;font:500 15px/1 var(--body);text-decoration:none;white-space:nowrap;color:var(--muted);border-bottom:2px solid transparent}
+/* menu links: bold; an accent underline grows in on hover (half) and on the current page (full), and links dip slightly when tapped */
+.nav li a{position:relative;display:block;padding:9px 10px;font:600 15px/1 var(--body);text-decoration:none;white-space:nowrap;color:var(--muted);transition:color .2s,transform .15s}
+.nav li a::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:2.5px;border-radius:2px;background:var(--accent);transform:scaleX(0);transition:transform .25s ease}
 .nav li a:hover{color:var(--ink)}
-.nav li a[aria-current]{color:var(--ink);border-color:var(--accent)}
+.nav li a:hover::after{transform:scaleX(.5)}
+.nav li a:active{transform:scale(.94)}
+.nav li a[aria-current]{color:var(--ink);font-weight:700}
+.nav li a[aria-current]::after{transform:scaleX(1);animation:nav-in .45s ease .1s both}
+@keyframes nav-in{from{transform:scaleX(0)}}
 .mode{flex:none;display:grid;place-items:center;width:36px;height:36px;margin-left:auto;padding:0;border:1px solid var(--rule);border-radius:50%;background:none;color:var(--ink);cursor:pointer}
 .mode:hover{border-color:var(--ink)}
 .mode svg{width:18px;height:18px}
@@ -272,6 +278,7 @@ html[data-mode=dark] .countdown{background:var(--paper);color:var(--ink);border:
   .mark img{height:22px}
   .mark span{font-size:20px}
   .nav li a{padding:8px;font-size:14px}
+  .nav li a::after{left:8px;right:8px}
   .cover .wrap{grid-template-columns:minmax(0,1fr)}
   .countdown{justify-self:start}
   .rules{grid-template-columns:minmax(0,1fr)}
