@@ -74,13 +74,16 @@ html[data-mode=dark] .mode .sun{display:block}
 .t-controls{position:sticky;top:59px;z-index:20;background:var(--bg);display:block;transition:transform .25s ease}
 .t-controls.away{transform:translateY(-110%)}
 .t-bar-top{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
-.t-jump{display:flex;gap:6px;margin-top:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.t-jump{display:flex;gap:6px;margin-top:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.t-jump::-webkit-scrollbar{display:none}
 .t-jump button{flex:none;font:500 14px/1 var(--body);padding:8px 12px;border-radius:999px;cursor:pointer;background:none;color:var(--ink);border:1.5px solid var(--jump,var(--gc))}
 .t-jump button[aria-pressed=true]{background:var(--jump,var(--gc));color:var(--jump-ink,var(--bg))}
-/* section buttons in the page colour: MCU red, X-Men steel, Spider-Verse blue with the red/cyan title glitch */
+/* section buttons in one page colour: MCU red, X-Men steel, Street Level red, Spider-Verse blue with the red/cyan title glitch, 2000s orange */
 [data-theme=mcu] .t-jump{--jump:#d42a2a;--jump-ink:#fff}
 [data-theme=xmen] .t-jump{--jump:var(--accent);--jump-ink:var(--paper)}
 [data-theme=spider] .t-jump{--jump:#1f5fd6;--jump-ink:#fff}
+[data-theme=street] .t-jump{--jump:var(--accent);--jump-ink:#fff}
+[data-theme=legacy] .t-jump{--jump:var(--accent);--jump-ink:#1b2a33}
 [data-theme=spider] .t-jump button[aria-pressed=true]{text-shadow:-1px 0 rgb(0 200 255 / .8),1.5px 0 rgb(255 30 90 / .95)}
 
 /* ---------- collapsible sections ---------- */

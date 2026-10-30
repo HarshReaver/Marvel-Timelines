@@ -260,6 +260,13 @@
       if (opening) sec.scrollIntoView({behavior: "smooth", block: "start"});
     }
   });
+  // The section buttons scroll sideways without a scrollbar; let a mouse wheel move them too.
+  bar.addEventListener("wheel", e => {
+    const j = e.target.closest(".t-jump");
+    if (!j || j.scrollWidth <= j.clientWidth || Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    j.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, {passive: false});
   host.addEventListener("click", e => {
     const h = e.target.closest(".s-head");
     if (h) setOpen(h.parentElement, h.parentElement.classList.contains("closed"));
