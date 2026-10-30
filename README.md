@@ -37,7 +37,12 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 ├── index.html            home
 ├── mcu.html  xmen.html  street-level.html  spider-verse.html
 ├── legacy.html  multiverse.html  catalog.html  about.html
-├── sitemap.xml           page list for Google Search Console
+├── sitemap.xml           page list for Google Search Console (generated)
+├── robots.txt            tells search engines they may crawl everything, and where the sitemap is
+├── llms.txt              plain-text summary of the site for AI assistants (generated)
+├── CNAME                 custom domain marvel.harver.in (GitHub Pages needs it, keep it)
+├── favicon.png  apple-touch-icon.png   site icon in tabs and search results
+├── tools/build-seo.mjs   run `node tools/build-seo.mjs` after editing titles: refreshes page titles, search data, sitemap and llms.txt
 ├── google1b416379081362bb.html   Search Console ownership check (keep it)
 └── assets/
     ├── style.css         shared layout and one theme per page (body[data-theme])
@@ -46,6 +51,8 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
     ├── tree.js           the vertical trees and the story/release switch
     ├── media.js          generated: Wikipedia poster/title card, seasons and episodes per title
     ├── home.js           home page countdown and section counts
+    ├── share.jpg         preview image shown when the link is shared (WhatsApp, LinkedIn)
+    ├── posters/          posters for titles Wikipedia has no image for
     └── logos/            studio and network logos from Wikimedia Commons
 ```
 

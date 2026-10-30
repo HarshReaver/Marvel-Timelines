@@ -1,0 +1,163 @@
+# Marvel Timelines
+
+> An unofficial guide to every Marvel screen timeline: the MCU, Fox X-Men, Netflix, Sony Spider-Man, the 2000s films and the road to Avengers: Doomsday, in story and release order. Made by Harsh Verma. Unofficial fan guide, 143 titles, updated 2026-10-30.
+
+Each section shows a vertical timeline you can switch between story order (a sensible watch order) and release order,
+with full plot summaries, seasons and episodes for series, and only genuine story connections between titles.
+
+## Sections
+
+- [MCU Timeline: Watch Order in Story & Release Order](https://marvel.harver.in/mcu.html) (66 titles): Every Marvel Cinematic Universe film and series as a vertical timeline, in story order or release order, with full plot summaries and how each title connects.
+- [X-Men Movies in Order: Both Fox Timelines Explained](https://marvel.harver.in/xmen.html) (20 titles): The Fox X-Men films as a vertical tree: the 1973 split in Days of Future Past, the original and revised timelines, Deadpool, Logan and the jump into the MCU.
+- [Daredevil, Punisher & Marvel Netflix Shows in Order](https://marvel.harver.in/street-level.html) (15 titles): Netflix's Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders and The Punisher, Marvel's ABC, Hulu and Freeform shows, and Daredevil: Born Again, in watch order.
+- [Spider-Man Movies in Order: Every Spider-Verse Timeline](https://marvel.harver.in/spider-verse.html) (25 titles): Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and spin-offs, and the animated Spider-Verse, shown as a tree of separate universes.
+- [2000s Marvel Movies: Blade, Hulk, Ghost Rider & More](https://marvel.harver.in/legacy.html) (20 titles): Marvel films from other studios before and alongside the MCU: Blade, Hulk, Daredevil, Elektra, Fantastic Four, Ghost Rider and the Punisher films.
+- [Road to Avengers: Doomsday & Secret Wars Explained](https://marvel.harver.in/multiverse.html) (19 titles): How separate Marvel film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.
+- [Every Marvel Movie & Series: Full Catalog with Filters](https://marvel.harver.in/catalog.html) (143 titles): Every Marvel film and series in one list, with filters for section, format and connections, plus seasons, episodes and plot summaries.
+- [About Marvel Timelines](https://marvel.harver.in/about.html): What Marvel Timelines covers, how connections are decided, and who made it.
+
+## Titles
+
+- The Incredible Hulk (TV series) (1977): https://marvel.harver.in/legacy.html#t=hulk77
+- The Amazing Spider-Man (TV series) (1977): https://marvel.harver.in/spider-verse.html#t=asm77
+- Howard the Duck (1986): https://marvel.harver.in/legacy.html#t=hd
+- The Punisher (1989): https://marvel.harver.in/legacy.html#t=pun89
+- Captain America (1990): https://marvel.harver.in/legacy.html#t=cap90
+- X-Men: The Animated Series (1992): https://marvel.harver.in/xmen.html#t=xmtas
+- Spider-Man: The Animated Series (1994): https://marvel.harver.in/spider-verse.html#t=smtas
+- Generation X (1996): https://marvel.harver.in/xmen.html#t=genx
+- Blade (1998): https://marvel.harver.in/legacy.html#t=blade1
+- Nick Fury: Agent of S.H.I.E.L.D. (1998): https://marvel.harver.in/legacy.html#t=nickfury
+- X-Men (2000): https://marvel.harver.in/xmen.html#t=xm1
+- Blade II (2002): https://marvel.harver.in/legacy.html#t=blade2
+- Spider-Man (2002): https://marvel.harver.in/spider-verse.html#t=sm1
+- Daredevil (2003): https://marvel.harver.in/legacy.html#t=dd03
+- X2 (2003): https://marvel.harver.in/xmen.html#t=xm2
+- Hulk (2003): https://marvel.harver.in/legacy.html#t=hulk03
+- Spider-Man 2 (2004): https://marvel.harver.in/spider-verse.html#t=sm2
+- The Punisher (2004): https://marvel.harver.in/legacy.html#t=pun04
+- Blade: Trinity (2004): https://marvel.harver.in/legacy.html#t=blade3
+- Elektra (2005): https://marvel.harver.in/legacy.html#t=elektra
+- Fantastic Four (2005): https://marvel.harver.in/legacy.html#t=ff05
+- Man-Thing (2005): https://marvel.harver.in/legacy.html#t=manthing
+- X-Men: The Last Stand (2006): https://marvel.harver.in/xmen.html#t=xm3
+- Blade: The Series (2006): https://marvel.harver.in/legacy.html#t=bladetv
+- Ghost Rider (2007): https://marvel.harver.in/legacy.html#t=gr
+- Spider-Man 3 (2007): https://marvel.harver.in/spider-verse.html#t=sm3
+- Fantastic Four: Rise of the Silver Surfer (2007): https://marvel.harver.in/legacy.html#t=ff07
+- Iron Man (2008): https://marvel.harver.in/mcu.html#t=im
+- The Incredible Hulk (2008): https://marvel.harver.in/mcu.html#t=ih
+- The Spectacular Spider-Man (2008): https://marvel.harver.in/spider-verse.html#t=specspidey
+- Punisher: War Zone (2008): https://marvel.harver.in/legacy.html#t=punwz
+- Wolverine and the X-Men (2009): https://marvel.harver.in/xmen.html#t=wxm
+- X-Men Origins: Wolverine (2009): https://marvel.harver.in/xmen.html#t=origins
+- Iron Man 2 (2010): https://marvel.harver.in/mcu.html#t=im2
+- The Avengers: Earth's Mightiest Heroes (2010): https://marvel.harver.in/catalog.html#t=aemh
+- Thor (2011): https://marvel.harver.in/mcu.html#t=thor
+- Captain America: The First Avenger (2011): https://marvel.harver.in/mcu.html#t=cafa
+- X-Men: First Class (2011): https://marvel.harver.in/xmen.html#t=fc
+- The Avengers (2012): https://marvel.harver.in/mcu.html#t=av1
+- The Amazing Spider-Man (2012): https://marvel.harver.in/spider-verse.html#t=asm1
+- Ghost Rider: Spirit of Vengeance (2012): https://marvel.harver.in/legacy.html#t=gr2
+- Ultimate Spider-Man (2012): https://marvel.harver.in/spider-verse.html#t=ultimate
+- Iron Man 3 (2013): https://marvel.harver.in/mcu.html#t=im3
+- Thor: The Dark World (2013): https://marvel.harver.in/mcu.html#t=tdw
+- The Wolverine (2013): https://marvel.harver.in/xmen.html#t=tw
+- Agents of S.H.I.E.L.D. (2013): https://marvel.harver.in/street-level.html#t=aos
+- Captain America: The Winter Soldier (2014): https://marvel.harver.in/mcu.html#t=tws
+- Guardians of the Galaxy (2014): https://marvel.harver.in/mcu.html#t=gotg
+- X-Men: Days of Future Past (2014): https://marvel.harver.in/xmen.html#t=dofp
+- The Amazing Spider-Man 2 (2014): https://marvel.harver.in/spider-verse.html#t=asm2
+- Big Hero 6 (2014): https://marvel.harver.in/catalog.html#t=bh6
+- Avengers: Age of Ultron (2015): https://marvel.harver.in/mcu.html#t=aou
+- Ant-Man (2015): https://marvel.harver.in/mcu.html#t=antman
+- Agent Carter (2015): https://marvel.harver.in/street-level.html#t=carter
+- Daredevil (2015): https://marvel.harver.in/street-level.html#t=ddnet
+- Jessica Jones (2015): https://marvel.harver.in/street-level.html#t=jj
+- Fantastic Four (2015): https://marvel.harver.in/legacy.html#t=ff15
+- Captain America: Civil War (2016): https://marvel.harver.in/mcu.html#t=cw
+- Doctor Strange (2016): https://marvel.harver.in/mcu.html#t=ds
+- Deadpool (2016): https://marvel.harver.in/xmen.html#t=dp1
+- X-Men: Apocalypse (2016): https://marvel.harver.in/xmen.html#t=apoc
+- Luke Cage (2016): https://marvel.harver.in/street-level.html#t=lc
+- Guardians of the Galaxy Vol. 2 (2017): https://marvel.harver.in/mcu.html#t=gotg2
+- Spider-Man: Homecoming (2017): https://marvel.harver.in/spider-verse.html#t=homec
+- Thor: Ragnarok (2017): https://marvel.harver.in/mcu.html#t=rag
+- Logan (2017): https://marvel.harver.in/xmen.html#t=logan
+- Legion (2017): https://marvel.harver.in/xmen.html#t=legion
+- The Gifted (2017): https://marvel.harver.in/xmen.html#t=gifted
+- Iron Fist (2017): https://marvel.harver.in/street-level.html#t=if
+- The Defenders (2017): https://marvel.harver.in/street-level.html#t=def
+- The Punisher (2017): https://marvel.harver.in/street-level.html#t=pun
+- Inhumans (2017): https://marvel.harver.in/street-level.html#t=inhumans
+- Runaways (2017): https://marvel.harver.in/street-level.html#t=runaways
+- Black Panther (2018): https://marvel.harver.in/mcu.html#t=bp
+- Avengers: Infinity War (2018): https://marvel.harver.in/mcu.html#t=iw
+- Ant-Man and the Wasp (2018): https://marvel.harver.in/mcu.html#t=aw
+- Deadpool 2 (2018): https://marvel.harver.in/xmen.html#t=dp2
+- Cloak & Dagger (2018): https://marvel.harver.in/street-level.html#t=cloak
+- Venom (2018): https://marvel.harver.in/spider-verse.html#t=venom1
+- Spider-Man: Into the Spider-Verse (2018): https://marvel.harver.in/spider-verse.html#t=itsv
+- Captain Marvel (2019): https://marvel.harver.in/mcu.html#t=cm
+- Avengers: Endgame (2019): https://marvel.harver.in/mcu.html#t=eg
+- Spider-Man: Far From Home (2019): https://marvel.harver.in/spider-verse.html#t=ffh
+- Dark Phoenix (2019): https://marvel.harver.in/xmen.html#t=dph
+- The New Mutants (2020): https://marvel.harver.in/xmen.html#t=nm
+- Helstrom (2020): https://marvel.harver.in/street-level.html#t=helstrom
+- WandaVision (2021): https://marvel.harver.in/mcu.html#t=wv
+- The Falcon and the Winter Soldier (2021): https://marvel.harver.in/mcu.html#t=fws
+- Loki (Season 1) (2021): https://marvel.harver.in/mcu.html#t=loki1
+- What If...? (Season 1) (2021): https://marvel.harver.in/mcu.html#t=whatif1
+- Black Widow (2021): https://marvel.harver.in/mcu.html#t=bw
+- Shang-Chi and the Legend of the Ten Rings (2021): https://marvel.harver.in/mcu.html#t=shang
+- Eternals (2021): https://marvel.harver.in/mcu.html#t=eternals
+- Hawkeye (2021): https://marvel.harver.in/mcu.html#t=hawkeye
+- Spider-Man: No Way Home (2021): https://marvel.harver.in/spider-verse.html#t=nwh
+- Spidey and His Amazing Friends (2021): https://marvel.harver.in/spider-verse.html#t=spidey
+- Venom: Let There Be Carnage (2021): https://marvel.harver.in/spider-verse.html#t=venom2
+- M.O.D.O.K. (2021): https://marvel.harver.in/catalog.html#t=modok
+- Hit-Monkey (2021): https://marvel.harver.in/catalog.html#t=hitmonkey
+- Doctor Strange in the Multiverse of Madness (2022): https://marvel.harver.in/mcu.html#t=mom
+- Moon Knight (2022): https://marvel.harver.in/mcu.html#t=mk
+- Ms. Marvel (2022): https://marvel.harver.in/mcu.html#t=msm
+- Thor: Love and Thunder (2022): https://marvel.harver.in/mcu.html#t=thor4
+- She-Hulk: Attorney at Law (2022): https://marvel.harver.in/mcu.html#t=shehulk
+- Werewolf by Night (2022): https://marvel.harver.in/mcu.html#t=wbn
+- Black Panther: Wakanda Forever (2022): https://marvel.harver.in/mcu.html#t=wf
+- I Am Groot (2022): https://marvel.harver.in/mcu.html#t=igroot
+- The Guardians of the Galaxy Holiday Special (2022): https://marvel.harver.in/mcu.html#t=gotghs
+- Morbius (2022): https://marvel.harver.in/spider-verse.html#t=morbius
+- Ant-Man and the Wasp: Quantumania (2023): https://marvel.harver.in/mcu.html#t=quant
+- Guardians of the Galaxy Vol. 3 (2023): https://marvel.harver.in/mcu.html#t=gotg3
+- Secret Invasion (2023): https://marvel.harver.in/mcu.html#t=si
+- Loki (Season 2) (2023): https://marvel.harver.in/mcu.html#t=loki2
+- What If...? (Season 2) (2023): https://marvel.harver.in/mcu.html#t=whatif2
+- The Marvels (2023): https://marvel.harver.in/mcu.html#t=marvels
+- Moon Girl and Devil Dinosaur (2023): https://marvel.harver.in/catalog.html#t=moongirl
+- Spider-Man: Across the Spider-Verse (2023): https://marvel.harver.in/spider-verse.html#t=atsv
+- Echo (2024): https://marvel.harver.in/mcu.html#t=echo
+- X-Men '97 (2024): https://marvel.harver.in/xmen.html#t=x97
+- Deadpool & Wolverine (2024): https://marvel.harver.in/mcu.html#t=dw
+- Agatha All Along (2024): https://marvel.harver.in/mcu.html#t=agatha
+- What If...? (Season 3) (2024): https://marvel.harver.in/mcu.html#t=whatif3
+- Venom: The Last Dance (2024): https://marvel.harver.in/spider-verse.html#t=venom3
+- Madame Web (2024): https://marvel.harver.in/spider-verse.html#t=mw
+- Kraven the Hunter (2024): https://marvel.harver.in/spider-verse.html#t=kraven
+- Your Friendly Neighborhood Spider-Man (2025): https://marvel.harver.in/mcu.html#t=yfnsm
+- Captain America: Brave New World (2025): https://marvel.harver.in/mcu.html#t=bnw
+- Daredevil: Born Again (2025): https://marvel.harver.in/street-level.html#t=ddba
+- Thunderbolts* (2025): https://marvel.harver.in/mcu.html#t=thunderbolts
+- Ironheart (2025): https://marvel.harver.in/mcu.html#t=ironheart
+- The Fantastic Four: First Steps (2025): https://marvel.harver.in/mcu.html#t=ff
+- Eyes of Wakanda (2025): https://marvel.harver.in/mcu.html#t=eow
+- Marvel Zombies (2025): https://marvel.harver.in/mcu.html#t=mz
+- Wonder Man (2026): https://marvel.harver.in/mcu.html#t=wm
+- Daredevil: Born Again (Season 2) (2026): https://marvel.harver.in/street-level.html#t=ddba2
+- The Punisher: One Last Kill (2026): https://marvel.harver.in/street-level.html#t=olk
+- Spider-Noir (2026): https://marvel.harver.in/spider-verse.html#t=spidernoir
+- X-Men '97 (Season 2) (2026): https://marvel.harver.in/xmen.html#t=x97s2
+- Spider-Man: Brand New Day (2026): https://marvel.harver.in/spider-verse.html#t=bnd
+- VisionQuest (2026): https://marvel.harver.in/mcu.html#t=vq
+- Avengers: Doomsday (2026): https://marvel.harver.in/mcu.html#t=doomsday
+- Avengers: Secret Wars (2027): https://marvel.harver.in/mcu.html#t=sw
+- Spider-Man: Beyond the Spider-Verse (2027): https://marvel.harver.in/spider-verse.html#t=btsv

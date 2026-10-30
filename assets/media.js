@@ -23,7 +23,7 @@ window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":
 "ff05":{"wp":"Fantastic Four (2005 film)","img":"https://upload.wikimedia.org/wikipedia/en/4/4a/Fantastic_Four_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":260,"h":384},
 "manthing":{"wp":"Man-Thing (film)","img":"https://upload.wikimedia.org/wikipedia/en/d/dd/ManThingDVDCover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":258,"h":387},
 "xm3":{"wp":"X-Men: The Last Stand","img":"https://upload.wikimedia.org/wikipedia/en/1/13/X-Men_The_Last_Stand_2006_theatrical_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":262,"h":380},
-"bladetv":{"wp":"Blade: The Series","s":1,"e":13},
+"bladetv":{"wp":"Blade: The Series","s":1,"e":13,"img":"assets/posters/bladetv.jpg","w":400,"h":631},
 "gr":{"wp":"Ghost Rider (2007 film)","img":"https://upload.wikimedia.org/wikipedia/en/7/71/GhostRiderBigPoster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":259,"h":383},
 "sm3":{"wp":"Spider-Man 3","img":"https://upload.wikimedia.org/wikipedia/en/7/7a/Spider-Man_3%2C_International_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":260,"h":382},
 "ff07":{"wp":"Fantastic Four: Rise of the Silver Surfer","img":"https://upload.wikimedia.org/wikipedia/en/e/e6/Fantastic_Four_2_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":264,"h":378},
