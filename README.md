@@ -37,10 +37,12 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 ├── index.html            home
 ├── mcu.html  xmen.html  street-level.html  spider-verse.html
 ├── legacy.html  multiverse.html  catalog.html  about.html
+├── sitemap.xml           page list for Google Search Console
+├── google1b416379081362bb.html   Search Console ownership check (keep it)
 └── assets/
     ├── style.css         shared layout and one theme per page (body[data-theme])
     ├── data.js           every title, its summary and its connections
-    ├── app.js            nav, footer, detail dialog, catalog grid
+    ├── app.js            nav, footer, detail dialog, catalog grid, GoatCounter visitor stats
     ├── tree.js           the vertical trees and the story/release switch
     ├── media.js          generated: Wikipedia poster/title card, seasons and episodes per title
     ├── home.js           home page countdown and section counts
