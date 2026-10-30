@@ -26,6 +26,7 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 - **Adapts to zoom and screen size**: one column on phones, two columns around a centre spine on wide screens, three when you zoom out further.
 - **Posters and title cards** for 138 titles, shown from Wikipedia, plus season and episode counts from Wikidata.
 - **Poster wall** behind every page header, and official studio and streaming logos (Marvel Studios, 20th Century Fox, Sony Pictures, Netflix, Disney+ and others) in the footer.
+- **Dark theme button** in the menu on the light pages (Home, X-Men, Multiverse, Catalog, About). It follows the phone or computer setting until the visitor picks one, and remembers their choice. The MCU, Street Level, Spider-Verse and 2000s pages are always dark.
 - **Type**: Antonio for display, Hanken Grotesk for body text, built to the [Hallmark](https://github.com/nutlope/hallmark) rules (no kicker lines, no tracked-caps labels, no decorative monospace).
 - **Deep links**: every title has its own URL, for example `mcu.html#t=eg` for Endgame or `spider-verse.html#t=nwh` for No Way Home.
 - **Filters** on every list: format (film, series, animated, special), search, and "Doomsday road only".

@@ -7,7 +7,8 @@
 <meta name="description" content="How Marvel's film universes cross over: No Way Home, Multiverse of Madness, Deadpool &amp; Wolverine, and on to Avengers: Doomsday and Secret Wars.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="stylesheet" href="assets/style.css?v=7">
+<script>(function(){var m;try{m=localStorage.getItem("mode")}catch(e){}if(m==="dark"||(!m&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.dataset.mode="dark"})()</script>
 
 
 
@@ -84,7 +85,7 @@
   <a href="https://www.netflix.com">Netflix</a> · <a href="https://www.sonypictures.com">Sony Pictures</a></p></footer><!-- static:end --></div>
 <script src="assets/data.js?v=3"></script>
 <script src="assets/media.js?v=4"></script>
-<script src="assets/app.js?v=4"></script>
+<script src="assets/app.js?v=5"></script>
 <script>
 (() => {
   const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
@@ -116,11 +117,11 @@
   ];
   // year grid
   [2000, 2005, 2010, 2015, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028].forEach(y => {
-    el("line", {x1: X(y), x2: X(y), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, stroke: "#3b2a1a", "stroke-opacity": .12});
-    el("text", {x: X(y), y: Y0 + GAP * 8 + 36, "text-anchor": "middle", "font-family": "Hanken Grotesk, sans-serif", "font-size": 11, fill: "#7a6248"}, y);
+    el("line", {x1: X(y), x2: X(y), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, style: "stroke:var(--ink)", "stroke-opacity": .12});
+    el("text", {x: X(y), y: Y0 + GAP * 8 + 36, "text-anchor": "middle", "font-family": "Hanken Grotesk, sans-serif", "font-size": 11, style: "fill:var(--muted)"}, y);
   });
-  el("line", {x1: X(2020), x2: X(2020), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, stroke: "#3b2a1a", "stroke-opacity": .35, "stroke-dasharray": "3 4"});
-  el("text", {x: X(2020) - 6, y: Y0 + GAP * 8 + 52, "text-anchor": "end", "font-family": "Hanken Grotesk, sans-serif", "font-size": 10, fill: "#7a6248"}, "← compressed scale");
+  el("line", {x1: X(2020), x2: X(2020), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, style: "stroke:var(--ink)", "stroke-opacity": .35, "stroke-dasharray": "3 4"});
+  el("text", {x: X(2020) - 6, y: Y0 + GAP * 8 + 52, "text-anchor": "end", "font-family": "Hanken Grotesk, sans-serif", "font-size": 10, style: "fill:var(--muted)"}, "← compressed scale");
   // lanes
   lanes.forEach(l => {
     const y = LY[l.k];
@@ -135,15 +136,15 @@
     ev.from.forEach(k => {
       const lane = lanes.find(l => l.k === k);
       el("path", {d: `M${x},${LY[k]} L${x},${y616}`, stroke: lane.c, "stroke-width": 2.5, "stroke-dasharray": "5 4", fill: "none"});
-      el("circle", {cx: x, cy: LY[k], r: 5, fill: "#f3e8cf", stroke: lane.c, "stroke-width": 2.5});
+      el("circle", {cx: x, cy: LY[k], r: 5, style: "fill:var(--paper)", stroke: lane.c, "stroke-width": 2.5});
     });
     if (ev.id === "ff") el("path", {d: `M${x},${LY["828"]} L${x},${y616}`, stroke: "#2f5d3a", "stroke-width": 2.5, "stroke-dasharray": "2 4"});
     const g = el("g", {"data-open": ev.id, style: "cursor:pointer", tabindex: 0, role: "button", "aria-label": ev.label});
     const dot = document.createElementNS(NS, "circle");
-    Object.entries({cx: x, cy: y616, r: ev.big ? 11 : 8, fill: ev.big ? "#3b2a1a" : "#f3e8cf", stroke: "#3b2a1a", "stroke-width": 3}).forEach(([a, v]) => dot.setAttribute(a, v));
+    Object.entries({cx: x, cy: y616, r: ev.big ? 11 : 8, style: `fill:var(${ev.big ? "--ink" : "--paper"});stroke:var(--ink)`, "stroke-width": 3}).forEach(([a, v]) => dot.setAttribute(a, v));
     const lab = document.createElementNS(NS, "text");
     Object.entries({x: x + 4, y: y616 - 18, transform: `rotate(-38 ${x + 4} ${y616 - 18})`, "font-family": ev.big ? "Antonio, sans-serif" : "Hanken Grotesk, sans-serif",
-      "font-size": ev.big ? 16 : 12, "font-weight": 700, fill: ev.big ? "#c4621b" : "#3b2a1a"}).forEach(([a, v]) => lab.setAttribute(a, v));
+      "font-size": ev.big ? 16 : 12, "font-weight": 700, style: ev.big ? "fill:#c4621b" : "fill:var(--ink)"}).forEach(([a, v]) => lab.setAttribute(a, v));
     lab.textContent = ev.label;
     g.append(dot, lab);
   });
