@@ -89,6 +89,7 @@ python -m http.server 8000
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, choose **Deploy from a branch**, pick `main` and `/ (root)`, then save.
 4. The site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two.
+5. After editing anything in `assets/`, raise the `?v=` number on the script and style links in the pages (for example `?v=2` to `?v=3`) so visitors get the new files instead of an old saved copy.
 
 ## Links
 
