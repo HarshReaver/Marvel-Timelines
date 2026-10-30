@@ -45,6 +45,7 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 ├── favicon.png  apple-touch-icon.png   site icon in tabs and search results
 ├── tools/build-seo.mjs   run `node tools/build-seo.mjs` after editing titles: refreshes page titles, search data, sitemap and llms.txt
 ├── google1b416379081362bb.html   Search Console ownership check (keep it)
+├── docs/how-it-was-built.html (+ .pdf)   visual guide to how the site was built and run
 └── assets/
     ├── style.css         shared layout and one theme per page (body[data-theme])
     ├── data.js           every title, its summary and its connections
@@ -105,6 +106,7 @@ python -m http.server 8000
 
 - Live site: https://marvel.harver.in/
 - LinkedIn: https://www.linkedin.com/in/harsh-verma007/
+- How it was built (a visual guide to the web development, DevOps, DNS, security, system design and SEO behind the site): [docs/how-it-was-built.html](https://marvel.harver.in/docs/how-it-was-built.html) ([PDF](docs/how-it-was-built.pdf))
 
 ## License
 

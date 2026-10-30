@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marvel Timelines Guide</title>
+<style>
+  :root{--bg:#f6f3ec;--paper:#fff;--ink:#1d1b17;--muted:#5d574b;--line:#d6cdbb;--accent:#c0262d;--code:#f0ebe0;
+    --blue:#2563c9;--green:#2e7d32;--gold:#b7791f;--purple:#7b4bc4;--tint-blue:#e6eefb;--tint-green:#e5f2e6;--tint-gold:#f8eedb;--tint-red:#f9e3e3;--tint-purple:#efe7fa}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15140f;--paper:#1f1d18;--ink:#ece6d8;--muted:#a69f90;--line:#423d33;--accent:#ef5a5f;--code:#2a2720;
+    --blue:#6ea0f0;--green:#6cc070;--gold:#e0a84a;--purple:#ad8be6;--tint-blue:#1c2638;--tint-green:#1b2a1c;--tint-gold:#2e2516;--tint-red:#331b1c;--tint-purple:#271f36}}
+  :root[data-theme="dark"]{--bg:#15140f;--paper:#1f1d18;--ink:#ece6d8;--muted:#a69f90;--line:#423d33;--accent:#ef5a5f;--code:#2a2720;
+    --blue:#6ea0f0;--green:#6cc070;--gold:#e0a84a;--purple:#ad8be6;--tint-blue:#1c2638;--tint-green:#1b2a1c;--tint-gold:#2e2516;--tint-red:#331b1c;--tint-purple:#271f36}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Segoe UI",system-ui,sans-serif}
+  main{max-width:900px;margin:0 auto;padding:32px 16px 80px}
+  h1{font-size:36px;line-height:1.12;margin:0 0 8px}
+  h2{font-size:26px;line-height:1.2;margin:56px 0 6px;padding-top:18px;border-top:2px solid var(--line)}
+  h2 small{display:block;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+  h3{font-size:19px;margin:28px 0 6px}
+  p,li{max-width:74ch}
+  .lede{color:var(--muted);font-size:18px}
+  .story{font-size:18px;border-left:4px solid var(--accent);padding:2px 0 2px 16px;margin:14px 0 18px;color:var(--ink)}
+  code{background:var(--code);padding:1px 6px;border-radius:4px;font:15px/1.5 Consolas,monospace;word-break:break-word}
+  pre{background:var(--code);padding:12px 14px;border-radius:6px;overflow-x:auto;font:15px/1.5 Consolas,monospace}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:16px;display:block;overflow-x:auto}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--paper)}
+  .box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:14px 0}
+  .box > b:first-child{color:var(--accent)}
+  .skill{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.04em;padding:2px 9px;border-radius:999px;margin:0 4px 4px 0;border:1px solid currentColor}
+  .s-web{color:var(--blue)}.s-ops{color:var(--green)}.s-net{color:var(--gold)}.s-sec{color:var(--accent)}.s-seo{color:var(--purple)}.s-arch{color:var(--muted)}
+  nav.toc ol{columns:2;column-gap:32px;padding-left:20px}
+  @media (max-width:640px){nav.toc ol{columns:1}}
+  a{color:var(--accent)}
+  figure{margin:18px 0 22px}
+  figure svg{display:block;width:100%;height:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+  figcaption{font-size:14.5px;color:var(--muted);margin-top:6px}
+  .scroll{overflow-x:auto}
+  .scroll svg{min-width:640px}
+  /* diagram parts */
+  svg text{fill:var(--ink);font:13px "Segoe UI",system-ui,sans-serif}
+  svg .t-sm{font-size:11.5px;fill:var(--muted)}
+  svg .t-b{font-weight:700}
+  svg .n{stroke:var(--ink);stroke-width:1.3;fill:var(--paper)}
+  svg .n-blue{fill:var(--tint-blue);stroke:var(--blue)}
+  svg .n-green{fill:var(--tint-green);stroke:var(--green)}
+  svg .n-gold{fill:var(--tint-gold);stroke:var(--gold)}
+  svg .n-red{fill:var(--tint-red);stroke:var(--accent)}
+  svg .n-purple{fill:var(--tint-purple);stroke:var(--purple)}
+  svg .a{stroke:var(--ink);stroke-width:1.6;fill:none;marker-end:url(#arr)}
+  svg .a-dash{stroke-dasharray:5 4}
+  svg .lane{fill:none;stroke:var(--line);stroke-dasharray:4 4}
+  svg .lab{fill:var(--accent);font-weight:700;font-size:12px;letter-spacing:.06em}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr}}
+  .bug{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 16px}
+  .bug h4{margin:0 0 6px;font-size:16px}
+  .bug p{margin:4px 0;font-size:15.5px}
+  .bug b{display:inline-block;min-width:62px;color:var(--muted);font-weight:600}
+  @media print{body{font-size:13.5px} h2{break-before:page} figure,.bug,.box{break-inside:avoid} a{color:inherit}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink)"/></marker>
+</defs></svg>
+<main>
+<h1>Marvel Timelines: the story of how it was built</h1>
+<p class="lede">Everything important behind <a href="https://marvel.harver.in">marvel.harver.in</a>, told as a story with diagrams, and mapped to the skills software engineers use: web development, DevOps, networking, security, system design (HLD and LLD) and SEO. Updated 30 October 2026.</p>
+
+<p>Each chapter carries tags for the skills it shows:
+<span class="skill s-web">WEB DEV</span><span class="skill s-ops">DEVOPS</span><span class="skill s-net">NETWORKING</span><span class="skill s-sec">SECURITY</span><span class="skill s-arch">HLD / LLD</span><span class="skill s-seo">SEO</span></p>
+
+<nav class="toc"><h3>Chapters</h3><ol>
+  <li><a href="#map">The whole map on one page</a></li>
+  <li><a href="#build">Building the pages (web dev, LLD)</a></li>
+  <li><a href="#ship">Shipping changes safely (DevOps)</a></li>
+  <li><a href="#name">Giving it a name (DNS)</a></li>
+  <li><a href="#lock">Locking the door (security)</a></li>
+  <li><a href="#design">Why it's built this way (HLD)</a></li>
+  <li><a href="#found">Getting found (SEO and AI search)</a></li>
+  <li><a href="#watch">Watching who comes (analytics)</a></li>
+  <li><a href="#bugs">Bugs we hit and what they taught</a></li>
+  <li><a href="#tasks">Everyday tasks, step by step</a></li>
+  <li><a href="#traffic">Getting traffic</a></li>
+  <li><a href="#files">Which file does what</a></li>
+  <li><a href="#words">Words to know</a></li>
+</ol></nav>
+
+<!-- ============ 1 ============ -->
+<h2 id="map"><small>Chapter 1</small>The whole map on one page</h2>
+<p class="story">It started as one X-Men timeline chart. It grew into nine pages covering 143 Marvel films and series, a domain of its own, visitor stats, and search listings. Here is every moving part and how they connect. The rest of this guide zooms into one part at a time.</p>
+
+<figure class="scroll">
+<svg viewBox="0 0 820 420" role="img" aria-label="Three paths: how you publish, how a visitor reaches the site, and how Google finds it">
+  <text x="16" y="28" class="lab">1 · YOU PUBLISH</text>
+  <rect class="n n-blue" x="16" y="40" width="130" height="56" rx="8"/><text x="81" y="64" text-anchor="middle" class="t-b">VS Code</text><text x="81" y="82" text-anchor="middle" class="t-sm">edit files</text>
+  <rect class="n n-blue" x="176" y="40" width="130" height="56" rx="8"/><text x="241" y="64" text-anchor="middle" class="t-b">GitHub Desktop</text><text x="241" y="82" text-anchor="middle" class="t-sm">commit + push</text>
+  <rect class="n n-green" x="336" y="40" width="130" height="56" rx="8"/><text x="401" y="64" text-anchor="middle" class="t-b">GitHub repo</text><text x="401" y="82" text-anchor="middle" class="t-sm">the source of truth</text>
+  <rect class="n n-green" x="496" y="40" width="130" height="56" rx="8"/><text x="561" y="64" text-anchor="middle" class="t-b">Pages build</text><text x="561" y="82" text-anchor="middle" class="t-sm">1–2 minutes</text>
+  <path class="a" d="M146,68 H172"/><path class="a" d="M306,68 H332"/><path class="a" d="M466,68 H492"/>
+  <path class="a" d="M626,68 C690,68 700,150 700,172"/>
+
+  <rect class="n n-green" x="630" y="176" width="170" height="70" rx="8"/><text x="715" y="204" text-anchor="middle" class="t-b">GitHub Pages servers</text><text x="715" y="222" text-anchor="middle" class="t-sm">hand out your files</text><text x="715" y="237" text-anchor="middle" class="t-sm">worldwide, free</text>
+
+  <text x="16" y="168" class="lab">2 · A VISITOR ARRIVES</text>
+  <rect class="n n-gold" x="16" y="180" width="130" height="56" rx="8"/><text x="81" y="204" text-anchor="middle" class="t-b">Phone browser</text><text x="81" y="222" text-anchor="middle" class="t-sm">marvel.harver.in</text>
+  <rect class="n n-gold" x="186" y="180" width="150" height="56" rx="8"/><text x="261" y="204" text-anchor="middle" class="t-b">DNS at BigRock</text><text x="261" y="222" text-anchor="middle" class="t-sm">"it lives at GitHub"</text>
+  <rect class="n n-red" x="376" y="180" width="200" height="56" rx="8"/><text x="476" y="204" text-anchor="middle" class="t-b">HTTPS padlock</text><text x="476" y="222" text-anchor="middle" class="t-sm">encrypted connection</text>
+  <path class="a" d="M146,208 H182"/><path class="a" d="M336,208 H372"/><path class="a" d="M576,208 H626"/>
+  <path class="a" d="M680,246 C680,300 560,300 520,300"/>
+  <rect class="n n-blue" x="300" y="276" width="216" height="52" rx="8"/><text x="408" y="298" text-anchor="middle" class="t-b">Browser builds the page</text><text x="408" y="315" text-anchor="middle" class="t-sm">data.js + tree.js + app.js</text>
+  <path class="a" d="M300,302 H232"/>
+  <rect class="n n-purple" x="80" y="276" width="150" height="52" rx="8"/><text x="155" y="298" text-anchor="middle" class="t-b">GoatCounter</text><text x="155" y="315" text-anchor="middle" class="t-sm">counts the visit</text>
+
+  <text x="16" y="366" class="lab">3 · GOOGLE FINDS IT</text>
+  <rect class="n n-purple" x="300" y="352" width="150" height="52" rx="8"/><text x="375" y="374" text-anchor="middle" class="t-b">Googlebot</text><text x="375" y="391" text-anchor="middle" class="t-sm">reads sitemap, pages</text>
+  <rect class="n n-purple" x="490" y="352" width="150" height="52" rx="8"/><text x="565" y="374" text-anchor="middle" class="t-b">Google index</text><text x="565" y="391" text-anchor="middle" class="t-sm">search results</text>
+  <rect class="n n-purple" x="660" y="352" width="150" height="52" rx="8"/><text x="735" y="374" text-anchor="middle" class="t-b">Search Console</text><text x="735" y="391" text-anchor="middle" class="t-sm">reports to you</text>
+  <path class="a a-dash" d="M450,366 C600,350 700,310 712,250"/>
+  <path class="a" d="M450,378 H486"/><path class="a" d="M640,378 H656"/>
+</svg>
+<figcaption>Three journeys meet at GitHub's servers: yours (publishing), a visitor's (reading), and Google's (indexing).</figcaption>
+</figure>
+
+<div class="box"><b>The one-line summary.</b> It's a <em>static site</em>: plain files with no server program and no database. GitHub stores and serves the files, BigRock points your name at GitHub, and the visitor's own browser does the work of building each page.</div>
+
+<!-- ============ 2 ============ -->
+<h2 id="build"><small>Chapter 2</small>Building the pages</h2>
+<p><span class="skill s-web">WEB DEV</span><span class="skill s-arch">LLD</span></p>
+<p class="story">Typing 143 titles into nine HTML pages by hand would mean fixing every typo in many places. So the titles live in one data file, and small scripts turn that data into trees, cards and pop-ups inside the visitor's browser. Change one line of data, and every page that shows that title updates.</p>
+
+<h3>What happens when a page opens</h3>
+<figure class="scroll">
+<svg viewBox="0 0 820 230" role="img" aria-label="Page load in five steps">
+  <rect class="n n-gold" x="16" y="30" width="146" height="78" rx="8"/><text x="89" y="56" text-anchor="middle" class="t-b">1 · HTML arrives</text><text x="89" y="76" text-anchor="middle" class="t-sm">title, SEO tags, plain</text><text x="89" y="91" text-anchor="middle" class="t-sm">list of every title</text>
+  <rect class="n n-blue" x="178" y="30" width="146" height="78" rx="8"/><text x="251" y="56" text-anchor="middle" class="t-b">2 · style.css</text><text x="251" y="76" text-anchor="middle" class="t-sm">colours, fonts,</text><text x="251" y="91" text-anchor="middle" class="t-sm">phone layout</text>
+  <rect class="n n-blue" x="340" y="30" width="146" height="78" rx="8"/><text x="413" y="56" text-anchor="middle" class="t-b">3 · data + media</text><text x="413" y="76" text-anchor="middle" class="t-sm">143 titles, posters,</text><text x="413" y="91" text-anchor="middle" class="t-sm">seasons, links</text>
+  <rect class="n n-blue" x="502" y="30" width="146" height="78" rx="8"/><text x="575" y="56" text-anchor="middle" class="t-b">4 · app.js</text><text x="575" y="76" text-anchor="middle" class="t-sm">menu, footer, dark</text><text x="575" y="91" text-anchor="middle" class="t-sm">mode, pop-ups, stats</text>
+  <rect class="n n-blue" x="664" y="30" width="146" height="78" rx="8"/><text x="737" y="56" text-anchor="middle" class="t-b">5 · tree.js</text><text x="737" y="76" text-anchor="middle" class="t-sm">draws the timeline,</text><text x="737" y="91" text-anchor="middle" class="t-sm">replaces the plain list</text>
+  <path class="a" d="M162,69 H174"/><path class="a" d="M324,69 H336"/><path class="a" d="M486,69 H498"/><path class="a" d="M648,69 H660"/>
+  <rect class="n" x="16" y="140" width="380" height="70" rx="8"/><text x="30" y="164" class="t-b">What Google and AI crawlers see</text><text x="30" y="184" class="t-sm">Step 1 only: they often don't run JavaScript, so the plain</text><text x="30" y="200" class="t-sm">list of titles in the HTML is written for them.</text>
+  <rect class="n" x="430" y="140" width="380" height="70" rx="8"/><text x="444" y="164" class="t-b">What a person sees</text><text x="444" y="184" class="t-sm">All five steps, in well under a second: the interactive</text><text x="444" y="200" class="t-sm">tree replaces the plain list before it's noticed.</text>
+  <path class="a a-dash" d="M89,108 V136"/><path class="a a-dash" d="M737,108 C737,124 700,128 640,136"/>
+</svg>
+<figcaption>This is called <b>progressive enhancement</b>: a page that works as plain text, then gets richer when JavaScript runs.</figcaption>
+</figure>
+
+<h3>How the files depend on each other (low-level design)</h3>
+<p>Low-level design (LLD) is about the pieces inside one system: what each module does and who uses whom. Each file here has one job:</p>
+<figure class="scroll">
+<svg viewBox="0 0 820 300" role="img" aria-label="Module diagram">
+  <rect class="n n-gold" x="20" y="30" width="170" height="64" rx="8"/><text x="105" y="56" text-anchor="middle" class="t-b">data.js</text><text x="105" y="75" text-anchor="middle" class="t-sm">every title: name, year,</text><text x="105" y="88" text-anchor="middle" class="t-sm">story, links, release date</text>
+  <rect class="n n-gold" x="20" y="120" width="170" height="64" rx="8"/><text x="105" y="146" text-anchor="middle" class="t-b">media.js</text><text x="105" y="165" text-anchor="middle" class="t-sm">posters, seasons,</text><text x="105" y="178" text-anchor="middle" class="t-sm">episodes per title</text>
+  <rect class="n n-blue" x="300" y="70" width="200" height="74" rx="8"/><text x="400" y="96" text-anchor="middle" class="t-b">app.js</text><text x="400" y="115" text-anchor="middle" class="t-sm">shared helpers + menu, footer,</text><text x="400" y="129" text-anchor="middle" class="t-sm">pop-ups, catalog, dark mode</text>
+  <rect class="n n-blue" x="610" y="20" width="190" height="56" rx="8"/><text x="705" y="44" text-anchor="middle" class="t-b">tree.js</text><text x="705" y="62" text-anchor="middle" class="t-sm">5 timeline pages</text>
+  <rect class="n n-blue" x="610" y="92" width="190" height="56" rx="8"/><text x="705" y="116" text-anchor="middle" class="t-b">home.js</text><text x="705" y="134" text-anchor="middle" class="t-sm">countdown, counts</text>
+  <rect class="n n-blue" x="610" y="164" width="190" height="56" rx="8"/><text x="705" y="188" text-anchor="middle" class="t-b">style.css</text><text x="705" y="206" text-anchor="middle" class="t-sm">all looks, 6 page themes</text>
+  <path class="a" d="M190,62 C250,62 250,95 296,98"/><path class="a" d="M190,152 C250,152 250,120 296,118"/>
+  <path class="a" d="M500,95 C560,95 560,48 606,48"/><path class="a" d="M500,112 H606"/>
+  <rect class="n n-green" x="20" y="226" width="290" height="58" rx="8"/><text x="165" y="250" text-anchor="middle" class="t-b">tools/build-seo.mjs (run by you)</text><text x="165" y="268" text-anchor="middle" class="t-sm">reads data + media, writes SEO into pages</text>
+  <rect class="n n-green" x="380" y="226" width="240" height="58" rx="8"/><text x="500" y="250" text-anchor="middle" class="t-b">9 HTML pages</text><text x="500" y="268" text-anchor="middle" class="t-sm">+ sitemap.xml + llms.txt</text>
+  <path class="a a-dash" d="M105,184 V222"/><path class="a" d="M310,255 H376"/>
+</svg>
+<figcaption>Data flows one way: data files → shared code → page-specific code. That makes changes predictable. This is <b>separation of concerns</b>, and <b>a single source of truth</b> (data.js).</figcaption>
+</figure>
+
+<h3>Front-end ideas used on the site</h3>
+<table>
+<tr><th>Idea</th><th>Where it is</th><th>In plain words</th></tr>
+<tr><td>Responsive design</td><td><code>@media (max-width:820px)</code> in style.css</td><td>Different rules for phone widths: one lane per block, smaller menus, smaller buttons.</td></tr>
+<tr><td>CSS variables (design tokens)</td><td><code>--bg</code>, <code>--ink</code>, <code>--accent</code> per <code>data-theme</code></td><td>Each page sets its own colour set: MCU red, X-Men steel, Street Level blood red, Spider-Verse blue/red, 2000s orange, Multiverse dark Loki/Doom green. One rule, many looks.</td></tr>
+<tr><td>Dark theme</td><td>moon button in app.js, small script in each page head</td><td>Follows the phone's setting until the visitor picks; the choice is saved in the browser (<code>localStorage</code>). The head script applies it before the page draws, so there's no white flash.</td></tr>
+<tr><td>Hide-on-scroll bar</td><td>tree.js</td><td>Scrolling down hides the section bar for more room; any scroll up brings it back.</td></tr>
+<tr><td>State in the address</td><td>catalog filters, <code>#id</code> links</td><td>A link like <code>mcu.html#iw</code> opens a specific title, so links can be shared.</td></tr>
+<tr><td>Accessibility</td><td><code>aria-pressed</code>, <code>alt</code> text, <code>aria-label</code></td><td>Screen readers can tell which buttons are on, what each image shows, and what icon buttons do.</td></tr>
+<tr><td>Self-updating content</td><td><code>rel</code> dates in data.js, <code>FILMS</code> in home.js</td><td>Upcoming titles lose their tag on release day; the countdown moves to the next film on its own.</td></tr>
+</table>
+
+<!-- ============ 3 ============ -->
+<h2 id="ship"><small>Chapter 3</small>Shipping changes safely</h2>
+<p><span class="skill s-ops">DEVOPS</span></p>
+<p class="story">Hundreds of changes went live during this project, and the site was never left broken. That came from a fixed routine: test on your own computer, push, let GitHub deploy, then check. DevOps is exactly this: getting changes from a laptop to real users quickly without breaking things.</p>
+
+<figure class="scroll">
+<svg viewBox="0 0 820 250" role="img" aria-label="Deploy pipeline">
+  <rect class="n n-blue" x="16" y="40" width="130" height="64" rx="8"/><text x="81" y="66" text-anchor="middle" class="t-b">1 · Edit</text><text x="81" y="85" text-anchor="middle" class="t-sm">VS Code</text>
+  <rect class="n n-blue" x="176" y="40" width="130" height="64" rx="8"/><text x="241" y="66" text-anchor="middle" class="t-b">2 · Test locally</text><text x="241" y="85" text-anchor="middle" class="t-sm">localhost:8765, F12</text>
+  <rect class="n n-green" x="336" y="40" width="130" height="64" rx="8"/><text x="401" y="66" text-anchor="middle" class="t-b">3 · Commit + push</text><text x="401" y="85" text-anchor="middle" class="t-sm">GitHub Desktop</text>
+  <rect class="n n-green" x="496" y="40" width="140" height="64" rx="8"/><text x="566" y="66" text-anchor="middle" class="t-b">4 · Build + deploy</text><text x="566" y="85" text-anchor="middle" class="t-sm">GitHub Actions</text>
+  <rect class="n n-gold" x="666" y="40" width="140" height="64" rx="8"/><text x="736" y="66" text-anchor="middle" class="t-b">5 · Live + check</text><text x="736" y="85" text-anchor="middle" class="t-sm">1–2 min later</text>
+  <path class="a" d="M146,72 H172"/><path class="a" d="M306,72 H332"/><path class="a" d="M466,72 H492"/><path class="a" d="M636,72 H662"/>
+  <path class="a a-dash" d="M241,104 C241,150 81,150 81,108"/><text x="161" y="160" text-anchor="middle" class="t-sm">error? fix and retest</text>
+  <path class="a a-dash" d="M566,104 C566,160 566,180 566,180"/>
+  <rect class="n n-red" x="456" y="184" width="220" height="50" rx="8"/><text x="566" y="206" text-anchor="middle" class="t-b">Deploy failed (GitHub 500)?</text><text x="566" y="223" text-anchor="middle" class="t-sm">re-run it, or push again</text>
+  <path class="a a-dash" d="M776,104 V244 H188 V238"/>
+  <rect class="n n-red" x="80" y="184" width="216" height="50" rx="8"/><text x="188" y="206" text-anchor="middle" class="t-b">Broken live?</text><text x="188" y="223" text-anchor="middle" class="t-sm">revert the commit, push</text>
+</svg>
+<figcaption>A deploy pipeline with a safety net at each stage. Every push is saved forever in git history, so any version can be brought back.</figcaption>
+</figure>
+
+<h3>The tools in that pipeline</h3>
+<table>
+<tr><th>Step</th><th>Tool</th><th>What to know</th></tr>
+<tr><td>Test locally</td><td><code>python -m http.server 8765</code> in the project folder</td><td>Then open <code>http://localhost:8765</code>. Press F12 → Console for errors, and the phone icon for phone width.</td></tr>
+<tr><td>Version control</td><td>git, via GitHub Desktop</td><td>A <b>commit</b> is a saved snapshot with a message. <b>Push</b> uploads it. <b>Fetch/Pull</b> brings down changes made on GitHub (like the CNAME file GitHub created).</td></tr>
+<tr><td>CI/CD</td><td>GitHub Actions: "pages build and deployment"</td><td>Runs by itself on every push to <code>main</code>. You can watch it in the repo's Actions tab. Once it failed with a GitHub server error (500); re-running fixed it.</td></tr>
+<tr><td>Cache busting</td><td><code>?v=12</code> on every asset link</td><td>Browsers keep old copies of CSS/JS. Raising the number makes it a new address, so everyone gets the fresh file at once.</td></tr>
+<tr><td>Build step</td><td><code>node tools/build-seo.mjs</code></td><td>Generates the SEO parts from data. Safe to rerun; it replaces its own block instead of adding another.</td></tr>
+</table>
+
+<div class="box"><b>Order matters.</b> The domain switch was done so nothing ever pointed at an address that didn't work yet: DNS record first, wait until it resolved, then the GitHub custom domain, then HTTPS, then new links. GoatCounter counted both addresses during the switch, so no visits were lost.</div>
+
+<!-- ============ 4 ============ -->
+<h2 id="name"><small>Chapter 4</small>Giving it a name</h2>
+<p><span class="skill s-net">NETWORKING</span><span class="skill s-ops">DEVOPS</span></p>
+<p class="story">The site first lived at harshreaver.github.io/Marvel-Timelines. That's long, and the address you shared on WhatsApp. You already owned harver.in at BigRock, so the site moved to marvel.harver.in, a <em>subdomain</em> that costs nothing extra. Old links still work: GitHub forwards them.</p>
+
+<h3>What happens when someone types marvel.harver.in</h3>
+<figure class="scroll">
+<svg viewBox="0 0 820 270" role="img" aria-label="DNS lookup sequence">
+  <rect class="n n-gold" x="16" y="20" width="120" height="44" rx="8"/><text x="76" y="47" text-anchor="middle" class="t-b">Phone</text>
+  <rect class="n n-gold" x="216" y="20" width="160" height="44" rx="8"/><text x="296" y="40" text-anchor="middle" class="t-b">DNS resolver</text><text x="296" y="56" text-anchor="middle" class="t-sm">phone company / Google</text>
+  <rect class="n n-gold" x="456" y="20" width="160" height="44" rx="8"/><text x="536" y="40" text-anchor="middle" class="t-b">BigRock DNS</text><text x="536" y="56" text-anchor="middle" class="t-sm">records for harver.in</text>
+  <rect class="n n-green" x="676" y="20" width="130" height="44" rx="8"/><text x="741" y="40" text-anchor="middle" class="t-b">GitHub Pages</text><text x="741" y="56" text-anchor="middle" class="t-sm">185.199.108–111</text>
+  <path class="lane" d="M76,64 V255"/><path class="lane" d="M296,64 V255"/><path class="lane" d="M536,64 V255"/><path class="lane" d="M741,64 V255"/>
+  <path class="a" d="M76,92 H292"/><text x="186" y="86" text-anchor="middle" class="t-sm">where is marvel.harver.in?</text>
+  <path class="a" d="M296,122 H532"/><text x="416" y="116" text-anchor="middle" class="t-sm">asks the domain's owner</text>
+  <path class="a" d="M536,152 H300"/><text x="416" y="146" text-anchor="middle" class="t-sm">CNAME: it's harshreaver.github.io</text>
+  <path class="a" d="M296,182 H80"/><text x="186" y="176" text-anchor="middle" class="t-sm">GitHub's IP address</text>
+  <path class="a" d="M76,222 H737"/><text x="406" y="216" text-anchor="middle" class="t-sm">HTTPS request: "give me marvel.harver.in/mcu.html"</text>
+  <path class="a" d="M741,246 H80"/><text x="406" y="241" text-anchor="middle" class="t-sm">the files</text>
+</svg>
+<figcaption>DNS is the internet's phone book. The answer is cached for a while (the <b>TTL</b>), which is why DNS changes take minutes to hours to reach everyone. BigRock took about 2 hours here.</figcaption>
+</figure>
+
+<h3>Records, explained</h3>
+<table>
+<tr><th>Record</th><th>Means</th><th>Used for</th></tr>
+<tr><td><b>CNAME</b> <code>marvel</code> → <code>harshreaver.github.io</code></td><td>"This name is a nickname for that name"</td><td>Subdomains like marvel.harver.in. <b>This is what you have.</b></td></tr>
+<tr><td><b>A</b> <code>@</code> → <code>185.199.108.153</code> (×4)</td><td>"This name lives at this IP address"</td><td>A bare domain like harver.info, if you ever host one on GitHub (plus a CNAME for <code>www</code>).</td></tr>
+</table>
+
+<h3>Setting it up again (step by step)</h3>
+<ol>
+  <li><b>BigRock:</b> Orders → harver.in → DNS Records → CNAME tab → Add CNAME Record. Name <code>marvel</code>, value <code>harshreaver.github.io</code>, save.</li>
+  <li><b>Check:</b> in Command Prompt run <code>nslookup marvel.harver.in 8.8.8.8</code>. When it mentions github.io or 185.199…, it's live.</li>
+  <li><b>GitHub:</b> repo → Settings → Pages → Custom domain → <code>marvel.harver.in</code> → Save. GitHub adds a <code>CNAME</code> file to the repo. Pull it in GitHub Desktop, and never delete it.</li>
+  <li><b>HTTPS:</b> wait until "Enforce HTTPS" can be ticked (minutes to an hour), then tick it.</li>
+</ol>
+
+<!-- ============ 5 ============ -->
+<h2 id="lock"><small>Chapter 5</small>Locking the door</h2>
+<p><span class="skill s-sec">SECURITY</span></p>
+<p class="story">A site with no server and no database has very little to attack: there's no login to break into and no data to steal. Security work here was about the connection, the domain, and what other people's code can do on your pages.</p>
+
+<figure class="scroll">
+<svg viewBox="0 0 820 230" role="img" aria-label="HTTPS certificate flow">
+  <rect class="n n-green" x="16" y="30" width="170" height="60" rx="8"/><text x="101" y="55" text-anchor="middle" class="t-b">GitHub Pages</text><text x="101" y="73" text-anchor="middle" class="t-sm">asks for a certificate</text>
+  <rect class="n n-red" x="250" y="30" width="170" height="60" rx="8"/><text x="335" y="55" text-anchor="middle" class="t-b">Let's Encrypt</text><text x="335" y="73" text-anchor="middle" class="t-sm">free, auto-renewed</text>
+  <rect class="n n-gold" x="484" y="30" width="170" height="60" rx="8"/><text x="569" y="55" text-anchor="middle" class="t-b">Public CT logs</text><text x="569" y="73" text-anchor="middle" class="t-sm">every certificate listed</text>
+  <rect class="n n-purple" x="684" y="30" width="122" height="60" rx="8"/><text x="745" y="55" text-anchor="middle" class="t-b">Bots</text><text x="745" y="73" text-anchor="middle" class="t-sm">visit new sites</text>
+  <path class="a" d="M186,60 H246"/><path class="a" d="M420,60 H480"/><path class="a" d="M654,60 H680"/>
+  <rect class="n n-gold" x="16" y="140" width="170" height="60" rx="8"/><text x="101" y="165" text-anchor="middle" class="t-b">Visitor's browser</text><text x="101" y="183" text-anchor="middle" class="t-sm">checks the certificate</text>
+  <path class="a" d="M186,170 H476"/><path class="a" d="M476,180 H190"/>
+  <text x="331" y="218" text-anchor="middle" class="t-sm">encrypted: nobody on the Wi-Fi can read or change it</text>
+  <rect class="n n-green" x="480" y="140" width="170" height="60" rx="8"/><text x="565" y="165" text-anchor="middle" class="t-b">marvel.harver.in</text><text x="565" y="183" text-anchor="middle" class="t-sm">padlock shown</text>
+  <path class="a a-dash" d="M335,90 C335,120 120,110 101,136"/>
+</svg>
+<figcaption>HTTPS in one picture. The certificate log on the right explains the early visits from the US and Belarus: scanners watch those logs and visit brand-new sites within hours.</figcaption>
+</figure>
+
+<table>
+<tr><th>Topic</th><th>What's in place</th><th>Why it matters</th></tr>
+<tr><td>HTTPS (TLS)</td><td>Let's Encrypt certificate, "Enforce HTTPS" ticked</td><td>Encrypts traffic and proves the site is really yours. http:// is forced to https://.</td></tr>
+<tr><td><b>Subdomain takeover</b></td><td>CNAME record at BigRock + CNAME file on GitHub</td><td>If you ever delete the GitHub site or its custom domain, <b>also delete the CNAME record at BigRock</b>. A record that points at an unclaimed github.io site lets a stranger claim marvel.harver.in and show anything on it.</td></tr>
+<tr><td>Third-party scripts</td><td>Only GoatCounter; images from Wikipedia/Wikimedia</td><td>Any script you load can do anything on your pages, so keep the list short and trusted.</td></tr>
+<tr><td>Secrets</td><td>None in the repo</td><td>The repo is public. Never commit passwords, API keys or tokens; anyone can read them, and bots scan GitHub for them.</td></tr>
+<tr><td>Privacy</td><td>GoatCounter is cookieless; nothing personal stored</td><td>No cookie banner needed. Dark mode and section choices stay in the visitor's own browser.</td></tr>
+<tr><td>Security headers</td><td>Not possible on GitHub Pages</td><td>SEO tools flag missing HSTS, CSP and X-Content-Type-Options. GitHub Pages doesn't let you set server headers, and with no logins or forms the risk is low. A host like Cloudflare Pages or Netlify would allow them.</td></tr>
+<tr><td>Verification file</td><td><code>google1b416379081362bb.html</code></td><td>Proves to Google you own the site. Harmless to keep public; deleting it loses Search Console access.</td></tr>
+</table>
+
+<!-- ============ 6 ============ -->
+<h2 id="design"><small>Chapter 6</small>Why it's built this way</h2>
+<p><span class="skill s-arch">HLD</span></p>
+<p class="story">High-level design (HLD) is the view from above: which big pieces exist, how they talk, and why this shape was chosen over others. In interviews you'd be asked "design X", and you'd answer with a diagram like this, plus trade-offs.</p>
+
+<figure class="scroll">
+<svg viewBox="0 0 820 300" role="img" aria-label="High-level architecture">
+  <rect class="n n-gold" x="20" y="110" width="140" height="80" rx="8"/><text x="90" y="140" text-anchor="middle" class="t-b">Clients</text><text x="90" y="158" text-anchor="middle" class="t-sm">phones, laptops,</text><text x="90" y="172" text-anchor="middle" class="t-sm">crawlers</text>
+  <rect class="n n-gold" x="220" y="40" width="150" height="56" rx="8"/><text x="295" y="64" text-anchor="middle" class="t-b">DNS (BigRock)</text><text x="295" y="81" text-anchor="middle" class="t-sm">name → address</text>
+  <rect class="n n-green" x="220" y="122" width="200" height="88" rx="8"/><text x="320" y="148" text-anchor="middle" class="t-b">GitHub Pages (CDN)</text><text x="320" y="167" text-anchor="middle" class="t-sm">static files, HTTPS,</text><text x="320" y="181" text-anchor="middle" class="t-sm">servers around the world,</text><text x="320" y="195" text-anchor="middle" class="t-sm">caching</text>
+  <rect class="n n-green" x="480" y="122" width="150" height="88" rx="8"/><text x="555" y="152" text-anchor="middle" class="t-b">GitHub repo</text><text x="555" y="171" text-anchor="middle" class="t-sm">source + history</text><text x="555" y="185" text-anchor="middle" class="t-sm">(origin)</text>
+  <rect class="n n-purple" x="480" y="236" width="150" height="50" rx="8"/><text x="555" y="258" text-anchor="middle" class="t-b">GoatCounter</text><text x="555" y="274" text-anchor="middle" class="t-sm">analytics API</text>
+  <rect class="n n-purple" x="660" y="236" width="150" height="50" rx="8"/><text x="735" y="258" text-anchor="middle" class="t-b">Wikimedia</text><text x="735" y="274" text-anchor="middle" class="t-sm">poster images</text>
+  <rect class="n n-blue" x="660" y="122" width="150" height="88" rx="8"/><text x="735" y="152" text-anchor="middle" class="t-b">You</text><text x="735" y="171" text-anchor="middle" class="t-sm">push changes</text>
+  <path class="a" d="M160,135 C190,100 200,70 216,68"/><path class="a" d="M160,160 H216"/><path class="a" d="M480,166 H424"/><path class="a" d="M660,166 H634"/>
+  <path class="a a-dash" d="M90,190 C90,270 300,262 476,262"/><path class="a a-dash" d="M104,190 C120,298 700,298 735,290"/>
+  <text x="30" y="30" class="lab">NO SERVER CODE · NO DATABASE</text>
+</svg>
+<figcaption>The whole architecture. The dashed lines are calls the visitor's browser makes directly to other services.</figcaption>
+</figure>
+
+<h3>The trade-offs</h3>
+<div class="grid2">
+<div class="box"><b>What this design wins</b>
+<ul>
+  <li><b>Cost:</b> free hosting, free HTTPS; only the domain costs money.</li>
+  <li><b>Scale:</b> a viral Reddit post is fine. GitHub's CDN serves the same files to everyone; there's no server to overload.</li>
+  <li><b>Speed:</b> files come from a nearby server; Rank Math measured 0.05–0.8 s responses.</li>
+  <li><b>Security:</b> no login, database or server code means very little to attack.</li>
+  <li><b>Simplicity:</b> deploying is just a push. Rolling back is a revert.</li>
+</ul></div>
+<div class="box"><b>What it gives up</b>
+<ul>
+  <li><b>No accounts or saved data</b> across devices (watch lists would need a backend).</li>
+  <li><b>Crawlers that skip JavaScript</b> see less, which is why the plain lists and build script exist.</li>
+  <li><b>No control over server headers</b> (Chapter 5).</li>
+  <li><b>Depends on GitHub:</b> if Pages is down, so is the site. Limits: about 1 GB site size and 100 GB traffic a month, far above what you need.</li>
+</ul></div>
+</div>
+<div class="box"><b>If it ever needs more.</b> The usual next step is a small backend (for example Cloudflare Workers or Supabase) only for the parts that need it, such as user watch lists, while the pages stay static. That pattern is called <b>Jamstack</b>.</div>
+
+<!-- ============ 7 ============ -->
+<h2 id="found"><small>Chapter 7</small>Getting found</h2>
+<p><span class="skill s-seo">SEO</span><span class="skill s-web">WEB DEV</span></p>
+<p class="story">A great site nobody can find gets no visitors. Search engines and AI assistants read a page's hidden labels first, and many don't run JavaScript. So each page got labels written for machines, a plain-text copy of its content, and a map of the site. Then free checkers were used to find the gaps.</p>
+
+<figure class="scroll">
+<svg viewBox="0 0 820 220" role="img" aria-label="How search works">
+  <rect class="n n-purple" x="16" y="30" width="140" height="70" rx="8"/><text x="86" y="56" text-anchor="middle" class="t-b">1 · Discover</text><text x="86" y="75" text-anchor="middle" class="t-sm">sitemap.xml,</text><text x="86" y="89" text-anchor="middle" class="t-sm">links, Search Console</text>
+  <rect class="n n-purple" x="180" y="30" width="140" height="70" rx="8"/><text x="250" y="56" text-anchor="middle" class="t-b">2 · Crawl</text><text x="250" y="75" text-anchor="middle" class="t-sm">robots.txt says</text><text x="250" y="89" text-anchor="middle" class="t-sm">"welcome"</text>
+  <rect class="n n-purple" x="344" y="30" width="140" height="70" rx="8"/><text x="414" y="56" text-anchor="middle" class="t-b">3 · Understand</text><text x="414" y="75" text-anchor="middle" class="t-sm">title, description,</text><text x="414" y="89" text-anchor="middle" class="t-sm">headings, JSON-LD</text>
+  <rect class="n n-purple" x="508" y="30" width="140" height="70" rx="8"/><text x="578" y="56" text-anchor="middle" class="t-b">4 · Index</text><text x="578" y="75" text-anchor="middle" class="t-sm">stored, one address</text><text x="578" y="89" text-anchor="middle" class="t-sm">per page (canonical)</text>
+  <rect class="n n-purple" x="672" y="30" width="134" height="70" rx="8"/><text x="739" y="56" text-anchor="middle" class="t-b">5 · Rank</text><text x="739" y="75" text-anchor="middle" class="t-sm">backlinks, clicks,</text><text x="739" y="89" text-anchor="middle" class="t-sm">freshness, time</text>
+  <path class="a" d="M156,65 H176"/><path class="a" d="M320,65 H340"/><path class="a" d="M484,65 H504"/><path class="a" d="M648,65 H668"/>
+  <rect class="n n-green" x="16" y="130" width="632" height="66" rx="8"/><text x="332" y="156" text-anchor="middle" class="t-b">Steps 1–4 are technical, and are done</text><text x="332" y="176" text-anchor="middle" class="t-sm">the code removes every obstacle; build-seo.mjs keeps it in sync with data.js</text>
+  <rect class="n n-gold" x="672" y="130" width="134" height="66" rx="8"/><text x="739" y="156" text-anchor="middle" class="t-b">Step 5 is earned</text><text x="739" y="176" text-anchor="middle" class="t-sm">other sites, people</text>
+</svg>
+<figcaption>The search pipeline. Code can take you through step 4; ranking (step 5) depends on other sites linking to you and real people clicking.</figcaption>
+</figure>
+
+<h3>What each page carries</h3>
+<table>
+<tr><th>Label</th><th>Where you see it</th><th>Why it matters</th></tr>
+<tr><td>Title, e.g. "MCU Timeline: Watch Order in Story &amp; Release Order"</td><td>The blue link in Google, the browser tab</td><td>Matches what people type ("MCU watch order").</td></tr>
+<tr><td>Meta description (121–147 characters)</td><td>The grey text under the link</td><td>Short enough not to be cut off; makes people click.</td></tr>
+<tr><td>Headings: "X-MEN · Movies in order, both Fox timelines"</td><td>Big title and the small line under it</td><td>The H1 tells Google what the page is about.</td></tr>
+<tr><td>Canonical link</td><td>Hidden</td><td>The one true address, so github.io copies don't compete.</td></tr>
+<tr><td>Open Graph + <code>share.jpg</code></td><td>The card when the link is shared on WhatsApp, LinkedIn, X</td><td>More taps on shared links.</td></tr>
+<tr><td>JSON-LD structured data</td><td>Hidden</td><td>Every title as machine-readable facts (name, year, film or series, seasons, summary). AI systems can read it without running the site.</td></tr>
+<tr><td>Plain title list, menu and footer links</td><td>Hidden in browsers (replaced instantly)</td><td>Crawlers without JavaScript see 700–6,500 words and 16–24 links per page instead of an empty shell.</td></tr>
+<tr><td><code>robots.txt</code>, <code>sitemap.xml</code>, <code>llms.txt</code></td><td>/robots.txt etc.</td><td>Crawler rules, a list of all pages, and a plain summary some AI tools read.</td></tr>
+</table>
+
+<h3>Report card from the free checkers</h3>
+<table>
+<tr><th>Checker</th><th>Result</th><th>What's left, and why</th></tr>
+<tr><td>Rank Math</td><td>79 → <b>81/100</b></td><td>Minify CSS/JS (skipped to keep files editable), www redirect (doesn't apply to a subdomain), mobile speed (their test crashed).</td></tr>
+<tr><td>Seobility</td><td><b>69%</b></td><td>Page structure and server both 100%; held back by "external factors" (3%), meaning backlinks.</td></tr>
+<tr><td>SEORCE</td><td>Health <b>90</b>, domain authority <b>11</b></td><td>The authority comes from harver.in (the old github.io address had 1). Most warnings are server headers GitHub doesn't allow, or false alarms.</td></tr>
+<tr><td>Semrush, schema.org validator</td><td>0 errors</td><td>Structured data was fixed: Movie entries no longer carry episode counts.</td></tr>
+</table>
+
+<!-- ============ 8 ============ -->
+<h2 id="watch"><small>Chapter 8</small>Watching who comes</h2>
+<p><span class="skill s-ops">DEVOPS</span><span class="skill s-seo">SEO</span></p>
+<p class="story">The site was shared on WhatsApp before stats were set up, so the first visits were only partly counted. Two dashboards now answer the two big questions: "who visited?" and "how did Google show us?"</p>
+<div class="grid2">
+<div class="box"><b>GoatCounter</b>: <a href="https://marvel-timelines.goatcounter.com">marvel-timelines.goatcounter.com</a>
+<ul><li>Page views, countries, devices, where people came from.</li><li>Loaded by app.js only on the real addresses, so your local tests don't count.</li><li>Ad blockers hide some visits, so real numbers are a bit higher.</li></ul></div>
+<div class="box"><b>Google Search Console</b>: property <code>https://marvel.harver.in/</code>
+<ul><li>What people searched to find you, clicks, and which pages are indexed.</li><li>Sitemap submitted; "Couldn't fetch" at first is normal.</li><li>URL Inspection → Request indexing (about 10 a day).</li></ul></div>
+</div>
+<div class="box"><b>Reading odd visits.</b> Visits from the US or Belarus before anyone in those places knew about the site are usually bots (certificate-log scanners, SEO checkers, Google's own tester), or people on a VPN. Bot clues: Linux or headless Chrome, desktop screen sizes, one page, and a time matching when a checker ran. Your real audience so far is Android phones in India. In engineering this is called <b>observability</b>: being able to tell what's happening from the outside.</div>
+
+<!-- ============ 9 ============ -->
+<h2 id="bugs"><small>Chapter 9</small>Bugs we hit and what they taught</h2>
+<p><span class="skill s-web">WEB DEV</span><span class="skill s-ops">DEVOPS</span></p>
+<p class="story">Every real project has bugs. What matters is finding the cause, not just hiding the symptom. These are the ones worth remembering, written the way engineers write a short post-mortem.</p>
+<div class="grid2">
+<div class="bug"><h4>The old link that kept coming back</h4>
+<p><b>Symptom</b> The footer still showed the old "Marvel-Timeline" link after it was fixed, and it led to a 404.</p>
+<p><b>Cause</b> Browsers kept the old app.js in their cache.</p>
+<p><b>Fix</b> <code>?v=</code> version tags on every asset.</p>
+<p><b>Lesson</b> Caching makes sites fast, so plan how to invalidate it.</p></div>
+<div class="bug"><h4>The countdown that said "1 days"</h4>
+<p><b>Symptom</b> Wrong wording, and no plan for after release.</p>
+<p><b>Cause</b> Time-of-day maths and a single hard-coded film.</p>
+<p><b>Fix</b> Whole calendar days in UTC, plural rules, and a list of films with "out" and "gone" dates.</p>
+<p><b>Lesson</b> Dates and time zones are a classic source of bugs. Test the edge days.</p></div>
+<div class="bug"><h4>A duplicate SEO block</h4>
+<p><b>Symptom</b> Running the build script twice doubled the tags.</p>
+<p><b>Cause</b> The clean-up search didn't match its own comment.</p>
+<p><b>Fix</b> Match everything from <code>seo:start</code> to <code>seo:end</code>, all occurrences.</p>
+<p><b>Lesson</b> Make scripts <b>idempotent</b>: running them twice gives the same result as once.</p></div>
+<div class="bug"><h4>The About page with 143 items</h4>
+<p><b>Symptom</b> A page meant to list nothing listed every title.</p>
+<p><b>Cause</b> In JavaScript an empty list <code>[]</code> counts as "true".</p>
+<p><b>Fix</b> Return <code>false</code> instead.</p>
+<p><b>Lesson</b> Know your language's truthy and falsy rules.</p></div>
+<div class="bug"><h4>Invalid structured data</h4>
+<p><b>Symptom</b> Semrush flagged 4 invalid items.</p>
+<p><b>Cause</b> Two specials were marked "Movie" but carried episode counts.</p>
+<p><b>Fix</b> Only TV series get seasons and episodes.</p>
+<p><b>Lesson</b> Validate generated data against its schema (validator.schema.org).</p></div>
+<div class="bug"><h4>The deploy that failed for no reason</h4>
+<p><b>Symptom</b> A push didn't go live.</p>
+<p><b>Cause</b> GitHub's own server error (500), not your files.</p>
+<p><b>Fix</b> Re-run, or push again.</p>
+<p><b>Lesson</b> Read the log before changing code. Not every failure is yours.</p></div>
+<div class="bug"><h4>Borders cut off at 100% zoom</h4>
+<p><b>Symptom</b> The top line of the section buttons vanished after the bar slid back.</p>
+<p><b>Cause</b> A CSS transform left the bar on half pixels, and the scrolling row clipped the border.</p>
+<p><b>Fix</b> Spare padding, and hiding the bar by moving its sticky position in whole pixels.</p>
+<p><b>Lesson</b> Bugs that show at only one zoom level are usually sub-pixel rounding.</p></div>
+<div class="bug"><h4>Unreadable and mismatched colours</h4>
+<p><b>Symptom</b> Mixed-colour section buttons; dark text on dark red; a white logo strip over the posters.</p>
+<p><b>Cause</b> Colours chosen per section, not per page theme.</p>
+<p><b>Fix</b> One page colour for all buttons, the strip removed (logos stay in the footer).</p>
+<p><b>Lesson</b> Users notice consistency. Check contrast in both themes.</p></div>
+</div>
+
+<!-- ============ 10 ============ -->
+<h2 id="tasks"><small>Chapter 10</small>Everyday tasks, step by step</h2>
+<h3>Add a new film or series</h3>
+<ol>
+  <li>Open <code>assets/data.js</code>. The comment at the top explains every field. Copy a similar title's entry and change it. Entries are in release order.</li>
+  <li>If it's not out yet, add <code>up:1,rel:"2027-05-07"</code> (its release date). It drops the Upcoming tag on that day by itself. For an MCU title, also give it <code>so:</code> (its place in story order).</li>
+  <li>Poster: add an entry to <code>assets/media.js</code> with the Wikipedia image, or save a poster about 400px wide into <code>assets/posters/</code> and use <code>"img":"assets/posters/name.jpg","w":400,"h":600</code>.</li>
+  <li>If it belongs at a particular point in a story tree (X-Men forks, Spider-Verse lanes), it may also need adding to that page's <code>SPECS</code> in <code>assets/tree.js</code>.</li>
+  <li>Run <code>node tools/build-seo.mjs</code> (VS Code: Terminal → New Terminal).</li>
+  <li>Raise the version numbers (<code>data.js?v=</code>, <code>media.js?v=</code>) in all pages: Ctrl+Shift+H in VS Code replaces them everywhere.</li>
+  <li>Test locally, then commit and push.</li>
+</ol>
+<h3>After you watch Doomsday</h3>
+<p>Rewrite its <code>d:"…"</code> summary in data.js (it still describes the trailer and cast), then do steps 5 to 7 above.</p>
+<h3>Change the countdown</h3>
+<p>Edit the <code>FILMS</code> list at the top of <code>assets/home.js</code>: <code>out</code> is the release date, <code>gone</code> is when it hands over to the next film. Raise <code>home.js?v=</code> in index.html.</p>
+<h3>Change a page's colours</h3>
+<p>Each page's colours are one line near the top of <code>assets/style.css</code>, for example <code>[data-theme=tva]{--bg:…;--accent:…}</code>. Section button colours are the <code>.t-jump{--jump:…}</code> lines. Raise <code>style.css?v=</code> after changing.</p>
+<h3>Change a search title or description</h3>
+<p>Edit the <code>PAGES</code> list near the top of <code>tools/build-seo.mjs</code>, then run it. Keep titles under 60 characters and descriptions under 155.</p>
+
+<!-- ============ 11 ============ -->
+<h2 id="traffic"><small>Chapter 11</small>Getting traffic</h2>
+<p class="story">Nobody can promise a top Google spot or that Google's AI will recommend a site. The technical side is done. What decides it from here is other sites linking to yours, people clicking and staying, and time: a few weeks to appear for the site's own name, months for busy searches like "MCU watch order".</p>
+<ol>
+  <li><b>Request indexing</b> for the main pages in Search Console (Chapter 8).</li>
+  <li><b>Bing Webmaster Tools</b> (bing.com/webmasters): choose "Import from Google Search Console". Bing's index feeds ChatGPT search, Copilot and DuckDuckGo.</li>
+  <li><b>Link from places you control:</b> LinkedIn (Featured, plus a short post about building it), the Website field on the GitHub repo, your GitHub profile README, harver.in.</li>
+  <li><b>Answer where fans ask "what order should I watch":</b> Reddit (r/MCU, r/marvelstudios, r/xmen; read each subreddit's self-promotion rules first), Quora, a Letterboxd list. One good thread can beat months of search traffic, and each link raises your authority score.</li>
+  <li><b>Stay fresh around releases:</b> Doomsday (18 December 2026), Beyond the Spider-Verse (June 2027), Secret Wars (December 2027). Update summaries soon after each.</li>
+  <li><b>Watch what works:</b> GoatCounter for pages and sources, Search Console's Performance report for searches. Strengthen the pages that already get found.</li>
+</ol>
+
+<!-- ============ 12 ============ -->
+<h2 id="files"><small>Chapter 12</small>Which file does what</h2>
+<table>
+<tr><th>File</th><th>What it does</th><th>Edit by hand?</th></tr>
+<tr><td>assets/data.js</td><td>Every title: name, year, summary, connections, release dates</td><td>Yes, most edits happen here</td></tr>
+<tr><td>assets/media.js</td><td>Poster or title card, seasons and episodes per title</td><td>Yes, to add posters</td></tr>
+<tr><td>assets/tree.js</td><td>Draws the vertical trees and the section bar (hide on scroll)</td><td>Only for tree layout</td></tr>
+<tr><td>assets/app.js</td><td>Menu, dark theme button, footer, pop-ups, catalog, GoatCounter, release-date switch</td><td>Rarely</td></tr>
+<tr><td>assets/home.js</td><td>Home page countdown and counts</td><td>For countdown dates</td></tr>
+<tr><td>assets/style.css</td><td>All the looks: page themes, dark theme, phone layout</td><td>For design changes</td></tr>
+<tr><td>*.html</td><td>The pages (a shell the scripts fill in, plus the dark-mode head script)</td><td>For header text, version numbers</td></tr>
+<tr><td>multiverse.html</td><td>Also draws the lane map (its own script inside)</td><td>For map lanes and crossovers</td></tr>
+<tr><td>tools/build-seo.mjs</td><td>Titles, descriptions, structured data, plain lists, sitemap, llms.txt</td><td>Only its PAGES list</td></tr>
+<tr><td>sitemap.xml, llms.txt</td><td>Page lists for Google and AI tools</td><td>No, generated</td></tr>
+<tr><td>CNAME</td><td>The custom domain</td><td>No, never delete</td></tr>
+<tr><td>google1b416379081362bb.html</td><td>Proves to Google you own the site</td><td>No, never delete</td></tr>
+<tr><td>robots.txt, favicon.png, apple-touch-icon.png, assets/share.jpg</td><td>Crawler rules, site icon, share preview image</td><td>Rarely</td></tr>
+</table>
+
+<!-- ============ 13 ============ -->
+<h2 id="words"><small>Chapter 13</small>Words to know</h2>
+<table>
+<tr><th>Term</th><th>Skill</th><th>Meaning, using this site as the example</th></tr>
+<tr><td>Static site</td><td>HLD</td><td>Plain files served as they are; no server code or database. This whole site.</td></tr>
+<tr><td>CDN</td><td>HLD</td><td>Servers around the world holding copies of your files, so each visitor gets them from nearby. GitHub Pages is one.</td></tr>
+<tr><td>Client-side rendering</td><td>Web dev</td><td>The browser builds the page from data with JavaScript (tree.js).</td></tr>
+<tr><td>Progressive enhancement</td><td>Web dev</td><td>Works as plain HTML first, gets richer with JavaScript (the static lists).</td></tr>
+<tr><td>Design tokens</td><td>Web dev</td><td>Named values like <code>--accent</code> that a whole design is built from.</td></tr>
+<tr><td>CI/CD</td><td>DevOps</td><td>Automatic build and deploy on every push (GitHub Actions).</td></tr>
+<tr><td>Cache invalidation</td><td>DevOps</td><td>Making sure people get the new file, not an old copy (<code>?v=</code>).</td></tr>
+<tr><td>Rollback</td><td>DevOps</td><td>Going back to a working version (revert a commit, push).</td></tr>
+<tr><td>Idempotent</td><td>DevOps</td><td>Safe to run again and again with the same result (build-seo.mjs).</td></tr>
+<tr><td>DNS, CNAME, A record, TTL</td><td>Networking</td><td>The internet's phone book, a nickname record, an address record, and how long answers are cached.</td></tr>
+<tr><td>TLS / HTTPS, certificate</td><td>Security</td><td>Encrypted connection, and the digital ID that proves the site is yours (Let's Encrypt).</td></tr>
+<tr><td>Subdomain takeover</td><td>Security</td><td>A stranger claiming your name because DNS still points at a service you stopped using.</td></tr>
+<tr><td>Attack surface</td><td>Security</td><td>Everything an attacker could poke at. Tiny here: no logins, forms or database.</td></tr>
+<tr><td>Separation of concerns</td><td>LLD</td><td>Each module has one job (data vs drawing vs styling).</td></tr>
+<tr><td>Single source of truth</td><td>LLD</td><td>One place holds each fact (data.js); everything else reads from it.</td></tr>
+<tr><td>Canonical URL</td><td>SEO</td><td>The one official address of a page.</td></tr>
+<tr><td>Structured data (JSON-LD)</td><td>SEO</td><td>Facts in a machine-readable format search engines and AI understand.</td></tr>
+<tr><td>Backlinks, domain authority</td><td>SEO</td><td>Links from other sites, and a score of how trusted a domain is (11 for marvel.harver.in).</td></tr>
+<tr><td>Observability</td><td>DevOps</td><td>Seeing what's happening in a live system (GoatCounter, Search Console, Actions logs).</td></tr>
+<tr><td>Post-mortem</td><td>All</td><td>A short write-up of a bug: symptom, cause, fix, lesson (Chapter 9).</td></tr>
+</table>
+</main>
+</body>
+</html>
