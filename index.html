@@ -4,62 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Marvel Timelines</title>
-<meta name="description" content="An unofficial guide to every Marvel screen timeline: MCU, Fox X-Men, Netflix, Sony's Spider-Man, the 2000s films and the road to Avengers: Doomsday.">
+<meta name="description" content="An unofficial guide to every Marvel screen timeline: the MCU, Fox X-Men, Netflix, Sony Spider-Man, the 2000s films and the road to Avengers: Doomsday.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600;700&family=Michroma&family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="home">
 <div id="site-nav"></div>
-
 <section class="cover">
-<div class="cover-art" aria-hidden="true"><img src="assets/art/shield.svg" alt=""><img src="assets/art/daredevil.svg" alt=""><img src="assets/art/ghost-rider.svg" alt=""><img src="assets/art/doom.svg" alt=""></div>
+  <div class="poster-wall" data-ids="av1,eg,iw,xm1,logan,sm2,itsv,blade1,dw,nwh,bp,ff,dofp,venom1,gotg,cafa,thunderbolts,atsv"></div>
   <div class="wrap">
     <div>
-      <div class="issue"><span>Vol. 1</span><span>Oct 2026</span><span id="total"></span></div>
-      <h1 class="masthead">Every Marvel <span>Timeline</span></h1>
-      <p class="lede">The MCU, the Fox X-Men films, the Netflix street-level shows, Sony's Spider-Man films, the 2000s one-offs, and how a few of them meet in the multiverse. Click any title to see what it connects to.</p>
+      <h1 class="masthead">Every Marvel timeline</h1>
+      <p class="lede">The MCU, the Fox X-Men films, the Netflix street-level shows, Sony's Spider-Man films, the 2000s one-offs, and how a few of them meet in the multiverse. Each section is a timeline you can open as far as you like.</p>
     </div>
     <aside class="countdown" aria-live="polite">
-      <div class="kicker" style="color:#f2c230">Next stop</div>
       <div class="n" id="days">—</div>
-      <p id="days-label">days until <b>Avengers: Doomsday</b> (18 Dec 2026).<br>
-        <a href="multiverse.html">See who's coming back →</a></p>
+      <p id="days-label">days until <b>Avengers: Doomsday</b>, in cinemas 18 December 2026. <a href="multiverse.html">See who's coming back</a></p>
     </aside>
   </div>
 </section>
-
 <main class="wrap">
   <nav class="toc" aria-label="Sections">
     <ol>
-      <li><a href="mcu.html"><span class="num">01</span><span><span class="t">MCU Timeline</span><span class="d" style="display:block">Phases 1–6, colour-coded by Infinity Stone. Switch between release order and story order.</span></span><span class="c" data-c="mcu"></span><img class="toc-art" src="assets/art/shield.svg" alt=""></a></li>
-      <li><a href="xmen.html"><span class="num">02</span><span><span class="t">X-Men Timeline</span><span class="d" style="display:block">Fox's mutants from 2000 to 2020, and how Days of Future Past splits it into two timelines.</span></span><span class="c" data-c="xmen"></span><img class="toc-art" src="assets/art/claws.svg" alt=""></a></li>
-      <li><a href="street-level.html"><span class="num">03</span><span><span class="t">Street Level &amp; Marvel TV</span><span class="d" style="display:block">Daredevil, the Defenders and The Punisher on Netflix, the ABC shows, and the Born Again revival.</span></span><span class="c" data-c="street"></span><img class="toc-art" src="assets/art/daredevil.svg" alt=""></a></li>
-      <li><a href="spider-verse.html"><span class="num">04</span><span><span class="t">Spider-Verse</span><span class="d" style="display:block">Raimi, Webb, Holland, Venom, Sony's spin-offs, and the animated Spider-Verse.</span></span><span class="c" data-c="spider"></span><img class="toc-art" src="assets/art/spider.svg" alt=""></a></li>
-      <li><a href="legacy.html"><span class="num">05</span><span><span class="t">The 2000s Era</span><span class="d" style="display:block">Blade, Hulk, Ghost Rider, Elektra, the Fox Fantastic Four and three Punishers. Mostly standalone.</span></span><span class="c" data-c="legacy"></span><img class="toc-art" src="assets/art/ghost-rider.svg" alt=""></a></li>
-      <li><a href="multiverse.html"><span class="num">06</span><span><span class="t">Multiverse: Road to Doomsday</span><span class="d" style="display:block">The crossovers that tie separate universes together, leading to Doomsday and Secret Wars.</span></span><span class="c">Case files</span><img class="toc-art" src="assets/art/doom.svg" alt=""></a></li>
-      <li><a href="catalog.html"><span class="num">07</span><span><span class="t">Full Catalog</span><span class="d" style="display:block">Every title in one place. Filter by section, format or connection, or search.</span></span><span class="c" id="c-all"></span><span class="toc-art"></span></a></li>
+      <li><a href="mcu.html"><span class="num">01</span><span><span class="t">MCU Timeline</span><span class="d">Phases 1 to 6, in story order or release order.</span></span><span class="c" data-c="mcu"></span><span class="toc-posters" data-ids="cafa,av1,eg"></span></a></li>
+      <li><a href="xmen.html"><span class="num">02</span><span><span class="t">X-Men</span><span class="d">Fox's mutants from 2000 to 2020, and the 1973 split in Days of Future Past.</span></span><span class="c" data-c="xmen"></span><span class="toc-posters" data-ids="xm1,dofp,logan"></span></a></li>
+      <li><a href="street-level.html"><span class="num">03</span><span><span class="t">Street Level &amp; Marvel TV</span><span class="d">Daredevil, the Defenders and The Punisher on Netflix, the ABC shows, and Born Again.</span></span><span class="c" data-c="street"></span><span class="toc-posters" data-ids="dd03,ddba,ddba2"></span></a></li>
+      <li><a href="spider-verse.html"><span class="num">04</span><span><span class="t">Spider-Verse</span><span class="d">Raimi, Webb, Holland, Venom, Sony's spin-offs, and the animated Spider-Verse.</span></span><span class="c" data-c="spider"></span><span class="toc-posters" data-ids="sm2,itsv,nwh"></span></a></li>
+      <li><a href="legacy.html"><span class="num">05</span><span><span class="t">The 2000s Era</span><span class="d">Blade, Hulk, Ghost Rider, Elektra, the Fox Fantastic Four and three Punishers.</span></span><span class="c" data-c="legacy"></span><span class="toc-posters" data-ids="blade1,gr,ff05"></span></a></li>
+      <li><a href="multiverse.html"><span class="num">06</span><span><span class="t">Road to Doomsday</span><span class="d">The crossovers that tie separate universes together, leading to Doomsday and Secret Wars.</span></span><span class="c">9 case files</span><span class="toc-posters" data-ids="loki1,mom,dw"></span></a></li>
+      <li><a href="catalog.html"><span class="num">07</span><span><span class="t">Full Catalog</span><span class="d">Every title in one place, with filters and search.</span></span><span class="c" id="c-all"></span><span class="toc-posters" data-ids="hd,bh6,venom3"></span></a></li>
     </ol>
   </nav>
-
-  <h2 style="margin-bottom:12px">How titles get connected</h2>
+  <h2 style="font-size:36px;text-transform:uppercase;margin-bottom:12px">How titles get connected</h2>
   <div class="rules">
     <div><b>Story link</b><p>Shared characters, a sequel, a crossover or a cameo that matters, like Kingpin moving from Netflix to Hawkeye.</p></div>
     <div><b>Doomsday road</b><p>Anything that feeds Avengers: Doomsday or Secret Wars, including legacy cast members confirmed to return.</p></div>
-    <div><b>Standalone</b><p>Still listed, but with no connection lines. Hulk (2003), Madame Web and Ghost Rider sit here.</p></div>
+    <div><b>Standalone</b><p>Still listed, with no connections. Hulk (2003), Madame Web and Ghost Rider sit here.</p></div>
   </div>
 </main>
-
 <div id="site-foot"></div>
 <script src="assets/data.js"></script>
+<script src="assets/media.js"></script>
 <script src="assets/app.js"></script>
-<script>
-  document.querySelectorAll("[data-c]").forEach(el => el.textContent = SITE.count(el.dataset.c) + " titles");
-  document.getElementById("c-all").textContent = TITLES.length + " titles";
-  document.getElementById("total").textContent = TITLES.length + " titles";
-  const days = Math.ceil((new Date("2026-12-18T00:00:00") - new Date()) / 864e5);
-  if (days > 0) document.getElementById("days").textContent = days;
-  else { document.getElementById("days").textContent = "Out now"; document.getElementById("days-label").innerHTML = '<b>Avengers: Doomsday</b> is in cinemas. Next: Secret Wars (Dec 2027).<br><a href="multiverse.html">Road to Secret Wars →</a>'; }
-</script>
+<script src="assets/home.js"></script>
 </body>
 </html>

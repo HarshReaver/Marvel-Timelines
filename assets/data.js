@@ -5,7 +5,7 @@
   g   group on its page   ph  MCU phase (also puts a title from another page on the MCU tree)
   set in-story year       so  position in the MCU story order (MCU tree only)
   af  optional extra: shown as a side branch after this title in story order
-  logo key in LOGOS       d   description shown on the trees
+  d   description shown on the trees (posters, seasons and episodes live in media.js)
   l   connections [[id, "how"]] (reverse links are added automatically)
   mv  1 = road to Doomsday / Secret Wars    up 1 = not released yet (Oct 2026)
   bad a warning label shown on the card
@@ -17,17 +17,6 @@ window.PAGES = {
   spider: {file:"spider-verse.html", name:"Spider-Verse"},
   legacy: {file:"legacy.html",       name:"2000s Era"},
   other:  {file:"catalog.html",      name:"Catalog"}
-};
-
-// Logos from Wikimedia Commons (public domain / CC0 text logos). dark = black artwork, inverted on dark themes.
-window.LOGOS = {
-  marvel:{f:"marvel.svg"}, studios:{f:"marvel-studios.svg"}, tv:{f:"marvel-television.svg"},
-  avengers:{f:"avengers.svg",dark:1}, iw:{f:"infinity-war.svg",dark:1}, eg:{f:"endgame.svg",dark:1},
-  cm:{f:"captain-marvel.svg",dark:1}, loki:{f:"loki.svg",dark:1}, dw:{f:"deadpool-wolverine.svg",dark:1},
-  ff:{f:"ff-first-steps.png",dark:1}, ffm:{f:"fantastic-four.svg",dark:1}, dd:{f:"daredevil.svg"},
-  netflix:{f:"netflix.svg"}, shield:{f:"shield.png",dark:1}, sony:{f:"sony-pictures.svg",dark:1},
-  venom:{f:"venom.png"}, sv:{f:"spider-verse.png"}, xmen:{f:"xmen-films.svg",dark:1}, x97:{f:"xmen-97.png"},
-  wolverine:{f:"wolverine.svg"}
 };
 
 window.GROUP_COLORS = { // key order = order of groups in the catalog
@@ -126,7 +115,7 @@ window.TITLES = [
 {id:"cafa",t:"Captain America: The First Avenger",y:2011,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 1",set:1943,so:1,
  d:"Skinny Steve Rogers becomes a super-soldier in 1943. He rescues Bucky and the Howling Commandos and battles the Red Skull's HYDRA, which is powered by the Tesseract. Bucky falls from a train, and Steve crashes the Valkyrie into the Arctic. He wakes up 70 years later.",
  l:[["tws","Bucky returns as the Winter Soldier"],["carter","Peggy's story continues after the war"]]},
-{id:"av1",t:"The Avengers",y:2012,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 1",set:2012,so:7,logo:"avengers",
+{id:"av1",t:"The Avengers",y:2012,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 1",set:2012,so:7,
  d:"Loki steals the Tesseract and opens a portal for a Chitauri army. Fury assembles Iron Man, Cap, Thor, Hulk, Black Widow and Hawkeye. Coulson's death unites them, and Tony flies a nuke through the portal. A post-credits scene reveals Thanos was behind it all.",
  l:[["aos","Coulson is brought back in Agents of S.H.I.E.L.D."]]},
 
@@ -166,16 +155,16 @@ window.TITLES = [
 {id:"bp",t:"Black Panther",y:2018,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:2016,so:17,
  d:"T'Challa becomes king, then is overthrown by his cousin Killmonger, who wants to arm oppressed people around the world. T'Challa wins back the throne and opens Wakanda up to the world.",
  l:[["wf","Sequel after Chadwick Boseman's death"]]},
-{id:"iw",t:"Avengers: Infinity War",y:2018,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:2018,so:22,logo:"iw",
+{id:"iw",t:"Avengers: Infinity War",y:2018,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:2018,so:22,
  d:"Thanos collects all six Infinity Stones. Loki, Gamora, Heimdall and Vision die. Thor's axe strikes Thanos but not his head, and he snaps, wiping out half of all life. Spider-Man, Black Panther and most of the Guardians turn to dust.",
  l:[["eg","Direct continuation"]]},
 {id:"aw",t:"Ant-Man and the Wasp",y:2018,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:2018,so:21,
  d:"Scott, under house arrest, helps Hope and Hank rescue Janet from the Quantum Realm. In the post-credits scene the snap hits, leaving Scott trapped in the Quantum Realm, which later lets him escape into Endgame.",
  l:[["eg","Scott escapes five years later"]]},
-{id:"cm",t:"Captain Marvel",y:2019,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:1995,so:2,logo:"cm",
+{id:"cm",t:"Captain Marvel",y:2019,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:1995,so:2,
  d:"In 1995, Kree soldier Vers learns she is really US pilot Carol Danvers. The Kree lied to her, and the Skrulls are refugees. A young Nick Fury loses his eye to Goose the Flerken. Fury names the Avengers Initiative after her call sign.",
  l:[["marvels","Carol teams up with Monica and Kamala"],["si","The Skrulls' story continues"]]},
-{id:"eg",t:"Avengers: Endgame",y:2019,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:2023,so:23,logo:"eg",
+{id:"eg",t:"Avengers: Endgame",y:2019,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 3",set:2023,so:23,
  d:"Five years after the snap, Scott escapes the Quantum Realm, and the Avengers time-travel to collect the stones. Natasha sacrifices herself on Vormir, Hulk snaps everyone back, and Tony dies snapping Thanos away. Steve returns the stones, lives a life with Peggy, and hands Sam the shield. A 2012 Loki escapes with the Tesseract.",
  l:[["loki1","2012 Loki's escape creates the branch the TVA catches"],["wv","Wanda grieves Vision"],["fws","Sam is given the shield"],["ffh","The world after Tony"]]},
 {id:"ffh",t:"Spider-Man: Far From Home",y:2019,ty:"F",pl:"Theatrical",pg:"spider",g:"MCU Spider-Man",ph:"Phase 3",set:2024,so:27,
@@ -189,7 +178,7 @@ window.TITLES = [
 {id:"fws",t:"The Falcon and the Winter Soldier",y:2021,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 4",set:2024,so:26,
  d:"Sam gives up the shield, and the government hands it to John Walker, who murders a Flag Smasher in public. Bucky makes amends and Zemo escapes. Sam takes up the shield as the new Captain America, and Valentina recruits Walker.",
  l:[["bnw","Sam's first film as Cap"],["thunderbolts","Valentina, Walker and Bucky return"]]},
-{id:"loki1",t:"Loki (Season 1)",y:2021,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 4",so:24,mv:1,logo:"loki",
+{id:"loki1",t:"Loki (Season 1)",y:2021,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 4",so:24,mv:1,
  d:"The 2012 Loki is arrested by the TVA, which prunes every branch from the Sacred Timeline. He meets variants of himself, including Sylvie, and reaches the Citadel at the End of Time. Sylvie kills He Who Remains, and the multiverse branches out of control.",
  l:[["mom","A branching multiverse"],["loki2","Direct continuation"]]},
 {id:"whatif1",t:"What If...? (Season 1)",y:2021,ty:"A",pl:"Disney+",pg:"mcu",g:"Phase 4",af:"loki1",mv:1,
@@ -241,7 +230,7 @@ window.TITLES = [
 {id:"si",t:"Secret Invasion",y:2023,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 5",so:42,
  d:"Rogue Skrulls led by Gravik have replaced world leaders and try to spark a world war. Maria Hill and Talos die, Rhodey is revealed to have been a Skrull for years, and G'iah gains the powers of every Avenger.",
  l:[["marvels","Fury's next job on S.A.B.E.R."]]},
-{id:"loki2",t:"Loki (Season 2)",y:2023,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 5",so:44,mv:1,logo:"loki",
+{id:"loki2",t:"Loki (Season 2)",y:2023,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 5",so:44,mv:1,
  d:"The TVA's loom is failing under the branching timelines. Loki learns to time-slip, meets Victor Timely and keeps reliving the collapse. He finally takes the throne at the End of Time and holds the branches together as a living Yggdrasil. Tom Hiddleston is in the announced Doomsday cast.",
  l:[["dw","The TVA returns"]]},
 {id:"whatif2",t:"What If...? (Season 2)",y:2023,ty:"A",pl:"Disney+",pg:"mcu",g:"Phase 5",af:"loki2",
@@ -254,10 +243,10 @@ window.TITLES = [
 {id:"echo",t:"Echo",y:2024,ty:"S",pl:"Disney+ / Hulu",pg:"mcu",g:"Phase 5",so:45,
  d:"After shooting Kingpin in Hawkeye, Maya Lopez goes home to Oklahoma and connects with her Choctaw ancestors' powers. Kingpin survives and comes after her. She uses her powers to heal his trauma, and Fisk heads back to New York to run for mayor. It opens with a Daredevil fight.",
  l:[["ddba","Fisk's mayoral run continues in Born Again"]]},
-{id:"x97",t:"X-Men '97",y:2024,ty:"A",pl:"Disney+",pg:"xmen",g:"TV & animation",logo:"x97",
+{id:"x97",t:"X-Men '97",y:2024,ty:"A",pl:"Disney+",pg:"xmen",g:"TV & animation",
  d:"Picks up after the 1992 series. With Xavier gone, Magneto leads the X-Men. Genosha is wiped out by Sentinels, and Bastion's Operation: Zero Tolerance hunts mutants. Magneto rips the metal out of the Earth and Wolverine loses his adamantium. The team ends up scattered across time.",
  l:[["x97s2","Season 2"]]},
-{id:"dw",t:"Deadpool & Wolverine",y:2024,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 5",set:2024,so:46,mv:1,logo:"dw",
+{id:"dw",t:"Deadpool & Wolverine",y:2024,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 5",set:2024,so:46,mv:1,
  d:"The TVA plans to let Deadpool's world (Earth-10005) die slowly, because its anchor being, Logan, died. Wade grabs a \"worst\" Wolverine variant. They're dumped in the Void, ruled by Cassandra Nova, where they find Blade, Elektra, X-23, Gambit and Johnny Storm. They save the timeline, and this Logan stays on Earth-10005.",
  l:[["dp2","Same Deadpool"],["logan","Logan's death made Earth-10005 decay"],["blade1","Wesley Snipes returns as Blade"],["elektra","Jennifer Garner returns as Elektra"],["ff05","Chris Evans returns as Johnny Storm"],["doomsday","Channing Tatum's Gambit is in the Doomsday cast"]]},
 {id:"agatha",t:"Agatha All Along",y:2024,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 5",so:47,
@@ -268,7 +257,7 @@ window.TITLES = [
  d:"An alternate-universe Peter Parker's first year, in a comic-book art style. Norman Osborn becomes his mentor instead of Tony Stark, and Doc Ock is introduced. A second season is coming in late 2026."},
 {id:"bnw",t:"Captain America: Brave New World",y:2025,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 5",so:50,mv:1,
  d:"Thaddeus Ross is now President, and adamantium has been found on Celestial Island. Samuel Sterns, the Leader, manipulates events through mind control. Sam takes on the role with Joaquin Torres as his Falcon, and Ross turns into the Red Hulk at the White House. Sam starts reassembling the Avengers."},
-{id:"ddba",t:"Daredevil: Born Again",y:2025,ty:"S",pl:"Disney+",pg:"street",g:"Back in the MCU",ph:"Phase 5",so:48,logo:"dd",
+{id:"ddba",t:"Daredevil: Born Again",y:2025,ty:"S",pl:"Disney+",pg:"street",g:"Back in the MCU",ph:"Phase 5",so:48,
  d:"Bullseye kills Foggy, and Matt Murdock hangs up the suit. Wilson Fisk is elected mayor of New York and creates an anti-vigilante task force. Frank Castle is back, the serial killer Muse is stopped, and Fisk declares martial law. Matt builds an army to take the city back.",
  l:[["ddnet","Revival of the Netflix series"],["pun","Frank Castle returns"],["ddba2","Season 2"]]},
 {id:"thunderbolts",t:"Thunderbolts*",y:2025,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 5",so:51,mv:1,
@@ -277,7 +266,7 @@ window.TITLES = [
  d:"Kicked out of MIT, Riri Williams goes back to Chicago and joins the Hood's crew to fund her armour. Her AI is a recreation of her dead friend Natalie. Hood's powers come from a demonic cloak, and the season ends with Riri making a deal with Mephisto."},
 
 /* ============ PHASE 6 ============ */
-{id:"ff",t:"The Fantastic Four: First Steps",y:2025,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 6",set:1964,so:55,mv:1,logo:"ff",
+{id:"ff",t:"The Fantastic Four: First Steps",y:2025,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 6",set:1964,so:55,mv:1,
  d:"On the retro-futurist Earth-828 the Fantastic Four are the world's only heroes. The Silver Surfer heralds Galactus, who wants Sue's unborn son Franklin. Sue gives birth, and the team moves the whole planet's population to beat Galactus. Franklin restores Sue's life. In the post-credits scene, Doom visits Franklin.",
  l:[["doomsday","The Fantastic Four join the Avengers"],["ff05","The earlier Fox version of the team"]]},
 {id:"eow",t:"Eyes of Wakanda",y:2025,ty:"A",pl:"Disney+",pg:"mcu",g:"Phase 6",af:"wf",
@@ -311,7 +300,7 @@ window.TITLES = [
 /* ============ FOX X-MEN (2009–2020) ============ */
 {id:"wxm",t:"Wolverine and the X-Men",y:2009,ty:"A",pl:"Nicktoons",pg:"xmen",g:"TV & animation",
  d:"An animated series. Xavier and Jean vanish, Logan leads a reformed team, and a future Xavier warns that a Sentinel apocalypse is coming. It was cancelled after one season."},
-{id:"origins",t:"X-Men Origins: Wolverine",y:2009,ty:"F",pl:"Theatrical (Fox)",pg:"xmen",g:"Original timeline",set:1979,logo:"wolverine",
+{id:"origins",t:"X-Men Origins: Wolverine",y:2009,ty:"F",pl:"Theatrical (Fox)",pg:"xmen",g:"Original timeline",set:1979,
  d:"Logan and his brother Victor fight through every American war from 1845 on, then join Stryker's Team X. Logan quits, is betrayed, gets an adamantium skeleton, and has his memories wiped by an adamantium bullet. Ryan Reynolds plays a mouth-sewn version of Deadpool.",
  l:[["xm1","Logan arrives with no memories"]]},
 {id:"fc",t:"X-Men: First Class",y:2011,ty:"F",pl:"Theatrical (Fox)",pg:"xmen",g:"Shared history",set:1962,
@@ -345,11 +334,11 @@ window.TITLES = [
  l:[["dph","Loose tie through the Essex Corporation"]]},
 
 /* ============ STREET LEVEL ============ */
-{id:"aos",t:"Agents of S.H.I.E.L.D.",y:2013,ty:"S",pl:"ABC",pg:"street",g:"Marvel Television (ABC)",logo:"shield",
+{id:"aos",t:"Agents of S.H.I.E.L.D.",y:2013,ty:"S",pl:"ABC",pg:"street",g:"Marvel Television (ABC)",
  d:"Coulson, revived by Kree blood, leads a team with Daisy (Quake), May, Fitz and Simmons. They survive HYDRA's uprising, Inhumans, Ghost Rider (Robbie Reyes), the Framework and time travel. Seven seasons; after the first two it mostly stops tying in with the films."},
 {id:"carter",t:"Agent Carter",y:2015,ty:"S",pl:"ABC",pg:"street",g:"Marvel Television (ABC)",set:1946,
  d:"In 1946, Peggy Carter works at the sexist SSR while secretly helping Howard Stark clear his name, with Jarvis at her side. Season 2 moves to Los Angeles and Darkforce."},
-{id:"ddnet",t:"Daredevil",y:2015,ty:"S",pl:"Netflix",pg:"street",g:"Netflix Defenders Saga",logo:"dd",
+{id:"ddnet",t:"Daredevil",y:2015,ty:"S",pl:"Netflix",pg:"street",g:"Netflix Defenders Saga",
  d:"Blind lawyer Matt Murdock (Charlie Cox) fights Wilson Fisk (Vincent D'Onofrio) in Hell's Kitchen. The show is known for its single-take hallway fights. Season 2 brings in the Punisher and Elektra, and Season 3 has Fisk's return and Bullseye's origin. It was cancelled in 2018 and continued in Born Again.",
  l:[["def","Matt joins the Defenders"],["pun","Frank Castle debuts in Season 2"],["ddba","Continued in Born Again"]]},
 {id:"jj",t:"Jessica Jones",y:2015,ty:"S",pl:"Netflix",pg:"street",g:"Netflix Defenders Saga",
@@ -392,10 +381,10 @@ window.TITLES = [
  d:"A loosely adapted Marvel team. Robotics prodigy Hiro and the inflatable healthcare robot Baymax form a hero team in San Fransokyo. It won the Oscar for Best Animated Feature and led to a TV series."},
 {id:"ff15",t:"Fantastic Four",y:2015,ty:"F",pl:"Theatrical (Fox)",pg:"legacy",g:"Fantastic Four",
  d:"Josh Trank's dark reboot with Miles Teller. Teens teleport to Planet Zero and come back changed, then fight Doom. It was troubled behind the scenes and flopped."},
-{id:"venom1",t:"Venom",y:2018,ty:"F",pl:"Theatrical (Sony)",pg:"spider",g:"Sony's Spider-Man Universe",logo:"venom",
+{id:"venom1",t:"Venom",y:2018,ty:"F",pl:"Theatrical (Sony)",pg:"spider",g:"Sony's Spider-Man Universe",
  d:"Journalist Eddie Brock (Tom Hardy) bonds with the symbiote Venom, and they fight Riot and the Life Foundation. The mid-credits scene introduces Woody Harrelson's Cletus Kasady.",
  l:[["venom2","Direct sequel"]]},
-{id:"itsv",t:"Spider-Man: Into the Spider-Verse",y:2018,ty:"A",pl:"Theatrical (Sony)",pg:"spider",g:"Spider-Verse & animation",logo:"sv",
+{id:"itsv",t:"Spider-Man: Into the Spider-Verse",y:2018,ty:"A",pl:"Theatrical (Sony)",pg:"spider",g:"Spider-Verse & animation",
  d:"Brooklyn teen Miles Morales is bitten just as Kingpin's collider pulls in Spider-People from other worlds: Peter B. Parker, Gwen, Noir, Peni and Spider-Ham. Miles takes his leap of faith. It won the Oscar for Best Animated Feature.",
  l:[["atsv","Direct sequel"]]},
 {id:"spidey",t:"Spidey and His Amazing Friends",y:2021,ty:"A",pl:"Disney Junior",pg:"spider",g:"Spider-Verse & animation",
@@ -406,7 +395,7 @@ window.TITLES = [
 {id:"morbius",t:"Morbius",y:2022,ty:"F",pl:"Theatrical (Sony)",pg:"spider",g:"Sony's Spider-Man Universe",
  d:"Dr Michael Morbius cures his blood disease with vampire-bat DNA and becomes a living vampire. In the mid-credits scene, Michael Keaton's Vulture has been sent to this world by No Way Home's spell.",
  l:[["homec","Michael Keaton's Vulture crosses over"]]},
-{id:"atsv",t:"Spider-Man: Across the Spider-Verse",y:2023,ty:"A",pl:"Theatrical (Sony)",pg:"spider",g:"Spider-Verse & animation",logo:"sv",
+{id:"atsv",t:"Spider-Man: Across the Spider-Verse",y:2023,ty:"A",pl:"Theatrical (Sony)",pg:"spider",g:"Spider-Verse & animation",
  d:"Miles follows Gwen to Miguel O'Hara's Spider-Society and learns about \"canon events\": his dad's death is supposed to happen. He refuses and ends up on a world where he became the Prowler. Donald Glover appears in live action as the Prowler, the role he set up in Homecoming. It ends on a cliffhanger.",
  l:[["homec","Donald Glover's Aaron Davis"],["btsv","Part two"]]},
 {id:"venom3",t:"Venom: The Last Dance",y:2024,ty:"F",pl:"Theatrical (Sony)",pg:"spider",g:"Sony's Spider-Man Universe",

@@ -9,7 +9,7 @@
 (function () {
   const host = document.getElementById("tree");
   if (!host) return;
-  const {T, BY, ADJ, TYPE, sortRel, tagsHTML, page, fromHash} = window.SITE;
+  const {T, BY, ADJ, TYPE, sortRel, tagsHTML, page, fromHash, posterImg, imgClass, epsText, wpLink} = window.SITE;
   const C = window.GROUP_COLORS;
   const RED = "#c0392b", BLUE = "#2471a3", GOLD = "#d9a520", GREY = "#8d8fa3", PURPLE = "#8e44ad", SLATE = "#5b6b80";
   const get = id => typeof id === "object" ? id : BY[id];
@@ -18,13 +18,17 @@
 
   /* ---------- one node ---------- */
   function node(x, sides, num) {
-    const links = x.v ? [] : ADJ[x.id];
-    return `<article class="node${x.up ? " is-up" : ""}"${x.v ? "" : ` id="n-${x.id}"`} style="--gc:${color(x)}">
-      <div class="n-meta"><span>${num ? `<b class="n-num">#${num}</b>` : ""}${x.y}${x.set ? ` · story year ${x.set}` : ""}</span><span>${TYPE[x.ty]} · ${x.pl}</span></div>
-      <h3 class="n-title">${x.t}</h3>${x.v ? "" : tagsHTML(x)}
-      <p>${x.d}</p>
-      ${links.length ? `<ul class="n-links">${links.map(e => `<li><button data-open="${e.id}">${BY[e.id].t}</button> ${e.note}</li>`).join("")}</ul>` : ""}
-      ${sides && sides.length ? `<div class="sides"><div class="sides-h">Optional: watch any time after this</div>${sides.map(s => node(s)).join("")}</div>` : ""}
+    const links = x.v ? [] : ADJ[x.id], eps = x.v ? "" : epsText(x);
+    return `<article class="node${x.v ? " no-img" : imgClass(x.id)}${x.up ? " is-up" : ""}"${x.v ? "" : ` id="n-${x.id}"`} style="--gc:${color(x)}">
+      ${x.v ? "" : posterImg(x.id)}
+      <div class="n-body">
+        <div class="n-meta"><span>${num ? `<b class="n-num">#${num}</b>` : ""}${x.y}${x.set ? ` · story year ${x.set}` : ""}</span><span>${TYPE[x.ty]} · ${x.pl}${eps ? ` · ${eps}` : ""}</span></div>
+        <h3 class="n-title">${x.t}</h3>${x.v ? "" : tagsHTML(x)}
+        <p>${x.d}</p>
+        ${links.length ? `<ul class="n-links">${links.map(e => `<li><button data-open="${e.id}">${BY[e.id].t}</button> ${e.note}</li>`).join("")}</ul>` : ""}
+        ${x.v ? "" : wpLink(x)}
+      </div>
+      ${sides && sides.length ? `<div class="sides"><div class="sides-h">Optional extras, watch any time after this</div>${sides.map(s => node(s)).join("")}</div>` : ""}
     </article>`;
   }
 

@@ -6,23 +6,24 @@
 <title>Road to Doomsday</title>
 <meta name="description" content="How separate Marvel film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600;700&family=Michroma&family=Oswald:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-page="tva" data-theme="tva">
 <div id="site-nav"></div>
-<section class="head"><img class="hero-bg" src="assets/art/tva-branches.svg" alt="">
-<img class="hero-art hero-doom" src="assets/art/doom.svg" alt="">
-<div class="wrap">
-  <span class="stamp">Case file · Multiversal incursions</span>
-  <h1>Road to Doomsday</h1>
-  <p class="lede">For years these universes ran side by side and never met. Since 2021 they've been crossing over, and everything points to <b>Avengers: Doomsday</b> (18 Dec 2026) and <b>Secret Wars</b> (Dec 2027). Each line is a separate universe, and each dot is a film that pulled it toward the MCU. Click a dot or a case file to open the title.</p>
-</div></section>
+<section class="head">
+  <div class="poster-wall" data-ids="loki1,loki2,mom,nwh,dw,ff,marvels,whatif1,thunderbolts,bnw,doomsday,quant"></div>
+  <div class="billing"><div class="wrap"><img src="assets/logos/marvel-studios.svg" alt="Marvel Studios" class="tall"><img src="assets/logos/disney-plus.svg" alt="Disney+"></div></div>
+  <div class="wrap head-copy">
+    <h1>Road to Doomsday</h1>
+    <p class="lede">For years these universes ran side by side and never met. Since 2021 they've been crossing over, and everything points to <b>Avengers: Doomsday</b> (18 Dec 2026) and <b>Secret Wars</b> (Dec 2027). Each line is a separate universe, and each dot is a film that pulled it toward the MCU. Click a dot or a case file to open the title.</p>
+  </div>
+</section>
 
 <main class="wrap">
   <div class="map"><svg id="map" viewBox="0 0 1330 590" role="img" aria-labelledby="map-t"><title id="map-t">Lanes for each Marvel film universe, merging into the MCU at crossover films and ending at Doomsday and Secret Wars</title></svg></div>
 
-  <h2 style="margin:34px 0 18px">Case files</h2>
+  <h2 style="font-size:36px;text-transform:uppercase;margin:32px 0 16px">Case files</h2>
   <div class="files">
     <article class="file" data-no="TVA-01"><h3>The Sacred Timeline breaks</h3>
       <p>The TVA once pruned every branch of time. When He Who Remains is killed, the multiverse grows wild, and Loki ends up holding it together.</p>
@@ -56,6 +57,7 @@
 
 <div id="site-foot"></div>
 <script src="assets/data.js"></script>
+<script src="assets/media.js"></script>
 <script src="assets/app.js"></script>
 <script>
 (() => {
@@ -89,15 +91,15 @@
   // year grid
   [2000, 2005, 2010, 2015, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028].forEach(y => {
     el("line", {x1: X(y), x2: X(y), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, stroke: "#3b2a1a", "stroke-opacity": .12});
-    el("text", {x: X(y), y: Y0 + GAP * 8 + 36, "text-anchor": "middle", "font-family": "IBM Plex Mono, monospace", "font-size": 11, fill: "#7a6248"}, y);
+    el("text", {x: X(y), y: Y0 + GAP * 8 + 36, "text-anchor": "middle", "font-family": "Hanken Grotesk, sans-serif", "font-size": 11, fill: "#7a6248"}, y);
   });
   el("line", {x1: X(2020), x2: X(2020), y1: Y0 - 18, y2: Y0 + GAP * 8 + 18, stroke: "#3b2a1a", "stroke-opacity": .35, "stroke-dasharray": "3 4"});
-  el("text", {x: X(2020) - 6, y: Y0 + GAP * 8 + 52, "text-anchor": "end", "font-family": "IBM Plex Mono, monospace", "font-size": 10, fill: "#7a6248"}, "← compressed scale");
+  el("text", {x: X(2020) - 6, y: Y0 + GAP * 8 + 52, "text-anchor": "end", "font-family": "Hanken Grotesk, sans-serif", "font-size": 10, fill: "#7a6248"}, "← compressed scale");
   // lanes
   lanes.forEach(l => {
     const y = LY[l.k];
     el("line", {x1: X(l.s), x2: X(l.e), y1: y, y2: y, stroke: l.c, "stroke-width": l.k === "616" ? 7 : 4, "stroke-linecap": "round"});
-    const t = el("text", {x: 16, y: y + 4, "font-family": "IBM Plex Mono, monospace", "font-size": 12, "font-weight": 700, fill: l.c, style: l.open ? "cursor:pointer" : ""}, l.name);
+    const t = el("text", {x: 16, y: y + 4, "font-family": "Hanken Grotesk, sans-serif", "font-size": 12, "font-weight": 700, fill: l.c, style: l.open ? "cursor:pointer" : ""}, l.name);
     if (l.open) t.setAttribute("data-open", l.open);
     el("circle", {cx: X(l.s), cy: y, r: 4, fill: l.c});
   });
@@ -114,7 +116,7 @@
     const dot = document.createElementNS(NS, "circle");
     Object.entries({cx: x, cy: y616, r: ev.big ? 11 : 8, fill: ev.big ? "#3b2a1a" : "#f3e8cf", stroke: "#3b2a1a", "stroke-width": 3}).forEach(([a, v]) => dot.setAttribute(a, v));
     const lab = document.createElementNS(NS, "text");
-    Object.entries({x: x + 4, y: y616 - 18, transform: `rotate(-38 ${x + 4} ${y616 - 18})`, "font-family": ev.big ? "Anton, Impact, sans-serif" : "IBM Plex Mono, monospace",
+    Object.entries({x: x + 4, y: y616 - 18, transform: `rotate(-38 ${x + 4} ${y616 - 18})`, "font-family": ev.big ? "Antonio, sans-serif" : "Hanken Grotesk, sans-serif",
       "font-size": ev.big ? 16 : 12, "font-weight": 700, fill: ev.big ? "#c4621b" : "#3b2a1a"}).forEach(([a, v]) => lab.setAttribute(a, v));
     lab.textContent = ev.label;
     g.append(dot, lab);

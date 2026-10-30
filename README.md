@@ -24,7 +24,9 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
 - **Everything on the page**: every node shows the plot summary (spoilers included), year, platform and what it connects to, so there's no need to click around.
 - **Collapsible sections**: every tree is split into sections you can open or close, with jump buttons and Open all / Close all.
 - **Adapts to zoom and screen size**: one column on phones, two columns around a centre spine on wide screens, three when you zoom out further.
-- **Official logos** in the page headers (from Wikimedia Commons), original character art for each page, and display fonts matched to each franchise's lettering.
+- **Posters and title cards** for 138 titles, shown from Wikipedia, plus season and episode counts from Wikidata.
+- **Studio credits strip** at the top of each page (Marvel Studios, 20th Century Fox, Sony Pictures, Netflix, Disney+ and others), and a poster wall behind every header.
+- **Type**: Antonio for display, Hanken Grotesk for body text, built to the [Hallmark](https://github.com/nutlope/hallmark) rules (no kicker lines, no tracked-caps labels, no decorative monospace).
 - **Deep links**: every title has its own URL, for example `mcu.html#t=eg` for Endgame or `spider-verse.html#t=nwh` for No Way Home.
 - **Filters** on every list: format (film, series, animated, special), search, and "Doomsday road only".
 - **Honest connections**: titles are only connected when they share a story, are major releases others build on, or feed into Doomsday or Secret Wars. Everything else is marked *Standalone*.
@@ -40,8 +42,9 @@ It's a plain static site (HTML, CSS and vanilla JavaScript) with no build step a
     ├── data.js           every title, its summary and its connections
     ├── app.js            nav, footer, detail dialog, catalog grid
     ├── tree.js           the vertical trees and the story/release switch
-    ├── logos/            official logos from Wikimedia Commons (page headers only)
-    └── art/              original character drawings (shield, claws, Daredevil cowl, spider, Ghost Rider, Doom)
+    ├── media.js          generated: Wikipedia poster/title card, seasons and episodes per title
+    ├── home.js           home page countdown and section counts
+    └── logos/            studio and network logos from Wikimedia Commons
 ```
 
 ## Adding or editing a title
@@ -87,9 +90,14 @@ python -m http.server 8000
 3. Under **Build and deployment**, choose **Deploy from a branch**, pick `main` and `/ (root)`, then save.
 4. The site will be live at `https://<your-username>.github.io/<repo-name>/` within a minute or two.
 
+## Links
+
+- Live site: https://harshreaver.github.io/Marvel-Timeline/
+- LinkedIn: https://www.linkedin.com/in/harsh-verma007/
+
 ## Disclaimer
 
-Unofficial fan project, not affiliated with or endorsed by Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. All titles, characters and logos belong to their owners. The logos come from Wikimedia Commons, where they're listed as public domain or CC0 text logos. No posters or stills are used.
+Unofficial fan project, not affiliated with or endorsed by Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. All titles, characters, posters and logos belong to their owners. Posters and title cards are shown from Wikipedia, and logos come from Wikimedia Commons.
 
 Data is current to **October 2026**.
 
