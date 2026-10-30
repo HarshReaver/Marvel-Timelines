@@ -14,7 +14,7 @@ with full plot summaries, seasons and episodes for series, and only genuine stor
 - [2000s Marvel Movies: Blade, Hulk, Ghost Rider & More](https://marvel.harver.in/legacy.html) (20 titles): Marvel films from other studios before and alongside the MCU: Blade, Hulk, Daredevil, Elektra, Fantastic Four, Ghost Rider and the Punisher films.
 - [Road to Avengers: Doomsday & Secret Wars Explained](https://marvel.harver.in/multiverse.html) (19 titles): How Marvel's film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.
 - [Every Marvel Movie & Series: Full Catalog with Filters](https://marvel.harver.in/catalog.html) (143 titles): Every Marvel film and series in one list, with filters for section and format, plus seasons, episodes and plot summaries.
-- [About Marvel Timelines](https://marvel.harver.in/about.html): What Marvel Timelines covers, how connections are decided, and who made it.
+- [About Marvel Timelines: How the Watch Orders Work](https://marvel.harver.in/about.html): What Marvel Timelines covers, how connections are decided, and who made it.
 
 ## Titles
 

@@ -44,7 +44,7 @@ const PAGES = [
   {file: "catalog.html", title: "Every Marvel Movie & Series: Full Catalog with Filters",
     desc: "Every Marvel film and series in one list, with filters for section and format, plus seasons, episodes and plot summaries.",
     pick: () => true},
-  {file: "about.html", title: "About Marvel Timelines",
+  {file: "about.html", title: "About Marvel Timelines: How the Watch Orders Work",
     desc: "What Marvel Timelines covers, how connections are decided, and who made it.", pick: () => false}
 ];
 
