@@ -4,7 +4,7 @@
   const MEDIA = window.MEDIA || {};
   const TYPE = {F: "Film", S: "Series", A: "Animated", X: "Special"};
   const page = document.body.dataset.page || "";
-  const SITE_URL = "https://harshreaver.github.io/Marvel-Timelines/";
+  const SITE_URL = "https://marvel.harver.in/";
   const REPO_URL = "https://github.com/HarshReaver/Marvel-Timelines";
   const LINKEDIN = "https://www.linkedin.com/in/harsh-verma007/";
 
@@ -14,7 +14,7 @@
   T.forEach(x => { if (x.up && x.rel && today >= x.rel) x.up = 0; });
 
   // visitor stats with GoatCounter (no cookies), counted only on the live site so local previews stay out
-  if (location.hostname === "harshreaver.github.io") {
+  if (["marvel.harver.in", "harshreaver.github.io"].includes(location.hostname)) {
     const gc = document.createElement("script");
     gc.async = true; gc.src = "https://gc.zgo.at/count.js";
     gc.dataset.goatcounter = "https://marvel-timelines.goatcounter.com/count";

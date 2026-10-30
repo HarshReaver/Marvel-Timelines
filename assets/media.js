@@ -1,5 +1,6 @@
-/* Generated: Wikipedia article, its infobox image (poster or title card, linked from Wikipedia) and season/episode counts from Wikidata. */
-window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":82},
+/* Generated: Wikipedia article, its infobox image (poster or title card, linked from Wikipedia) and season/episode counts from Wikidata.
+   Titles Wikipedia has no image for use local files in assets/posters. */
+window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":82,"img":"assets/posters/hulk77.jpg","w":400,"h":588},
 "asm77":{"wp":"The Amazing Spider-Man (TV series)","img":"https://upload.wikimedia.org/wikipedia/en/f/fd/SpideyTitle.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":363,"h":274,"s":2,"e":14},
 "hd":{"wp":"Howard the Duck (film)","img":"https://upload.wikimedia.org/wikipedia/en/7/7f/Howard_the_Duck_%281986%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":251,"h":396},
 "pun89":{"wp":"The Punisher (1989 film)","img":"https://upload.wikimedia.org/wikipedia/en/c/c7/Punisher89poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":253,"h":394},
@@ -87,7 +88,7 @@ window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":
 "ff":{"wp":"The Fantastic Four: First Steps","img":"https://upload.wikimedia.org/wikipedia/en/1/13/The_Fantastic_Four_First_Steps_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":259,"h":383},
 "eow":{"wp":"Eyes of Wakanda","img":"https://thumb.wikimedia.org/wikipedia/en/thumb/f/fd/Eyes_of_Wakanda_logo.jpg/500px-Eyes_of_Wakanda_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail","w":400,"h":143,"s":1,"e":4},
 "mz":{"wp":"Marvel Zombies (TV series)","img":"https://upload.wikimedia.org/wikipedia/en/1/1a/Marvel_Zombies_%28TV_series%29_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":407,"h":245,"e":4},
-"wm":{"wp":"Wonder Man (TV series)","s":1,"e":8},
+"wm":{"wp":"Wonder Man (TV series)","s":1,"e":8,"img":"assets/posters/wm.jpg","w":400,"h":592},
 "ddba2":{"wp":"Daredevil: Born Again season 2","img":"https://upload.wikimedia.org/wikipedia/en/0/02/Daredevil_Born_Again_season_2_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":260,"h":385,"e":8},
 "olk":{"wp":"The Punisher: One Last Kill","img":"https://upload.wikimedia.org/wikipedia/en/a/a0/The_Punisher_One_Last_Kill_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":260,"h":385},
 "spidernoir":{"wp":"Spider-Noir","img":"https://upload.wikimedia.org/wikipedia/en/8/81/Spider-Noir_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":258,"h":387,"s":1,"e":8},
@@ -95,7 +96,7 @@ window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":
 "bnd":{"wp":"Spider-Man: Brand New Day","img":"https://upload.wikimedia.org/wikipedia/en/9/9a/Spider-Man_Brand_New_Day_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":258,"h":387},
 "vq":{"wp":"VisionQuest","img":"https://upload.wikimedia.org/wikipedia/en/d/d5/VisionQuest_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":387,"h":258,"s":1,"e":8},
 "doomsday":{"wp":"Avengers: Doomsday","img":"https://upload.wikimedia.org/wikipedia/en/e/ee/Avengers_Doomsday_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":250,"h":377},
-"sw":{"wp":"Marvel Cinematic Universe: Phase Six"},
+"sw":{"wp":"Marvel Cinematic Universe: Phase Six","img":"assets/posters/sw.png","w":530,"h":216},
 "wxm":{"wp":"Wolverine and the X-Men (TV series)","img":"https://upload.wikimedia.org/wikipedia/en/7/72/Wolverineandthexmenanimated.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":307,"h":324,"s":1,"e":26},
 "origins":{"wp":"X-Men Origins: Wolverine","img":"https://upload.wikimedia.org/wikipedia/en/0/08/X-Men_Origins_Wolverine_theatrical_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":250,"h":371},
 "fc":{"wp":"X-Men: First Class","img":"https://upload.wikimedia.org/wikipedia/en/5/55/X-MenFirstClassMoviePoster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":259,"h":384},
@@ -105,7 +106,7 @@ window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":
 "apoc":{"wp":"X-Men: Apocalypse","img":"https://upload.wikimedia.org/wikipedia/en/0/04/X-Men_-_Apocalypse.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":259,"h":384},
 "logan":{"wp":"Logan (film)","img":"https://upload.wikimedia.org/wikipedia/en/3/37/Logan_2017_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":220,"h":326},
 "legion":{"wp":"Legion (TV series)","img":"https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Legion_TV_series_logo.jpg/500px-Legion_TV_series_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail","w":400,"h":200,"s":3,"e":27},
-"gifted":{"wp":"The Gifted (American TV series)","s":2,"e":29},
+"gifted":{"wp":"The Gifted (American TV series)","s":2,"e":29,"img":"assets/posters/gifted.jpg","w":400,"h":592},
 "dp2":{"wp":"Deadpool 2","img":"https://upload.wikimedia.org/wikipedia/en/c/cf/Deadpool_2_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":220,"h":326},
 "dph":{"wp":"Dark Phoenix (film)","img":"https://upload.wikimedia.org/wikipedia/en/9/9e/Dark_Phoenix_%28film%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":250,"h":370},
 "nm":{"wp":"The New Mutants (film)","img":"https://upload.wikimedia.org/wikipedia/en/1/1a/TheNewMutantsPoster.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":257,"h":386},

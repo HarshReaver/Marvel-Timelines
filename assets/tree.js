@@ -35,12 +35,24 @@
   /* ---------- rows ---------- */
   function rowHTML(r, num) {
     if (r.fork) return `<div class="t-fork" style="--n:${r.fork.length}">${r.fork.map(f => `<div style="--gc:${f.c}"><b>${f.n}</b>${f.s ? `<small>${f.s}</small>` : ""}</div>`).join("")}</div>`;
-    if (r.lanes) return `<div class="t-lanes" style="--n:${r.lanes.length}">${r.lanes.map((id, i) =>
-      `<div class="t-cell${id ? "" : " empty"}" style="--gc:${r.c[i]}">${id ? `<div class="lane-tag">${r.n[i]}</div>${node(get(id))}` : ""}</div>`).join("")}</div>`;
+    if (r.group) {
+      // one grid per run of lane rows: side by side on wide screens, and on phones each lane
+      // stacks as a block (all of lane A, then lane B) instead of alternating A, B, A, B
+      const seen = new Set();
+      return `<div class="t-lanes" style="--n:${r.group[0].lanes.length}">${r.group.map((row, j) => row.lanes.map((id, i) => {
+        const first = id && !seen.has(i) && seen.add(i);
+        return `<div class="t-cell${id ? "" : " empty"}${first ? " first" : ""}" style="--gc:${row.c[i]};--r:${j + 1};--l:${i + 1};--o:${i * 100 + j}">${id ? `<div class="lane-tag">${row.n[i]}</div>${node(get(id))}` : ""}</div>`;
+      }).join("")).join("")}</div>`;
+    }
     const x = get(r.id);
     return `<div class="t-row" style="--gc:${color(x)}">${node(x, r.sides, num)}</div>`;
   }
   const ids = list => list.map(id => ({id}));
+  const groupLanes = rows => rows.reduce((out, r) => {
+    const last = out[out.length - 1];
+    if (r.lanes && last && last.group) last.group.push(r); else out.push(r.lanes ? {group: [r]} : r);
+    return out;
+  }, []);
   const lanes = (cols, colors, names) => {
     const n = Math.max(...cols.map(c => c.length));
     return Array.from({length: n}, (_, i) => ({lanes: cols.map(c => c[i] || null), c: colors, n: names}));
@@ -208,7 +220,7 @@
     const numbered = spec.numbered && view === "story";
     host.innerHTML = secs.map(s => {
       const lanesHere = s.rows.some(r => r.lanes || r.fork);
-      const body = s.rows.map(r => rowHTML(r, numbered && r.id ? ++num : 0)).join("");
+      const body = groupLanes(s.rows).map(r => rowHTML(r, numbered && r.id ? ++num : 0)).join("");
       const bodyHTML = `<div class="sec-body${lanesHere ? " has-lanes" : ""}" id="${s.id || "sec-top"}-b">${body}</div>`;
       if (!s.lbl) return `<section class="t-sec bare">${bodyHTML}</section>`;
       const open = isOpen(s);
@@ -221,7 +233,7 @@
         <div class="seg" role="group" aria-label="Order">
           <button data-v="story" aria-pressed="${view === "story"}">${spec.storyName || "Story order"}</button>
           <button data-v="release" aria-pressed="${view === "release"}">Release order</button></div>
-        <div class="seg" role="group" aria-label="Sections"><button data-all="1">Open all</button><button data-all="0">Close all</button></div>
+        <div class="seg" role="group" aria-label="Sections"><button data-all="1">Open<span class="wide-only"> all</span></button><button data-all="0">Close<span class="wide-only"> all</span></button></div>
         <span class="count">${items.length} titles · ${labelled.length} sections</span></div>
       <nav class="t-jump" aria-label="Jump to a section">${labelled.map(s =>
         `<button data-sec="${s.id}" aria-pressed="${isOpen(s)}" style="--gc:${s.c || "var(--ink)"}">${s.lbl}</button>`).join("")}</nav>`;
