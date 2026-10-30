@@ -8,6 +8,19 @@
   const REPO_URL = "https://github.com/HarshReaver/Marvel-Timelines";
   const LINKEDIN = "https://www.linkedin.com/in/harsh-verma007/";
 
+  // an upcoming title counts as released from its `rel` date, on the visitor's own calendar
+  const now = new Date(), pad = n => String(n).padStart(2, "0");
+  const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+  T.forEach(x => { if (x.up && x.rel && today >= x.rel) x.up = 0; });
+
+  // visitor stats with GoatCounter (no cookies), counted only on the live site so local previews stay out
+  if (location.hostname === "harshreaver.github.io") {
+    const gc = document.createElement("script");
+    gc.async = true; gc.src = "https://gc.zgo.at/count.js";
+    gc.dataset.goatcounter = "https://marvel-timelines.goatcounter.com/count";
+    document.head.appendChild(gc);
+  }
+
   // two-way connection graph
   const ADJ = {};
   T.forEach(x => (ADJ[x.id] = []));

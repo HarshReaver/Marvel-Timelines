@@ -60,16 +60,17 @@
   }
   const decade = x => Math.floor(x.y / 10) * 10 + "s";
 
-  // story order from `so`, with `af` extras as side branches, then upcoming and standalone titles
+  // story order from `so`, with `af` extras as side branches, then upcoming and standalone titles.
+  // An upcoming title with `so` waits in "Coming next" and joins its story spot once released.
   function storyRows(items, labelsAt) {
     const sides = {};
     items.filter(x => x.af).forEach(x => (sides[x.af] = sides[x.af] || []).push(x));
     const rows = [];
-    items.filter(x => x.so != null).sort((a, b) => a.so - b.so).forEach(x => {
+    items.filter(x => x.so != null && !x.up).sort((a, b) => a.so - b.so).forEach(x => {
       if (labelsAt[x.so]) rows.push(labelsAt[x.so]);
       rows.push({id: x.id, sides: sides[x.id]});
     });
-    const up = items.filter(x => x.up && x.so == null), rest = items.filter(x => x.so == null && !x.af && !x.up);
+    const up = items.filter(x => x.up), rest = items.filter(x => x.so == null && !x.af && !x.up);
     if (up.length) rows.push({lbl: "Coming next", sub: "Not out yet", c: "var(--accent)"}, ...ids(up.sort(sortRel).map(x => x.id)));
     if (rest.length) rows.push({lbl: "Outside the main story", sub: "Watch any time"}, ...ids(rest.map(x => x.id)));
     return rows;
@@ -89,7 +90,8 @@
         15: {lbl: "2016–2018 · Civil War", c: C["Phase 3"]},
         22: {lbl: "2018–2023 · The Infinity War", sub: "Half of all life disappears for five years", c: C["Phase 3"]},
         24: {lbl: "2023–2025 · After the Blip", sub: "The multiverse cracks open", c: C["Phase 4"]},
-        40: {lbl: "2025–2027 · Toward Doomsday", c: C["Phase 5"]}
+        40: {lbl: "2025–2027 · Toward Doomsday", c: C["Phase 5"]},
+        57: {lbl: "The end of the Multiverse Saga", c: C["Phase 6"]}
       })
     },
     xmen: {
@@ -172,6 +174,7 @@
   }
   const countTitles = rows => rows.reduce((n, r) => n + (r.lanes ? r.lanes.filter(x => x && typeof x !== "object").length
     : r.id ? 1 + (r.sides ? r.sides.length : 0) : 0), 0);
+  const titlesText = rows => { const n = countTitles(rows); return n + (n === 1 ? " title" : " titles"); };
 
   /* ---------- controls + draw ---------- */
   const spec = SPECS[page];
@@ -211,7 +214,7 @@
       const open = isOpen(s);
       return `<section class="t-sec${open ? "" : " closed"}" id="${s.id}" style="--gc:${s.c || "var(--ink)"}">
         <button class="s-head" aria-expanded="${open}" aria-controls="${s.id}-b"><span class="s-name">${s.lbl}</span>
-          <span class="s-count">${countTitles(s.rows)} titles</span><span class="s-chev" aria-hidden="true"></span></button>
+          <span class="s-count">${titlesText(s.rows)}</span><span class="s-chev" aria-hidden="true"></span></button>
         ${s.sub ? `<p class="s-sub">${s.sub}</p>` : ""}${bodyHTML}</section>`;
     }).join("");
     bar.innerHTML = `<div class="t-bar-top">

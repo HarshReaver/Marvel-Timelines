@@ -8,6 +8,8 @@
   d   description shown on the trees (posters, seasons and episodes live in media.js)
   l   connections [[id, "how"]] (reverse links are added automatically)
   mv  1 = road to Doomsday / Secret Wars    up 1 = not released yet (Oct 2026)
+  rel release date "YYYY-MM-DD": from that day `up` switches off by itself, so the Upcoming tag goes
+      and an MCU title with `so` moves from "Coming next" into its story spot
   bad a warning label shown on the card
 */
 window.PAGES = {
@@ -291,10 +293,10 @@ window.TITLES = [
  l:[["xm1","Jean Grey, but the MCU's own"],["sw","Sadie Sink's Jean returns in Secret Wars"]]},
 {id:"vq",t:"VisionQuest",y:2026,ty:"S",pl:"Disney+",pg:"mcu",g:"Phase 6",so:56,
  d:"The final part of the WandaVision trilogy. The rebuilt White Vision tries to recover his memories and his humanity. James Spader's Ultron, Faran Tahir's Raza (from Iron Man) and a human E.D.I.T.H. appear. It premiered 14 October 2026."},
-{id:"doomsday",t:"Avengers: Doomsday",y:2026,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 6",mv:1,up:1,
+{id:"doomsday",t:"Avengers: Doomsday",y:2026,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 6",so:57,mv:1,up:1,rel:"2026-12-18",
  d:"In cinemas 18 December 2026. Robert Downey Jr. plays Doctor Doom, and the trailer shows an army of Sentinels. The confirmed cast brings together MCU Avengers (including Chris Evans' Steve Rogers), Wakandans, the Thunderbolts and the Fantastic Four, plus Fox X-Men veterans: Patrick Stewart, Ian McKellen, James Marsden, Rebecca Romijn, Alan Cumming, Kelsey Grammer and Channing Tatum's Gambit.",
  l:[["xm1","Fox's original X-Men cast returns"],["xm2","Alan Cumming's Nightcrawler"],["thunderbolts","The New Avengers"],["sw","Leads into Secret Wars"]]},
-{id:"sw",t:"Avengers: Secret Wars",y:2027,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 6",mv:1,up:1,
+{id:"sw",t:"Avengers: Secret Wars",y:2027,ty:"F",pl:"Theatrical",pg:"mcu",g:"Phase 6",so:58,mv:1,up:1,rel:"2027-12-17",
  d:"Planned for December 2027 as the end of the Multiverse Saga. Sadie Sink's Jean Grey is confirmed to return. Plot details are not public yet."},
 
 /* ============ FOX X-MEN (2009–2020) ============ */
@@ -404,8 +406,8 @@ window.TITLES = [
  d:"Set in 2003. Paramedic Cassie Webb sees the future and protects three girls destined to be Spider-Women from Ezekiel Sims. Panned, and it connects to nothing."},
 {id:"kraven",t:"Kraven the Hunter",y:2024,ty:"F",pl:"Theatrical (Sony)",pg:"spider",g:"Sony's Spider-Man Universe",
  d:"Sergei Kravinoff (Aaron Taylor-Johnson) gets lion powers and hunts criminals, then turns on his crime-boss father. It was the last film in Sony's universe."},
-{id:"btsv",t:"Spider-Man: Beyond the Spider-Verse",y:2027,ty:"A",pl:"Theatrical (Sony)",pg:"spider",g:"Spider-Verse & animation",up:1,
- d:"Planned for June 2027. Concludes Miles's story after Across the Spider-Verse's cliffhanger."},
+{id:"btsv",t:"Spider-Man: Beyond the Spider-Verse",y:2027,ty:"A",pl:"Theatrical (Sony)",pg:"spider",g:"Spider-Verse & animation",up:1,rel:"2027-06-18",
+ d:"In cinemas 18 June 2027. Concludes Miles's story after Across the Spider-Verse's cliffhanger."},
 
 /* ============ OTHER ANIMATION ============ */
 {id:"aemh",t:"The Avengers: Earth's Mightiest Heroes",y:2010,ty:"A",pl:"Disney XD",pg:"other",g:"Other animation",
