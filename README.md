@@ -92,7 +92,7 @@ python -m http.server 8000
 
 ## Links
 
-- Live site: https://harshreaver.github.io/Marvel-Timeline/
+- Live site: https://harshreaver.github.io/Marvel-Timelines/
 - LinkedIn: https://www.linkedin.com/in/harsh-verma007/
 
 ## Disclaimer

@@ -4,8 +4,8 @@
   const MEDIA = window.MEDIA || {};
   const TYPE = {F: "Film", S: "Series", A: "Animated", X: "Special"};
   const page = document.body.dataset.page || "";
-  const SITE_URL = "https://harshreaver.github.io/Marvel-Timeline/";
-  const REPO_URL = "https://github.com/HarshReaver/Marvel-Timeline";
+  const SITE_URL = "https://harshreaver.github.io/Marvel-Timelines/";
+  const REPO_URL = "https://github.com/HarshReaver/Marvel-Timelines";
   const LINKEDIN = "https://www.linkedin.com/in/harsh-verma007/";
 
   // two-way connection graph
