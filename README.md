@@ -106,6 +106,12 @@ python -m http.server 8000
 - Live site: https://marvel.harver.in/
 - LinkedIn: https://www.linkedin.com/in/harsh-verma007/
 
+## License
+
+- **Code** (HTML, CSS, JavaScript and the build script): [MIT License](LICENSE). Reuse it freely, keeping the copyright notice.
+- **Written content** (the summaries, descriptions, story-order notes and connections in `assets/data.js` and on the pages): © 2026 Harsh Verma, all rights reserved. Please don't republish it without permission.
+- **Marvel titles, characters, posters and logos** are not covered by either and belong to their owners (see below).
+
 ## Disclaimer
 
 Unofficial fan project, not affiliated with or endorsed by Marvel Studios, The Walt Disney Company, Sony Pictures or 20th Century Studios. All titles, characters, posters and logos belong to their owners. Posters and title cards are shown from Wikipedia, and logos come from Wikimedia Commons.
