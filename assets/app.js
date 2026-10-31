@@ -90,7 +90,7 @@
     [`mailto:${EMAIL}?subject=Marvel%20Timelines`, `Email ${EMAIL}`, icon('<rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6.5 9 6.5 9-6.5"/>', 1)]];
   const foot = document.getElementById("site-foot");
   if (foot) foot.outerHTML = `<footer class="foot"><div class="wrap">
-    <div class="foot-fb"><div><b>Help improve Marvel Timelines</b><span>Spotted a mistake, a missing title or have an idea? It takes a minute.</span></div>
+    <div class="foot-fb"><div><b>Help improve Marvel Timelines</b><span>Enjoying it, spotted a mistake or have an idea? Leave a rating or a message.</span></div>
       <button type="button" data-feedback>Send feedback</button></div>
     <div class="foot-grid">
       <div><h4>Marvel Timelines</h4>
@@ -114,18 +114,22 @@
   /* ---------- feedback form ----------
      Sent through Web3Forms (free, no server needed), which emails each message to Harsh.
      Until FEEDBACK_KEY is filled in, the form opens the visitor's email app with the message instead. */
-  const FEEDBACK_KEY = "";
+  const FEEDBACK_KEY = "cbfe716e-24c3-493a-9d20-e9cce2f22b1e";
+  const STAR_WORDS = ["", "Poor", "Fair", "Good", "Very good", "Excellent"];
+  const STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>';
   const fb = document.createElement("dialog");
   fb.className = "fb";
   fb.innerHTML = `<form class="fb-form" novalidate>
-      <div class="fb-top"><h3>Send feedback</h3><p>Corrections, missing titles and ideas all help. Every message is read.</p>
+      <div class="fb-top"><h3>Send feedback</h3><p>Ratings, compliments, corrections and ideas are all welcome. Every message is read.</p>
         <button type="button" class="dlg-x" aria-label="Close" data-close>×</button></div>
       <div class="fb-body">
-        <fieldset class="fb-rate"><legend>How useful is the site?</legend><div class="seg">${["Very useful", "Somewhat", "Not really"]
-          .map(v => `<button type="button" data-rate="${v}" aria-pressed="false">${v}</button>`).join("")}</div></fieldset>
-        <label>Topic<select name="topic">${["Suggestion", "Missing title", "Wrong information", "Something isn't working", "Other"]
+        <fieldset class="fb-rate"><legend>Rate the site</legend>
+          <div class="fb-stars" role="radiogroup" aria-label="Rating">${[1, 2, 3, 4, 5].map(n =>
+            `<button type="button" role="radio" aria-checked="false" data-star="${n}" aria-label="${n} of 5 stars, ${STAR_WORDS[n]}">${STAR}</button>`).join("")}
+            <span class="fb-star-word"></span></div></fieldset>
+        <label>Topic<select name="topic">${["General feedback", "Compliment", "Suggestion", "Missing title", "Wrong information", "Something isn't working"]
           .map(v => `<option>${v}</option>`).join("")}</select></label>
-        <label>Message<textarea name="message" rows="5" maxlength="2000" required placeholder="What should be added, fixed or changed?"></textarea></label>
+        <label><span>Message <small>(optional if you leave a rating)</small></span><textarea name="message" rows="5" maxlength="2000" placeholder="What did you like, and what should be added or fixed?"></textarea></label>
         <label><span>Email <small>(optional, only used to reply)</small></span><input type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
         <input type="checkbox" name="botcheck" class="fb-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <p class="fb-status" role="status"></p>
@@ -136,11 +140,23 @@
   document.body.appendChild(fb);
   const fbForm = fb.querySelector("form"), fbStatus = fb.querySelector(".fb-status");
   const [fbBody, fbDone] = fb.querySelectorAll(".fb-body");
-  let rating = "";
+  const stars = [...fb.querySelectorAll("[data-star]")], starWord = fb.querySelector(".fb-star-word");
+  let rating = 0;
+  // fill the stars up to n (hover previews, click sets; clicking the chosen star again clears it)
+  const paint = n => {
+    stars.forEach(b => b.classList.toggle("on", +b.dataset.star <= n));
+    starWord.textContent = STAR_WORDS[n];
+  };
+  const setRating = n => {
+    rating = n;
+    stars.forEach(b => b.setAttribute("aria-checked", +b.dataset.star === n));
+    paint(n);
+  };
+  stars.forEach(b => b.addEventListener("mouseenter", () => paint(+b.dataset.star)));
+  fb.querySelector(".fb-stars").addEventListener("mouseleave", () => paint(rating));
   const fbReset = () => {
-    fbForm.reset(); rating = ""; fbStatus.textContent = ""; fbStatus.className = "fb-status";
+    fbForm.reset(); setRating(0); fbStatus.textContent = ""; fbStatus.className = "fb-status";
     fbBody.hidden = false; fbDone.hidden = true;
-    fb.querySelectorAll("[data-rate]").forEach(b => b.setAttribute("aria-pressed", "false"));
     fbForm.querySelector(".fb-send").disabled = false;
   };
   document.addEventListener("click", e => {
@@ -148,30 +164,30 @@
   });
   fb.addEventListener("click", e => {
     if (e.target === fb || e.target.closest("[data-close]")) fb.close();
-    const r = e.target.closest("[data-rate]");
-    if (r) {
-      rating = r.getAttribute("aria-pressed") === "true" ? "" : r.dataset.rate;
-      fb.querySelectorAll("[data-rate]").forEach(b => b.setAttribute("aria-pressed", b.dataset.rate === rating));
-    }
+    const s = e.target.closest("[data-star]");
+    if (s) { setRating(+s.dataset.star === rating ? 0 : +s.dataset.star); fbStatus.textContent = ""; }
   });
+  fbForm.addEventListener("input", () => { if (fbStatus.classList.contains("err")) fbStatus.textContent = ""; });
   const say = (msg, kind) => { fbStatus.textContent = msg; fbStatus.className = "fb-status " + kind; };
   fbForm.addEventListener("submit", async e => {
     e.preventDefault();
     const f = new FormData(fbForm), message = f.get("message").trim(), email = f.get("email").trim();
     if (f.get("botcheck")) return;
-    if (message.length < 5) return say("Please write a short message first.", "err");
+    if (!rating && message.length < 2) return say("Pick a star rating or write a message first.", "err");
     if (email && !fbForm.email.checkValidity()) return say("That email address doesn't look right.", "err");
-    const data = {topic: f.get("topic"), rating: rating || "Not given", message, page: document.title + " · " + location.href};
+    const data = {topic: f.get("topic"), rating: rating ? `${"★".repeat(rating)}${"☆".repeat(5 - rating)} ${rating}/5 (${STAR_WORDS[rating]})` : "Not given",
+      message: message || "(rating only, no message)", page: document.title + " · " + location.href};
+    const subject = `Marvel Timelines feedback: ${rating ? rating + "/5 · " : ""}${data.topic}`;
     if (!FEEDBACK_KEY) {
       const body = Object.entries(data).map(([k, v]) => `${k[0].toUpperCase() + k.slice(1)}: ${v}`).join("\n\n");
-      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Marvel Timelines feedback: " + data.topic)}&body=${encodeURIComponent(body)}`;
+      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       return say("Your email app should open with the message ready to send.", "ok");
     }
     const send = fbForm.querySelector(".fb-send");
     send.disabled = true; say("Sending…", "");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {method: "POST", headers: {"Content-Type": "application/json", Accept: "application/json"},
-        body: JSON.stringify({access_key: FEEDBACK_KEY, subject: "Marvel Timelines feedback: " + data.topic, from_name: "Marvel Timelines", ...data, ...(email ? {email} : {})})});
+        body: JSON.stringify({access_key: FEEDBACK_KEY, subject, from_name: "Marvel Timelines", ...data, ...(email ? {email} : {})})});
       if (!(await res.json()).success) throw new Error();
       fbDone.querySelector(".fb-reply").hidden = !email;
       fbBody.hidden = true; fbDone.hidden = false;

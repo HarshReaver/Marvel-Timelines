@@ -279,6 +279,13 @@ dialog.fb{max-width:520px}
 .fb-body small{font-weight:400;color:var(--muted)}
 .fb-rate{border:0;padding:0;margin:0}
 .fb-rate legend{margin-bottom:6px}
+.fb-stars{display:flex;align-items:center;gap:2px}
+.fb-stars button{background:none;border:0;padding:3px;cursor:pointer;line-height:0;border-radius:6px;transition:transform .12s}
+.fb-stars button:hover{transform:scale(1.15)}
+.fb-stars button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.fb-stars svg{width:34px;height:34px;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linejoin:round;transition:fill .12s,stroke .12s}
+.fb-stars button.on svg{fill:#f5b301;stroke:#d99a00}
+.fb-star-word{margin-left:10px;font-weight:600;font-size:15px;color:var(--muted)}
 .fb-body select,.fb-body textarea,.fb-body input[type=email]{font:15px/1.4 var(--body);padding:10px 12px;border:1.5px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
 .fb-body textarea{resize:vertical;min-height:110px}
 .fb-body :is(select,textarea,input):focus-visible{outline:2px solid var(--accent);outline-offset:1px}

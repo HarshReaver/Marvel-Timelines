@@ -182,7 +182,7 @@
 <tr><td>Dark theme</td><td>moon button in app.js, small script in each page head</td><td>Follows the phone's setting until the visitor picks; the choice is saved in the browser (<code>localStorage</code>). The head script applies it before the page draws, so there's no white flash.</td></tr>
 <tr><td>Hide-on-scroll bar</td><td>tree.js</td><td>Scrolling down hides the section bar for more room; any scroll up brings it back.</td></tr>
 <tr><td>Filter by character</td><td><code>CHARACTERS</code> in data.js, catalog code in app.js</td><td>The Catalog's character list (33 heroes and villains) isn't typed title by title. Each character has a <b>rule</b>: a pattern of names to look for in the title and summary (Iron Man, Tony Stark), plus an <code>add</code> list for appearances the summary doesn't mention and a <code>not</code> list for false hits. New titles join the right characters by themselves.</td></tr>
-<tr><td>Feedback form</td><td>"Send feedback" in every footer, code in app.js</td><td>A pop-up asks how useful the site is, a topic, a message and an optional email. A static site has no server to receive it, so a free service, <b>Web3Forms</b>, takes the message and emails it to you. Until its key is added, the button opens the visitor's email app with the message filled in.</td></tr>
+<tr><td>Feedback form</td><td>"Send feedback" in every footer, code in app.js</td><td>A pop-up asks for a 1 to 5 star rating, a topic (including Compliment), a message and an optional email. A star rating alone is enough, so visitors can just leave five stars. A static site has no server to receive it, so a free service, <b>Web3Forms</b>, takes the message and emails it to your Gmail. The form is tied to marvel.harver.in, so tests from your own computer won't send.</td></tr>
 <tr><td>Icon links</td><td>Contact icons in the footer</td><td>GitHub, LinkedIn, Instagram and email are drawn as small inline SVG icons, so they stay sharp and follow the page colour. Each has an <code>aria-label</code> and a hover label so screen readers and visitors know what it opens.</td></tr>
 <tr><td>State in the address</td><td>catalog filters, <code>#id</code> links</td><td>A link like <code>mcu.html#iw</code> opens a specific title, so links can be shared.</td></tr>
 <tr><td>Accessibility</td><td><code>aria-pressed</code>, <code>alt</code> text, <code>aria-label</code></td><td>Screen readers can tell which buttons are on, what each image shows, and what icon buttons do.</td></tr>
@@ -450,13 +450,13 @@
 </ol>
 <h3>Fix the character filter</h3>
 <p>If a title is missing from a character, or listed under the wrong one, open the <code>CHARACTERS</code> list at the bottom of <code>assets/data.js</code>. Add the title's <code>id</code> to that character's <code>add:[…]</code> list (missing) or <code>not:[…]</code> list (wrong). To add a new character, copy a line and change the name and pattern. Then raise <code>data.js?v=</code> in all pages.</p>
-<h3>Switch on the feedback form</h3>
+<h3>The feedback form's key</h3>
 <ol>
-  <li>Go to <b>web3forms.com</b>, enter the email that should receive feedback, and they send you an <b>access key</b> (no password needed).</li>
-  <li>Paste it between the quotes in <code>const FEEDBACK_KEY = "";</code> in <code>assets/app.js</code>.</li>
+  <li>The form is set up on <b>web3forms.com</b> (under your Gmail account) as "Marvel Timelines Feedback" for marvel.harver.in. Its <b>access key</b> is already in the site. It isn't a password: it can only send messages to your inbox.</li>
+  <li>To change it (a new form or a new email), paste the new key into <code>const FEEDBACK_KEY = "…";</code> in <code>assets/app.js</code>.</li>
   <li>Raise <code>app.js?v=</code> in all pages, push, and send yourself a test message from the live site.</li>
 </ol>
-<p>The free plan allows 250 messages a month. Each one arrives as an email with the topic, rating, message, page and (if given) the visitor's email, so you can just press Reply.</p>
+<p>The free plan allows 250 messages a month. Each one arrives as an email whose subject shows the stars (for example "5/5 · Compliment"), with the topic, rating, message, page and (if given) the visitor's email, so you can just press Reply.</p>
 <h3>Change the contact links</h3>
 <p>They're the <code>REPO_URL</code>, <code>LINKEDIN</code>, <code>INSTAGRAM</code> and <code>EMAIL</code> lines near the top of <code>assets/app.js</code>. Raise <code>app.js?v=</code> after changing.</p>
 <h3>After you watch Doomsday</h3>
