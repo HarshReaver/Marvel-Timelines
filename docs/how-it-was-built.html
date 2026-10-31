@@ -182,6 +182,7 @@
 <tr><td>Dark theme</td><td>moon button in app.js, small script in each page head</td><td>Follows the phone's setting until the visitor picks; the choice is saved in the browser (<code>localStorage</code>). The head script applies it before the page draws, so there's no white flash.</td></tr>
 <tr><td>Hide-on-scroll bar</td><td>tree.js</td><td>Scrolling down hides the section bar for more room; any scroll up brings it back.</td></tr>
 <tr><td>Filter by character</td><td><code>CHARACTERS</code> in data.js, catalog code in app.js</td><td>The Catalog's character list (33 heroes and villains) isn't typed title by title. Each character has a <b>rule</b>: a pattern of names to look for in the title and summary (Iron Man, Tony Stark), plus an <code>add</code> list for appearances the summary doesn't mention and a <code>not</code> list for false hits. New titles join the right characters by themselves.</td></tr>
+<tr><td>Feedback form</td><td>"Send feedback" in every footer, code in app.js</td><td>A pop-up asks how useful the site is, a topic, a message and an optional email. A static site has no server to receive it, so a free service, <b>Web3Forms</b>, takes the message and emails it to you. Until its key is added, the button opens the visitor's email app with the message filled in.</td></tr>
 <tr><td>Icon links</td><td>Contact icons in the footer</td><td>GitHub, LinkedIn, Instagram and email are drawn as small inline SVG icons, so they stay sharp and follow the page colour. Each has an <code>aria-label</code> and a hover label so screen readers and visitors know what it opens.</td></tr>
 <tr><td>State in the address</td><td>catalog filters, <code>#id</code> links</td><td>A link like <code>mcu.html#iw</code> opens a specific title, so links can be shared.</td></tr>
 <tr><td>Accessibility</td><td><code>aria-pressed</code>, <code>alt</code> text, <code>aria-label</code></td><td>Screen readers can tell which buttons are on, what each image shows, and what icon buttons do.</td></tr>
@@ -290,6 +291,7 @@
 <tr><td>Privacy</td><td>GoatCounter is cookieless; nothing personal stored</td><td>No cookie banner needed. Dark mode and section choices stay in the visitor's own browser.</td></tr>
 <tr><td>Security headers</td><td>Not possible on GitHub Pages</td><td>SEO tools flag missing HSTS, CSP and X-Content-Type-Options. GitHub Pages doesn't let you set server headers, and with no logins or forms the risk is low. A host like Cloudflare Pages or Netlify would allow them.</td></tr>
 <tr><td>Email on a public page</td><td>Address put together by app.js</td><td>Bots scan web pages for email addresses to spam. The address isn't written in the HTML; the script joins its two halves when the page loads, and most bots don't run scripts. It's also kept out of the README, because GitHub is scanned heavily.</td></tr>
+<tr><td>Spam on the feedback form</td><td>A hidden "honeypot" box</td><td>People never see it, but spam bots fill in every box they find. If it's ticked, the message is quietly dropped. Messages also need some text, and an email address is checked before sending.</td></tr>
 <tr><td>Verification file</td><td><code>google1b416379081362bb.html</code></td><td>Proves to Google you own the site. Harmless to keep public; deleting it loses Search Console access.</td></tr>
 </table>
 
@@ -448,6 +450,13 @@
 </ol>
 <h3>Fix the character filter</h3>
 <p>If a title is missing from a character, or listed under the wrong one, open the <code>CHARACTERS</code> list at the bottom of <code>assets/data.js</code>. Add the title's <code>id</code> to that character's <code>add:[…]</code> list (missing) or <code>not:[…]</code> list (wrong). To add a new character, copy a line and change the name and pattern. Then raise <code>data.js?v=</code> in all pages.</p>
+<h3>Switch on the feedback form</h3>
+<ol>
+  <li>Go to <b>web3forms.com</b>, enter the email that should receive feedback, and they send you an <b>access key</b> (no password needed).</li>
+  <li>Paste it between the quotes in <code>const FEEDBACK_KEY = "";</code> in <code>assets/app.js</code>.</li>
+  <li>Raise <code>app.js?v=</code> in all pages, push, and send yourself a test message from the live site.</li>
+</ol>
+<p>The free plan allows 250 messages a month. Each one arrives as an email with the topic, rating, message, page and (if given) the visitor's email, so you can just press Reply.</p>
 <h3>Change the contact links</h3>
 <p>They're the <code>REPO_URL</code>, <code>LINKEDIN</code>, <code>INSTAGRAM</code> and <code>EMAIL</code> lines near the top of <code>assets/app.js</code>. Raise <code>app.js?v=</code> after changing.</p>
 <h3>After you watch Doomsday</h3>
@@ -478,7 +487,7 @@
 <tr><td>assets/data.js</td><td>Every title: name, year, summary, connections, release dates; character filter rules</td><td>Yes, most edits happen here</td></tr>
 <tr><td>assets/media.js</td><td>Poster or title card, seasons and episodes per title</td><td>Yes, to add posters</td></tr>
 <tr><td>assets/tree.js</td><td>Draws the vertical trees and the section bar (hide on scroll)</td><td>Only for tree layout</td></tr>
-<tr><td>assets/app.js</td><td>Menu, dark theme button, footer and contact icons, pop-ups, catalog and its filters, GoatCounter, release-date switch</td><td>Rarely</td></tr>
+<tr><td>assets/app.js</td><td>Menu, dark theme button, footer and contact icons, feedback form, pop-ups, catalog and its filters, GoatCounter, release-date switch</td><td>Rarely</td></tr>
 <tr><td>assets/home.js</td><td>Home page countdown and counts</td><td>For countdown dates</td></tr>
 <tr><td>assets/style.css</td><td>All the looks: page themes, dark theme, phone layout</td><td>For design changes</td></tr>
 <tr><td>*.html</td><td>The pages (a shell the scripts fill in, plus the dark-mode head script)</td><td>For header text, version numbers</td></tr>

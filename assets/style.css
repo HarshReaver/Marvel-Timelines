@@ -263,6 +263,31 @@ html[data-mode=dark] .countdown{background:var(--paper);color:var(--ink);border:
 .foot a{display:block;padding:3px 0;color:var(--ink)}
 .foot p{margin:0 0 var(--s2);max-width:56ch}
 .foot b{color:var(--ink)}
+.foot-fb{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3) var(--s5);padding:var(--s4) var(--s5);margin-bottom:var(--s6);border:1px solid var(--rule);border-radius:6px;background:var(--paper)}
+.foot-fb b{display:block;font:700 22px/1.1 var(--display);text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+.foot-fb button,.fb-send{font:600 15px/1 var(--body);padding:12px 20px;border-radius:999px;border:1.5px solid var(--accent);background:var(--accent);color:var(--bg);cursor:pointer;transition:filter .15s,transform .15s}
+.foot-fb button:hover,.fb-send:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.fb-send:disabled{opacity:.6;cursor:wait;transform:none}
+/* feedback dialog */
+dialog.fb{max-width:520px}
+.fb-top{padding:var(--s5) var(--s5) var(--s4);border-bottom:1px solid var(--rule);position:relative}
+.fb-top h3{font-size:32px;text-transform:uppercase;padding-right:44px}
+.fb-top p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.fb-body{display:grid;gap:var(--s4);padding:var(--s4) var(--s5) var(--s5)}
+.fb-body[hidden]{display:none}
+.fb-body label,.fb-rate legend{display:grid;gap:6px;font-weight:600;font-size:15px}
+.fb-body small{font-weight:400;color:var(--muted)}
+.fb-rate{border:0;padding:0;margin:0}
+.fb-rate legend{margin-bottom:6px}
+.fb-body select,.fb-body textarea,.fb-body input[type=email]{font:15px/1.4 var(--body);padding:10px 12px;border:1.5px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%}
+.fb-body textarea{resize:vertical;min-height:110px}
+.fb-body :is(select,textarea,input):focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.fb-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.fb-status{margin:0;font-size:14.5px;min-height:1.2em}
+.fb-status.err{color:#d23b3b}
+.fb-status.ok{color:var(--accent)}
+.fb-actions{display:flex;justify-content:flex-end}
+.fb-done p{margin:0;font-size:17px}
 .foot-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s1)}
 .foot .foot-social a{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--rule);border-radius:50%;color:var(--ink);transition:color .15s,border-color .15s,transform .15s}
 .foot .foot-social a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
