@@ -98,7 +98,7 @@
 
 <!-- ============ 1 ============ -->
 <h2 id="map"><small>Chapter 1</small>The whole map on one page</h2>
-<p class="story">It started as one X-Men timeline chart. It grew into nine pages covering 143 Marvel films and series, a domain of its own, visitor stats, and search listings. Here is every moving part and how they connect. The rest of this guide zooms into one part at a time.</p>
+<p class="story">It started as one X-Men timeline chart. It grew into nine pages covering 169 Marvel films, series and cartoons, a domain of its own, visitor stats, and search listings. Here is every moving part and how they connect. The rest of this guide zooms into one part at a time.</p>
 
 <figure class="scroll">
 <svg viewBox="0 0 820 420" role="img" aria-label="Three paths: how you publish, how a visitor reaches the site, and how Google finds it">
@@ -137,14 +137,14 @@
 <!-- ============ 2 ============ -->
 <h2 id="build"><small>Chapter 2</small>Building the pages</h2>
 <p><span class="skill s-web">WEB DEV</span><span class="skill s-arch">LLD</span></p>
-<p class="story">Typing 143 titles into nine HTML pages by hand would mean fixing every typo in many places. So the titles live in one data file, and small scripts turn that data into trees, cards and pop-ups inside the visitor's browser. Change one line of data, and every page that shows that title updates.</p>
+<p class="story">Typing 169 titles into nine HTML pages by hand would mean fixing every typo in many places. So the titles live in one data file, and small scripts turn that data into trees, cards and pop-ups inside the visitor's browser. Change one line of data, and every page that shows that title updates.</p>
 
 <h3>What happens when a page opens</h3>
 <figure class="scroll">
 <svg viewBox="0 0 820 230" role="img" aria-label="Page load in five steps">
   <rect class="n n-gold" x="16" y="30" width="146" height="78" rx="8"/><text x="89" y="56" text-anchor="middle" class="t-b">1 · HTML arrives</text><text x="89" y="76" text-anchor="middle" class="t-sm">title, SEO tags, plain</text><text x="89" y="91" text-anchor="middle" class="t-sm">list of every title</text>
   <rect class="n n-blue" x="178" y="30" width="146" height="78" rx="8"/><text x="251" y="56" text-anchor="middle" class="t-b">2 · style.css</text><text x="251" y="76" text-anchor="middle" class="t-sm">colours, fonts,</text><text x="251" y="91" text-anchor="middle" class="t-sm">phone layout</text>
-  <rect class="n n-blue" x="340" y="30" width="146" height="78" rx="8"/><text x="413" y="56" text-anchor="middle" class="t-b">3 · data + media</text><text x="413" y="76" text-anchor="middle" class="t-sm">143 titles, posters,</text><text x="413" y="91" text-anchor="middle" class="t-sm">seasons, links</text>
+  <rect class="n n-blue" x="340" y="30" width="146" height="78" rx="8"/><text x="413" y="56" text-anchor="middle" class="t-b">3 · data + media</text><text x="413" y="76" text-anchor="middle" class="t-sm">169 titles, posters,</text><text x="413" y="91" text-anchor="middle" class="t-sm">seasons, links</text>
   <rect class="n n-blue" x="502" y="30" width="146" height="78" rx="8"/><text x="575" y="56" text-anchor="middle" class="t-b">4 · app.js</text><text x="575" y="76" text-anchor="middle" class="t-sm">menu, footer, dark</text><text x="575" y="91" text-anchor="middle" class="t-sm">mode, pop-ups, stats</text>
   <rect class="n n-blue" x="664" y="30" width="146" height="78" rx="8"/><text x="737" y="56" text-anchor="middle" class="t-b">5 · tree.js</text><text x="737" y="76" text-anchor="middle" class="t-sm">draws the timeline,</text><text x="737" y="91" text-anchor="middle" class="t-sm">replaces the plain list</text>
   <path class="a" d="M162,69 H174"/><path class="a" d="M324,69 H336"/><path class="a" d="M486,69 H498"/><path class="a" d="M648,69 H660"/>
@@ -181,6 +181,8 @@
 <tr><td>CSS variables (design tokens)</td><td><code>--bg</code>, <code>--ink</code>, <code>--accent</code> per <code>data-theme</code></td><td>Each page sets its own colour set: MCU red, X-Men steel, Street Level blood red, Spider-Verse blue/red, 2000s orange, Multiverse dark Loki/Doom green. One rule, many looks.</td></tr>
 <tr><td>Dark theme</td><td>moon button in app.js, small script in each page head</td><td>Follows the phone's setting until the visitor picks; the choice is saved in the browser (<code>localStorage</code>). The head script applies it before the page draws, so there's no white flash.</td></tr>
 <tr><td>Hide-on-scroll bar</td><td>tree.js</td><td>Scrolling down hides the section bar for more room; any scroll up brings it back.</td></tr>
+<tr><td>Filter by character</td><td><code>CHARACTERS</code> in data.js, catalog code in app.js</td><td>The Catalog's character list (33 heroes and villains) isn't typed title by title. Each character has a <b>rule</b>: a pattern of names to look for in the title and summary (Iron Man, Tony Stark), plus an <code>add</code> list for appearances the summary doesn't mention and a <code>not</code> list for false hits. New titles join the right characters by themselves.</td></tr>
+<tr><td>Icon links</td><td>Contact icons in the footer</td><td>GitHub, LinkedIn, Instagram and email are drawn as small inline SVG icons, so they stay sharp and follow the page colour. Each has an <code>aria-label</code> and a hover label so screen readers and visitors know what it opens.</td></tr>
 <tr><td>State in the address</td><td>catalog filters, <code>#id</code> links</td><td>A link like <code>mcu.html#iw</code> opens a specific title, so links can be shared.</td></tr>
 <tr><td>Accessibility</td><td><code>aria-pressed</code>, <code>alt</code> text, <code>aria-label</code></td><td>Screen readers can tell which buttons are on, what each image shows, and what icon buttons do.</td></tr>
 <tr><td>Self-updating content</td><td><code>rel</code> dates in data.js, <code>FILMS</code> in home.js</td><td>Upcoming titles lose their tag on release day; the countdown moves to the next film on its own.</td></tr>
@@ -214,7 +216,7 @@
 <tr><td>Test locally</td><td><code>python -m http.server 8765</code> in the project folder</td><td>Then open <code>http://localhost:8765</code>. Press F12 → Console for errors, and the phone icon for phone width.</td></tr>
 <tr><td>Version control</td><td>git, via GitHub Desktop</td><td>A <b>commit</b> is a saved snapshot with a message. <b>Push</b> uploads it. <b>Fetch/Pull</b> brings down changes made on GitHub (like the CNAME file GitHub created).</td></tr>
 <tr><td>CI/CD</td><td>GitHub Actions: "pages build and deployment"</td><td>Runs by itself on every push to <code>main</code>. You can watch it in the repo's Actions tab. Once it failed with a GitHub server error (500); re-running fixed it.</td></tr>
-<tr><td>Cache busting</td><td><code>?v=12</code> on every asset link</td><td>Browsers keep old copies of CSS/JS. Raising the number makes it a new address, so everyone gets the fresh file at once.</td></tr>
+<tr><td>Cache busting</td><td><code>?v=14</code> on every asset link</td><td>Browsers keep old copies of CSS/JS. Raising the number makes it a new address, so everyone gets the fresh file at once.</td></tr>
 <tr><td>Build step</td><td><code>node tools/build-seo.mjs</code></td><td>Generates the SEO parts from data. Safe to rerun; it replaces its own block instead of adding another.</td></tr>
 </table>
 
@@ -287,6 +289,7 @@
 <tr><td>Secrets</td><td>None in the repo</td><td>The repo is public. Never commit passwords, API keys or tokens; anyone can read them, and bots scan GitHub for them.</td></tr>
 <tr><td>Privacy</td><td>GoatCounter is cookieless; nothing personal stored</td><td>No cookie banner needed. Dark mode and section choices stay in the visitor's own browser.</td></tr>
 <tr><td>Security headers</td><td>Not possible on GitHub Pages</td><td>SEO tools flag missing HSTS, CSP and X-Content-Type-Options. GitHub Pages doesn't let you set server headers, and with no logins or forms the risk is low. A host like Cloudflare Pages or Netlify would allow them.</td></tr>
+<tr><td>Email on a public page</td><td>Address put together by app.js</td><td>Bots scan web pages for email addresses to spam. The address isn't written in the HTML; the script joins its two halves when the page loads, and most bots don't run scripts. It's also kept out of the README, because GitHub is scanned heavily.</td></tr>
 <tr><td>Verification file</td><td><code>google1b416379081362bb.html</code></td><td>Proves to Google you own the site. Harmless to keep public; deleting it loses Search Console access.</td></tr>
 </table>
 
@@ -378,7 +381,7 @@
 <p class="story">The site was shared on WhatsApp before stats were set up, so the first visits were only partly counted. Two dashboards now answer the two big questions: "who visited?" and "how did Google show us?"</p>
 <div class="grid2">
 <div class="box"><b>GoatCounter</b>: <a href="https://marvel-timelines.goatcounter.com">marvel-timelines.goatcounter.com</a>
-<ul><li>Page views, countries, devices, where people came from.</li><li>Loaded by app.js only on the real addresses, so your local tests don't count.</li><li>Ad blockers hide some visits, so real numbers are a bit higher.</li></ul></div>
+<ul><li>Page views, countries, devices, where people came from.</li><li>Unique visitors: the dashboard counts people, not every page load. For exact numbers, Settings → Export gives a CSV with a <code>Session</code> column (one per visitor).</li><li>Its history can't be moved into Google Analytics: GA4 only accepts visits from the last few days, and it would need a cookie banner.</li><li>Loaded by app.js only on the real addresses, so your local tests don't count.</li><li>Ad blockers hide some visits, so real numbers are a bit higher.</li></ul></div>
 <div class="box"><b>Google Search Console</b>: property <code>https://marvel.harver.in/</code>
 <ul><li>What people searched to find you, clicks, and which pages are indexed.</li><li>Sitemap submitted; "Couldn't fetch" at first is normal.</li><li>URL Inspection → Request indexing (about 10 a day).</li></ul></div>
 </div>
@@ -443,6 +446,10 @@
   <li>Raise the version numbers (<code>data.js?v=</code>, <code>media.js?v=</code>) in all pages: Ctrl+Shift+H in VS Code replaces them everywhere.</li>
   <li>Test locally, then commit and push.</li>
 </ol>
+<h3>Fix the character filter</h3>
+<p>If a title is missing from a character, or listed under the wrong one, open the <code>CHARACTERS</code> list at the bottom of <code>assets/data.js</code>. Add the title's <code>id</code> to that character's <code>add:[…]</code> list (missing) or <code>not:[…]</code> list (wrong). To add a new character, copy a line and change the name and pattern. Then raise <code>data.js?v=</code> in all pages.</p>
+<h3>Change the contact links</h3>
+<p>They're the <code>REPO_URL</code>, <code>LINKEDIN</code>, <code>INSTAGRAM</code> and <code>EMAIL</code> lines near the top of <code>assets/app.js</code>. Raise <code>app.js?v=</code> after changing.</p>
 <h3>After you watch Doomsday</h3>
 <p>Rewrite its <code>d:"…"</code> summary in data.js (it still describes the trailer and cast), then do steps 5 to 7 above.</p>
 <h3>Change the countdown</h3>
@@ -468,10 +475,10 @@
 <h2 id="files"><small>Chapter 12</small>Which file does what</h2>
 <table>
 <tr><th>File</th><th>What it does</th><th>Edit by hand?</th></tr>
-<tr><td>assets/data.js</td><td>Every title: name, year, summary, connections, release dates</td><td>Yes, most edits happen here</td></tr>
+<tr><td>assets/data.js</td><td>Every title: name, year, summary, connections, release dates; character filter rules</td><td>Yes, most edits happen here</td></tr>
 <tr><td>assets/media.js</td><td>Poster or title card, seasons and episodes per title</td><td>Yes, to add posters</td></tr>
 <tr><td>assets/tree.js</td><td>Draws the vertical trees and the section bar (hide on scroll)</td><td>Only for tree layout</td></tr>
-<tr><td>assets/app.js</td><td>Menu, dark theme button, footer, pop-ups, catalog, GoatCounter, release-date switch</td><td>Rarely</td></tr>
+<tr><td>assets/app.js</td><td>Menu, dark theme button, footer and contact icons, pop-ups, catalog and its filters, GoatCounter, release-date switch</td><td>Rarely</td></tr>
 <tr><td>assets/home.js</td><td>Home page countdown and counts</td><td>For countdown dates</td></tr>
 <tr><td>assets/style.css</td><td>All the looks: page themes, dark theme, phone layout</td><td>For design changes</td></tr>
 <tr><td>*.html</td><td>The pages (a shell the scripts fill in, plus the dark-mode head script)</td><td>For header text, version numbers</td></tr>

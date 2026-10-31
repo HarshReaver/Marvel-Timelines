@@ -10,7 +10,7 @@ import {fileURLToPath} from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://marvel.harver.in/";
 const AUTHOR = {"@type": "Person", name: "Harsh Verma", url: "https://www.linkedin.com/in/harsh-verma007/",
-  sameAs: ["https://www.linkedin.com/in/harsh-verma007/", "https://github.com/HarshReaver"]};
+  sameAs: ["https://www.linkedin.com/in/harsh-verma007/", "https://github.com/HarshReaver", "https://www.instagram.com/harsvrrrr/"]};
 const today = new Date().toISOString().slice(0, 10);
 
 const box = {window: {}};
@@ -105,7 +105,8 @@ const NAV = [["index.html", "Home"], ["mcu.html", "MCU"], ["xmen.html", "X-Men"]
 const staticNav = `<!-- static:start --><nav aria-label="Site">${NAV.map(([h, l]) => `<a href="${h}">${l}</a>`).join(" ")}</nav><!-- static:end -->`;
 const staticFoot = `<!-- static:start --><footer><p>Marvel Timelines, a fan-made guide by Harsh Verma.
   <a href="${SITE}">marvel.harver.in</a> · <a href="https://github.com/HarshReaver/Marvel-Timelines">Source on GitHub</a> ·
-  <a href="https://www.linkedin.com/in/harsh-verma007/">Harsh Verma on LinkedIn</a></p>
+  <a href="https://www.linkedin.com/in/harsh-verma007/">Harsh Verma on LinkedIn</a> ·
+  <a href="https://www.instagram.com/harsvrrrr/">Instagram</a></p>
   <p>Official sites: <a href="https://www.marvel.com">Marvel</a> · <a href="https://www.disneyplus.com">Disney+</a> ·
   <a href="https://www.netflix.com">Netflix</a> · <a href="https://www.sonypictures.com">Sony Pictures</a></p></footer><!-- static:end -->`;
 

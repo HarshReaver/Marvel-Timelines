@@ -106,6 +106,7 @@ python -m http.server 8000
 
 - Live site: https://marvel.harver.in/
 - LinkedIn: https://www.linkedin.com/in/harsh-verma007/
+- Instagram: https://www.instagram.com/harsvrrrr/
 - How it was built (a visual guide to the web development, DevOps, DNS, security, system design and SEO behind the site): [docs/how-it-was-built.html](https://marvel.harver.in/docs/how-it-was-built.html) ([PDF](docs/how-it-was-built.pdf))
 
 ## License

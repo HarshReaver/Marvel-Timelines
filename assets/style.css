@@ -263,6 +263,10 @@ html[data-mode=dark] .countdown{background:var(--paper);color:var(--ink);border:
 .foot a{display:block;padding:3px 0;color:var(--ink)}
 .foot p{margin:0 0 var(--s2);max-width:56ch}
 .foot b{color:var(--ink)}
+.foot-social{display:flex;flex-wrap:wrap;gap:10px;margin-top:var(--s1)}
+.foot .foot-social a{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--rule);border-radius:50%;color:var(--ink);transition:color .15s,border-color .15s,transform .15s}
+.foot .foot-social a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.foot-social svg{width:21px;height:21px}
 .foot-logos{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3) var(--s6);margin-top:var(--s5);padding:var(--s3) var(--s4);background:var(--strip);border-radius:6px}
 .foot-logos a{display:block;padding:0}
 .foot-logos img{height:28px;width:auto;display:block}
