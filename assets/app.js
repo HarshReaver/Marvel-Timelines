@@ -156,12 +156,18 @@
   /* ---------- catalog grid ---------- */
   const list = document.getElementById("list");
   if (list) {
-    const st = {ty: "all", q: "", mv: false, linked: false, pg: "all"};
+    const st = {ty: "all", q: "", mv: false, linked: false, pg: "all", ch: ""};
+    // character name → ids of the titles they appear in (rules in data.js)
+    const CH = {};
+    Object.entries(window.CHARACTERS || {}).forEach(([name, r]) => {
+      CH[name] = new Set(T.filter(x => (r.add || []).includes(x.id) || (r.re.test(x.t + " " + x.d) && !(r.not || []).includes(x.id))).map(x => x.id));
+    });
     const ctl = document.createElement("div");
     ctl.className = "controls";
     ctl.innerHTML = `<div class="seg" role="group" aria-label="Format">${[["all", "All"], ["F", "Films"], ["S", "Series"], ["A", "Animated"], ["X", "Specials"]]
         .map(([v, l]) => `<button data-ty="${v}" aria-pressed="${v === "all"}">${l}</button>`).join("")}</div>
       <select data-pg aria-label="Section"><option value="all">All sections</option>${Object.entries(window.PAGES).map(([k, p]) => `<option value="${k}">${k === "other" ? "Other animation" : p.name}</option>`).join("")}</select>
+      <select data-ch aria-label="Character"><option value="">All characters</option>${Object.keys(CH).sort().map(n => `<option value="${n}">${n} (${CH[n].size})</option>`).join("")}</select>
       <input type="search" placeholder="Search titles or plots" aria-label="Search">
       <label><input type="checkbox" data-mv> Doomsday road only</label>
       <label><input type="checkbox" data-linked> Connected only</label>
@@ -176,7 +182,7 @@
     };
     const draw = () => {
       const items = T.filter(x => (st.pg === "all" || x.pg === st.pg) && (st.ty === "all" || x.ty === st.ty)
-        && (!st.mv || x.mv) && (!st.linked || ADJ[x.id].length)
+        && (!st.mv || x.mv) && (!st.linked || ADJ[x.id].length) && (!st.ch || CH[st.ch].has(x.id))
         && (!st.q || (x.t + " " + x.d + " " + x.pl).toLowerCase().includes(st.q))).sort(sortRel);
       const groups = new Map();
       items.forEach(x => { const k = Math.floor(x.y / 10) * 10 + "s"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(x); });
@@ -197,6 +203,7 @@
       if (e.target.matches("[data-mv]")) st.mv = e.target.checked;
       if (e.target.matches("[data-linked]")) st.linked = e.target.checked;
       if (e.target.matches("[data-pg]")) st.pg = e.target.value;
+      if (e.target.matches("[data-ch]")) st.ch = e.target.value;
       draw();
     });
     draw();

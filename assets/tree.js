@@ -121,7 +121,7 @@
         {lbl: "Into the multiverse", sub: "The revised timeline's Deadpool crosses into the MCU", c: PURPLE},
         {id: "dw"}, {id: "doomsday"},
         {lbl: "TV & animation", sub: "Separate continuities, watch any time", c: C["TV & animation"]},
-        ...ids(["xmtas", "x97", "x97s2", "wxm", "genx", "legion", "gifted"])
+        ...ids(["xmtas", "x97", "x97s2", "xmevo", "wxm", "genx", "legion", "gifted"])
       ]
     },
     street: {
@@ -152,7 +152,7 @@
         {fork: [{n: "MCU", s: "After everyone forgets Peter", c: GOLD}, {n: "Sony", s: "After the crossover", c: GREY}]},
         ...lanes([["bnd"], ["morbius", "venom3", "kraven", "mw"]], [GOLD, GREY], ["MCU", "Sony"]),
         {lbl: "Animated & other universes", sub: "Separate continuities", c: C["Spider-Verse & animation"]},
-        ...ids(["itsv", "atsv", "btsv", "spidernoir", "yfnsm", "smtas", "specspidey", "ultimate", "spidey", "asm77"])
+        ...ids(["itsv", "atsv", "btsv", "spidernoir", "yfnsm", "sm67", "smaf", "smtas", "smu", "smnas", "specspidey", "ultimate", "msm17", "spidey", "asm77"])
       ]
     },
     legacy: {

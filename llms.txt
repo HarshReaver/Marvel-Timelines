@@ -1,6 +1,6 @@
 # Marvel Timelines
 
-> Every Marvel watch order in one place: the MCU, Fox X-Men, Netflix shows, Sony's Spider-Man films and the road to Avengers: Doomsday, as timelines. Made by Harsh Verma. Unofficial fan guide, 143 titles, updated 2026-10-30.
+> Every Marvel watch order in one place: the MCU, Fox X-Men, Netflix shows, Sony's Spider-Man films and the road to Avengers: Doomsday, as timelines. Made by Harsh Verma. Unofficial fan guide, 169 titles, updated 2026-10-31.
 
 Each section shows a vertical timeline you can switch between story order (a sensible watch order) and release order,
 with full plot summaries, seasons and episodes for series, and only genuine story connections between titles.
@@ -8,32 +8,42 @@ with full plot summaries, seasons and episodes for series, and only genuine stor
 ## Sections
 
 - [MCU Timeline: Watch Order in Story & Release Order](https://marvel.harver.in/mcu.html) (66 titles): Every MCU film and series as a vertical timeline in story order or release order, with full plot summaries and how each title connects.
-- [X-Men Movies in Order: Both Fox Timelines Explained](https://marvel.harver.in/xmen.html) (20 titles): The Fox X-Men films as a tree: the 1973 split in Days of Future Past, both timelines, Deadpool, Logan and the jump into the MCU.
+- [X-Men Movies in Order: Both Fox Timelines Explained](https://marvel.harver.in/xmen.html) (21 titles): The Fox X-Men films as a tree: the 1973 split in Days of Future Past, both timelines, Deadpool, Logan and the jump into the MCU.
 - [Daredevil, Punisher & Marvel Netflix Shows in Order](https://marvel.harver.in/street-level.html) (15 titles): Daredevil, Jessica Jones, Luke Cage, Iron Fist, The Defenders, The Punisher and Daredevil: Born Again, plus Marvel's ABC and Hulu shows, in order.
-- [Spider-Man Movies in Order: Every Spider-Verse Timeline](https://marvel.harver.in/spider-verse.html) (25 titles): Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and the animated Spider-Verse, shown as a tree of separate universes.
+- [Spider-Man Movies in Order: Every Spider-Verse Timeline](https://marvel.harver.in/spider-verse.html) (30 titles): Every Spider-Man on screen: Raimi, Webb, Holland, Sony's Venom films and the animated Spider-Verse, shown as a tree of separate universes.
 - [2000s Marvel Movies: Blade, Hulk, Ghost Rider & More](https://marvel.harver.in/legacy.html) (20 titles): Marvel films from other studios before and alongside the MCU: Blade, Hulk, Daredevil, Elektra, Fantastic Four, Ghost Rider and the Punisher films.
 - [Road to Avengers: Doomsday & Secret Wars Explained](https://marvel.harver.in/multiverse.html) (19 titles): How Marvel's film universes cross over: No Way Home, Multiverse of Madness, Deadpool & Wolverine, and on to Avengers: Doomsday and Secret Wars.
-- [Every Marvel Movie & Series: Full Catalog with Filters](https://marvel.harver.in/catalog.html) (143 titles): Every Marvel film and series in one list, with filters for section and format, plus seasons, episodes and plot summaries.
+- [Every Marvel Movie & Series: Full Catalog with Filters](https://marvel.harver.in/catalog.html) (169 titles): Every Marvel film and series in one list, with filters for section and format, plus seasons, episodes and plot summaries.
 - [About Marvel Timelines: How the Watch Orders Work](https://marvel.harver.in/about.html): What Marvel Timelines covers, how connections are decided, and who made it.
 
 ## Titles
 
+- Spider-Man (1967 series) (1967): https://marvel.harver.in/spider-verse.html#t=sm67
 - The Incredible Hulk (TV series) (1977): https://marvel.harver.in/legacy.html#t=hulk77
 - The Amazing Spider-Man (TV series) (1977): https://marvel.harver.in/spider-verse.html#t=asm77
+- Spider-Man and His Amazing Friends (1981): https://marvel.harver.in/spider-verse.html#t=smaf
 - Howard the Duck (1986): https://marvel.harver.in/legacy.html#t=hd
 - The Punisher (1989): https://marvel.harver.in/legacy.html#t=pun89
 - Captain America (1990): https://marvel.harver.in/legacy.html#t=cap90
 - X-Men: The Animated Series (1992): https://marvel.harver.in/xmen.html#t=xmtas
 - Spider-Man: The Animated Series (1994): https://marvel.harver.in/spider-verse.html#t=smtas
+- Iron Man (1994 series) (1994): https://marvel.harver.in/catalog.html#t=im94
+- Fantastic Four (1994 series) (1994): https://marvel.harver.in/catalog.html#t=ff94
 - Generation X (1996): https://marvel.harver.in/xmen.html#t=genx
+- The Incredible Hulk (1996 series) (1996): https://marvel.harver.in/catalog.html#t=hulk96
 - Blade (1998): https://marvel.harver.in/legacy.html#t=blade1
 - Nick Fury: Agent of S.H.I.E.L.D. (1998): https://marvel.harver.in/legacy.html#t=nickfury
+- Silver Surfer (1998): https://marvel.harver.in/catalog.html#t=surfer
+- Spider-Man Unlimited (1999): https://marvel.harver.in/spider-verse.html#t=smu
+- Avengers: United They Stand (1999): https://marvel.harver.in/catalog.html#t=auts
 - X-Men (2000): https://marvel.harver.in/xmen.html#t=xm1
+- X-Men: Evolution (2000): https://marvel.harver.in/xmen.html#t=xmevo
 - Blade II (2002): https://marvel.harver.in/legacy.html#t=blade2
 - Spider-Man (2002): https://marvel.harver.in/spider-verse.html#t=sm1
 - Daredevil (2003): https://marvel.harver.in/legacy.html#t=dd03
 - X2 (2003): https://marvel.harver.in/xmen.html#t=xm2
 - Hulk (2003): https://marvel.harver.in/legacy.html#t=hulk03
+- Spider-Man: The New Animated Series (2003): https://marvel.harver.in/spider-verse.html#t=smnas
 - Spider-Man 2 (2004): https://marvel.harver.in/spider-verse.html#t=sm2
 - The Punisher (2004): https://marvel.harver.in/legacy.html#t=pun04
 - Blade: Trinity (2004): https://marvel.harver.in/legacy.html#t=blade3
@@ -42,20 +52,31 @@ with full plot summaries, seasons and episodes for series, and only genuine stor
 - Man-Thing (2005): https://marvel.harver.in/legacy.html#t=manthing
 - X-Men: The Last Stand (2006): https://marvel.harver.in/xmen.html#t=xm3
 - Blade: The Series (2006): https://marvel.harver.in/legacy.html#t=bladetv
+- Ultimate Avengers (2006): https://marvel.harver.in/catalog.html#t=ua1
+- Ultimate Avengers 2 (2006): https://marvel.harver.in/catalog.html#t=ua2
+- Fantastic Four: World's Greatest Heroes (2006): https://marvel.harver.in/catalog.html#t=ffwgh
 - Ghost Rider (2007): https://marvel.harver.in/legacy.html#t=gr
 - Spider-Man 3 (2007): https://marvel.harver.in/spider-verse.html#t=sm3
 - Fantastic Four: Rise of the Silver Surfer (2007): https://marvel.harver.in/legacy.html#t=ff07
+- The Invincible Iron Man (2007): https://marvel.harver.in/catalog.html#t=invim
+- Doctor Strange: The Sorcerer Supreme (2007): https://marvel.harver.in/catalog.html#t=dsss
 - Iron Man (2008): https://marvel.harver.in/mcu.html#t=im
 - The Incredible Hulk (2008): https://marvel.harver.in/mcu.html#t=ih
 - The Spectacular Spider-Man (2008): https://marvel.harver.in/spider-verse.html#t=specspidey
 - Punisher: War Zone (2008): https://marvel.harver.in/legacy.html#t=punwz
+- Next Avengers: Heroes of Tomorrow (2008): https://marvel.harver.in/catalog.html#t=nextav
 - Wolverine and the X-Men (2009): https://marvel.harver.in/xmen.html#t=wxm
 - X-Men Origins: Wolverine (2009): https://marvel.harver.in/xmen.html#t=origins
+- Hulk Vs (2009): https://marvel.harver.in/catalog.html#t=hulkvs
+- Iron Man: Armored Adventures (2009): https://marvel.harver.in/catalog.html#t=imaa
+- The Super Hero Squad Show (2009): https://marvel.harver.in/catalog.html#t=shss
 - Iron Man 2 (2010): https://marvel.harver.in/mcu.html#t=im2
+- Planet Hulk (2010): https://marvel.harver.in/catalog.html#t=planethulk
 - The Avengers: Earth's Mightiest Heroes (2010): https://marvel.harver.in/catalog.html#t=aemh
 - Thor (2011): https://marvel.harver.in/mcu.html#t=thor
 - Captain America: The First Avenger (2011): https://marvel.harver.in/mcu.html#t=cafa
 - X-Men: First Class (2011): https://marvel.harver.in/xmen.html#t=fc
+- Thor: Tales of Asgard (2011): https://marvel.harver.in/catalog.html#t=thortales
 - The Avengers (2012): https://marvel.harver.in/mcu.html#t=av1
 - The Amazing Spider-Man (2012): https://marvel.harver.in/spider-verse.html#t=asm1
 - Ghost Rider: Spirit of Vengeance (2012): https://marvel.harver.in/legacy.html#t=gr2
@@ -64,6 +85,8 @@ with full plot summaries, seasons and episodes for series, and only genuine stor
 - Thor: The Dark World (2013): https://marvel.harver.in/mcu.html#t=tdw
 - The Wolverine (2013): https://marvel.harver.in/xmen.html#t=tw
 - Agents of S.H.I.E.L.D. (2013): https://marvel.harver.in/street-level.html#t=aos
+- Avengers Assemble (2013): https://marvel.harver.in/catalog.html#t=avas
+- Hulk and the Agents of S.M.A.S.H. (2013): https://marvel.harver.in/catalog.html#t=smash
 - Captain America: The Winter Soldier (2014): https://marvel.harver.in/mcu.html#t=tws
 - Guardians of the Galaxy (2014): https://marvel.harver.in/mcu.html#t=gotg
 - X-Men: Days of Future Past (2014): https://marvel.harver.in/xmen.html#t=dofp
@@ -75,6 +98,7 @@ with full plot summaries, seasons and episodes for series, and only genuine stor
 - Daredevil (2015): https://marvel.harver.in/street-level.html#t=ddnet
 - Jessica Jones (2015): https://marvel.harver.in/street-level.html#t=jj
 - Fantastic Four (2015): https://marvel.harver.in/legacy.html#t=ff15
+- Guardians of the Galaxy (animated series) (2015): https://marvel.harver.in/catalog.html#t=gotgtv
 - Captain America: Civil War (2016): https://marvel.harver.in/mcu.html#t=cw
 - Doctor Strange (2016): https://marvel.harver.in/mcu.html#t=ds
 - Deadpool (2016): https://marvel.harver.in/xmen.html#t=dp1
@@ -91,6 +115,8 @@ with full plot summaries, seasons and episodes for series, and only genuine stor
 - The Punisher (2017): https://marvel.harver.in/street-level.html#t=pun
 - Inhumans (2017): https://marvel.harver.in/street-level.html#t=inhumans
 - Runaways (2017): https://marvel.harver.in/street-level.html#t=runaways
+- Marvel's Spider-Man (2017): https://marvel.harver.in/spider-verse.html#t=msm17
+- Marvel Future Avengers (2017): https://marvel.harver.in/catalog.html#t=mfa
 - Black Panther (2018): https://marvel.harver.in/mcu.html#t=bp
 - Avengers: Infinity War (2018): https://marvel.harver.in/mcu.html#t=iw
 - Ant-Man and the Wasp (2018): https://marvel.harver.in/mcu.html#t=aw
