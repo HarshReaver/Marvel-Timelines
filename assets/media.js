@@ -162,10 +162,10 @@ window.MEDIA = {"hulk77":{"wp":"The Incredible Hulk (1978 TV series)","s":5,"e":
 "gotgtv":{"wp":"Guardians of the Galaxy (TV series)","img":"https://upload.wikimedia.org/wikipedia/en/3/3d/Guardians_Of_The_Galaxy_Series_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":255,"h":391,"s":3,"e":79},
 "mfa":{"wp":"Marvel Future Avengers","img":"https://upload.wikimedia.org/wikipedia/en/a/a8/Marvel_future_avengers_key_visual.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":263,"h":375,"s":2,"e":39},
 "ua1":{"wp":"Ultimate Avengers","img":"https://upload.wikimedia.org/wikipedia/en/3/31/Ultimate_Avengers_film_teaser_poster.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":259,"h":384},
-"ua2":{"wp":"Marvel Animated Features"},
-"invim":{"wp":"Marvel Animated Features"},
-"dsss":{"wp":"Marvel Animated Features"},
+"ua2":{"wp":"Marvel Animated Features","img":"assets/posters/ua2.jpg","w":400,"h":571},
+"invim":{"wp":"Marvel Animated Features","img":"assets/posters/invim.jpg","w":400,"h":575},
+"dsss":{"wp":"Marvel Animated Features","img":"assets/posters/dsss.jpg","w":355,"h":500},
 "nextav":{"wp":"Next Avengers: Heroes of Tomorrow","img":"https://upload.wikimedia.org/wikipedia/en/a/ab/Next_Avengers_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled","w":258,"h":386},
-"hulkvs":{"wp":"Marvel Animated Features"},
-"planethulk":{"wp":"Marvel Animated Features"},
-"thortales":{"wp":"Marvel Animated Features"}};
+"hulkvs":{"wp":"Marvel Animated Features","img":"assets/posters/hulkvs.jpg","w":270,"h":400},
+"planethulk":{"wp":"Marvel Animated Features","img":"assets/posters/planethulk.jpg","w":400,"h":508},
+"thortales":{"wp":"Marvel Animated Features","img":"assets/posters/thortales.jpg","w":400,"h":504}};

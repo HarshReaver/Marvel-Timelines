@@ -102,7 +102,7 @@
         ${OFFICIAL.map(([u, , n]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("")}</div>
     </div>
     <div class="foot-logos">${OFFICIAL.map(([u, f, n]) => `<a href="${u}" target="_blank" rel="noopener"><img src="assets/logos/${f}" alt="${n}"></a>`).join("")}</div>
-    <p class="foot-note">Posters and title cards are shown from Wikipedia, and logos come from Wikimedia Commons. All titles, characters and artwork belong to their owners. ${T.length} titles, updated October 2026.</p>
+    <p class="foot-note">Posters and title cards are shown from Wikipedia (a few from the Marvel Database wiki), and logos come from Wikimedia Commons. All titles, characters and artwork belong to their owners. ${T.length} titles, updated October 2026.</p>
   </div></footer>`;
 
   // poster walls behind page headers: <div class="poster-wall" data-ids="a,b,c">

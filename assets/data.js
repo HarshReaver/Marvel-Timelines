@@ -472,24 +472,24 @@ window.TITLES = [
 /* Character filter on the catalog. A title is listed under a character when its title or description
    matches the regex `re`, plus the ids in `add` (appearances the description doesn't mention), minus those in `not`. */
 window.CHARACTERS = {
-  "Spider-Man": {re: /Spider-M[ae]n|Spidey|Peter Parker|Miles Morales/, add: ["eg", "whatif1", "mz", "aemh"], not: ["olk", "venom2"]},
+  "Spider-Man": {re: /Spider-M[ae]n|Spidey|Peter Parker|Miles Morales/, add: ["eg", "whatif1", "mz", "aemh", "spidernoir"], not: ["olk", "venom2"]},
   "Iron Man": {re: /Iron Man|Tony Stark/, add: ["aou", "cw", "homec", "iw", "eg", "ffh", "whatif1", "aemh", "ua1", "ua2", "mfa"], not: ["yfnsm", "vq", "carter"]},
   "Captain America": {re: /Captain America|Steve Rogers|Sam Wilson/, add: ["aou", "iw", "eg", "whatif1", "aemh", "ua2", "mfa"]},
-  "Thor": {re: /\bThor\b/, add: ["aou", "eg", "whatif1", "aemh", "ua1", "ua2", "avas"], not: ["im2"]},
+  "Thor": {re: /\bThor\b/, add: ["aou", "eg", "whatif1", "aemh", "ua1", "ua2", "avas", "doomsday"], not: ["im2"]},
   "Hulk": {re: /Hulk|Bruce Banner/, add: ["iw", "aemh", "avas", "ua2", "nextav"]},
-  "Black Widow": {re: /Black Widow|Natasha|Yelena/, add: ["aou", "cw", "iw", "ua1", "ua2", "avas"]},
+  "Black Widow": {re: /Black Widow|Natasha|Yelena/, add: ["aou", "cw", "iw", "ua1", "ua2", "avas", "doomsday"]},
   "Hawkeye": {re: /Hawkeye|Clint Barton|Kate Bishop/, add: ["aou", "cw", "eg", "aemh", "avas"]},
-  "Loki": {re: /\bLoki\b/, add: ["aemh", "avas"]},
+  "Loki": {re: /\bLoki\b/, add: ["aemh", "avas", "doomsday"]},
   "Doctor Strange": {re: /Doctor Strange|Stephen Strange/, add: ["rag", "iw", "eg", "whatif1", "nwh"]},
   "Black Panther": {re: /Black Panther|T'Challa|Shuri|Wakanda/, add: ["eg", "aemh"]},
   "Captain Marvel": {re: /Captain Marvel|Carol Danvers/, add: ["eg", "marvels"]},
-  "Ant-Man & Wasp": {re: /Ant-Man|Wasp|Scott Lang|Hank Pym/, add: ["cw", "eg", "aemh", "ua1"]},
+  "Ant-Man & Wasp": {re: /Ant-Man|Wasp|Scott Lang|Hank Pym/, add: ["cw", "eg", "aemh", "ua1", "doomsday"]},
   "Scarlet Witch & Vision": {re: /Scarlet Witch|Wanda|\bVision\b/, add: ["cw", "eg"]},
   "Guardians of the Galaxy": {re: /Guardians|Groot|Rocket|Star-Lord|Peter Quill|Gamora|Drax/, add: ["thor4", "eg", "avas"], not: ["hd"]},
   "Thanos": {re: /Thanos/, add: ["gotg", "whatif1"]},
   "Kang": {re: /\bKang\b|He Who Remains|Victor Timely/, add: ["loki2"]},
   "Doctor Doom": {re: /Doctor Doom|Victor von Doom/, add: ["ff05", "ff07", "ff", "ff94", "ffwgh", "doomsday", "shss"], not: ["quant"]},
-  "Nick Fury": {re: /Nick Fury/, add: ["tws", "aou", "eg", "ffh", "marvels", "si", "im2", "thor", "aos"]},
+  "Nick Fury": {re: /Nick Fury/, add: ["tws", "aou", "iw", "eg", "ffh", "marvels", "si", "im2", "thor", "aos"]},
   "S.H.I.E.L.D.": {re: /S\.H\.I\.E\.L\.D\.|Coulson/, add: ["carter"]},
   "X-Men": {re: /X-Men|X2|Xavier|Magneto|[Mm]utant/, add: ["dw", "dp1"], not: ["blade1"]},
   "Wolverine": {re: /Wolverine|Logan\b|X-23/, not: ["blade1", "elektra", "ff05"]},
@@ -504,5 +504,5 @@ window.CHARACTERS = {
   "She-Hulk": {re: /She-Hulk|Jennifer Walters/},
   "Ms. Marvel": {re: /Ms\. Marvel|Kamala/},
   "Moon Knight": {re: /Moon Knight/},
-  "Shang-Chi": {re: /Shang-Chi/}
+  "Shang-Chi": {re: /Shang-Chi/, add: ["doomsday"]}
 };
